@@ -4,7 +4,7 @@
 {
   currentUser: {
     id: 1,
-    username: 'broothie'
+    username: ''
   },
 
   currentTeam: 1,
@@ -17,26 +17,18 @@
 
   messages: {
     1: {
-      body: 'Hey!',
+      body: '',
       author_id: 1,
-      channel_id: 1
     },
-    ...
-  },
-
-  teams: {
-    1: {
-      description: ''
-    },
-    ...
+    // ...
   },
 
   channels: {
     1: {
-      team_id: 1,
-      description: ''
+      description: '',
+      message_ids: [1, 18, 68 /* ... */ ]
     },
-    ...
+    // ...
   }
 }
 ```

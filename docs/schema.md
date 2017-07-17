@@ -69,6 +69,7 @@ Column Name | Data Type | Details
 -|-|-
 `id` | integer | `null: false`, primary key
 `body` | string | `null: false`
+`timestamp` | datetime | `null:false`, indexed
 `user_id` | integer | `null: false`, foreign key
 `channel_id` | integer | `null: false`, foreign key
 
