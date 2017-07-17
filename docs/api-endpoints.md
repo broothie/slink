@@ -13,6 +13,12 @@ POST | `api/users` | `api/users#create`
 GET | `api/users/:id` | `api/users#show`
 PATCH | `api/users/:id` | `api/users#update`
 
+## `sessions`
+Verb | URI Pattern | Controller#Action
+-|-|-
+POST | `api/sessions` | `api/sessions#create`
+DELETE | `api/sessions/:id` | `api/sessions#destroy`
+
 ## `teams`
 Verb | URI Pattern | Controller#Action
 -|-|-
