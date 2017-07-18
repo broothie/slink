@@ -1,32 +1,45 @@
-# Sample State Structure
+# Sample State
 
 ```javascript
 {
-  currentUser: {
-    id: 1,
-    username: ''
+  session: {
+    currentUser: {
+      id: 1,
+      username: ''
+    },
   },
 
-  currentTeam: 1,
-
-  currentChannel: 1,
-
-  form: {
-    errors: []
-  },
+  errors: [],
 
   messages: {
     1: {
       body: '',
       author_id: 1,
+      timestamp: ''
     },
     // ...
   },
 
+  users: {
+    1: {
+      id: 1,
+      username: '',
+      icon_url: ''
+    },
+    // ...
+  }
+
   channels: {
     1: {
-      description: '',
-      message_ids: [1, 18, 68 /* ... */ ]
+      name: ''
+      purpose: '',
+    },
+    // ...
+  },
+
+  teams: {
+    1: {
+      name: '',
     },
     // ...
   }

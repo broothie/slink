@@ -1,5 +1,6 @@
 # Schema
 
+
 ## `users`
 Column Name | Data Type | Details
 -|-|-
@@ -7,16 +8,17 @@ Column Name | Data Type | Details
 `username` | string | `null: false`, unique
 `password_digest` | string | `null: false`
 `session_token` | string | `null: false`, unique
+`icon_url` | string |
 
 **Model Associations**
 - `has_many`
-  - teams
-  - channels
-  - messages
+  - `teams`
+  - `channels`
+  - `messages`
   - owned_teams (`team` model through `owner_id`)
 
 
-## `team_membership` (join table)
+## `memberships` (join table)
 Column Name | Data Type | Details
 -|-|-
 `user_id` | integer | `null: false`, foreign key
@@ -25,7 +27,7 @@ Column Name | Data Type | Details
 *Joins the users and teams tables*
 
 
-## `subscription` (join table)
+## `subscriptions` (join table)
 Column Name | Data Type | Details
 -|-|-
 `user_id` | integer | `null: false`, foreign key
@@ -34,46 +36,46 @@ Column Name | Data Type | Details
 *Joins the users and channels tables*
 
 
-## `team`
+## `teams`
 Column Name | Data Type | Details
 -|-|-
 `id` | integer | `null: false`, primary key
-`description` | text |
+`name` | string |`null: false`
 `owner_id` | integer | foreign key
 
 **Model Associations**
 - `has_many`
-  - users
-  - channels
+  - `users`
+  - `channels`
 - `belongs_to`
   - owner (`user` model)
 
 
-## `channel`
+## `channels`
 Column Name | Data Type | Details
 -|-|-
 `id` | integer | `null: false`, primary key
-`purpose` | text |
+`name` | string | `null: false`
 `team_id` | integer | `null: false`, foreign key
 
 **Model Associations**
 - `has_many`
-  - messages
-  - users
+  - `messages`
+  - `users`
 - `belongs_to`
-  - team
+  - `team`
 
 
-## `message`
+## `messages`
 Column Name | Data Type | Details
 -|-|-
 `id` | integer | `null: false`, primary key
 `body` | string | `null: false`
 `timestamp` | datetime | `null:false`, indexed
-`user_id` | integer | `null: false`, foreign key
+`author_id` | integer | `null: false`, foreign key
 `channel_id` | integer | `null: false`, foreign key
 
 **Model Associations**
 - `belongs_to`
-  - user
-  - channel
+  - `user`
+  - `channel`

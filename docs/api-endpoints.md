@@ -1,44 +1,54 @@
-# API Endpoints
+# View Endpoints
+
 
 ## `root`
 Verb | URI Pattern | Controller#Action
 -|-|-
 GET | `/` | `static_pages#root`
 
+
+# API Endpoints
+*All API endpoints are rendered in JSON format*
+
+
 ## `users`
 Verb | URI Pattern | Controller#Action
 -|-|-
-GET | `api/users` | `api/users#index`
-POST | `api/users` | `api/users#create`
-GET | `api/users/:id` | `api/users#show`
-PATCH | `api/users/:id` | `api/users#update`
+POST | `/api/users` | `api/users#create`
 
-## `sessions`
+
+## `session`
 Verb | URI Pattern | Controller#Action
 -|-|-
-POST | `api/sessions` | `api/sessions#create`
-DELETE | `api/sessions/:id` | `api/sessions#destroy`
+POST | `/api/session` | `api/session#create`
+DELETE | `/api/session/:id` | `api/session#destroy`
+
 
 ## `teams`
 Verb | URI Pattern | Controller#Action
 -|-|-
-GET | `api/teams` | `api/teams#index`
-POST | `api/teams` | `api/teams#create`
-GET | `api/teams/:id` | `api/teams#show`
-PATCH | `api/teams/:id` | `api/teams#update`
+GET | `/api/users/:user_id/teams` | `api/teams#index`
+GET | `/api/teams` | `api/teams#index`
+POST | `/api/teams` | `api/teams#create`
+
+
+## `memberships`
+Verb | URI Pattern | Controller#Action
+-|-|-
+POST | `/api/memberships` | `api/memberships#create`
+DELETE | `/api/memberships` | `api/memberships#destroy`
+
 
 ## `channels`
 Verb | URI Pattern | Controller#Action
 -|-|-
-GET | `api/channels` | `api/channels#index`
-POST | `api/channels` | `api/channels#create`
-GET | `api/channels/:id` | `api/channels#show`
-PATCH | `api/channels/:id` | `api/channels#update`
+GET | `/api/users/:user_id/teams/:team_id/channels` | `api/channels#index`
+GET | `/api/teams/:team_id/channels` | `api/channels#index`
+POST | `/api/teams/:team_id/channels` | `api/channels#create`
+GET | `/api/channels/:id` | `api/channels#show`
 
- ## `messages`
+
+## `messages`
 Verb | URI Pattern | Controller#Action
  -|-|-
-GET | `api/messages` | `api/messages#index`
-POST | `api/messages` | `api/messages#create`
-GET | `api/messages/:id` | `api/messages#show`
-PATCH | `api/messages/:id` | `api/messages#update`
+POST | `/api/channels/:channel_id/messages` | `api/messages#create`
