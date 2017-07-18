@@ -15,15 +15,15 @@ export const signUp = candidateUser => dispatch => (
   )
 );
 
-export const signIn = candidateUser => dispatch => (
-  APIUtil.signIn(candidateUser).then(
+export const signOn = candidateUser => dispatch => (
+  APIUtil.signOn(candidateUser).then(
     user => dispatch(receiveCurrentUser(user)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
 
-export const signOut = () => dispatch => (
-  APIUtil.signOut().then(
+export const signOff = () => dispatch => (
+  APIUtil.signOff().then(
     user => dispatch(receiveCurrentUser(user)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   )

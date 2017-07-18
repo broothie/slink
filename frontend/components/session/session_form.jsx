@@ -30,9 +30,9 @@ class SessionForm extends React.Component {
     // Generates form header, auth switch link path, and switch link text for
     //  auth form depending on formType
     return this.props.formType === '/signup' ? (
-      ['Sign Up', '/signin', 'Sign In']
+      ['Sign Up', '/signon', 'Sign On']
     ) : (
-      ['Sign In', '/signup', 'Sign Up']
+      ['Sign On', '/signup', 'Sign Up']
     );
   }
 

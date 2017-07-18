@@ -7,7 +7,7 @@ export default () => (
   <div>
     <Switch>
       <AuthRoute exact path='/signup' component={SessionFormContainer}/>
-      <AuthRoute exact path='/signin' component={SessionFormContainer}/>
+      <AuthRoute exact path='/signon' component={SessionFormContainer}/>
       <Route exact path='/' render={() => <h1>THE ROOT</h1>}/>
       <Redirect to='/'/>
     </Switch>
