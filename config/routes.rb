@@ -1,3 +1,25 @@
 Rails.application.routes.draw do
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  root to: 'static_pages#root'
+
+  namespace :api, defaults: { format: :json } do
+    resources :users, only: %i[create] do
+      resources :teams, only: %i[index] do
+        resources :channels, only: %i[index]
+      end
+    end
+
+    resource :session, only: %i[create destroy]
+
+    resources :memberships, only: %i[create destroy]
+
+    resources :teams, only: %i[index create] do
+      resources :channels, only: %i[index create]
+    end
+
+    resources :subscriptions, only: %i[create destroy]
+
+    resources :channels, only: %i[show] do
+      resources :messages, only: %i[create]
+    end
+  end
 end

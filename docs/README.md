@@ -45,8 +45,8 @@ Slink is a real time chat app inspired by [Slack][slack] powered by [Ruby on Rai
 [react]: https://facebook.github.io/react/
 [redux]: http://redux.js.org/
 
-[wireframes]: docs/wireframes
-[components]: docs/component-hierarchy.md
-[endpoints]: docs/api-endpoints.md
-[schema]: docs/schema.md
-[state]: docs/sample-state.md
+[wireframes]: wireframes
+[components]: component-hierarchy.md
+[endpoints]: api-endpoints.md
+[schema]: schema.md
+[state]: sample-state.md
