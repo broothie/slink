@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import configureStore from './store/store';
+import Root from './components/root';
 
 // TODO: Remove testing imports
 import * as APIUtil from './util/session_api_util';
@@ -16,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.actions = actions;
 
   ReactDOM.render(
-    <h1>slink coming even sooner...</h1>,
+    <Root store={store}/>,
     document.getElementById('root')
   );
 });
