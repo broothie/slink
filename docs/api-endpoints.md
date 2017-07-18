@@ -36,16 +36,22 @@ POST | `/api/teams` | `api/teams#create`
 Verb | URI Pattern | Controller#Action
 -|-|-
 POST | `/api/memberships` | `api/memberships#create`
-DELETE | `/api/memberships` | `api/memberships#destroy`
+DELETE | `/api/memberships/:id` | `api/memberships#destroy`
 
 
 ## `channels`
 Verb | URI Pattern | Controller#Action
 -|-|-
-GET | `/api/users/:user_id/teams/:team_id/channels` | `api/channels#index`
 GET | `/api/teams/:team_id/channels` | `api/channels#index`
 POST | `/api/teams/:team_id/channels` | `api/channels#create`
 GET | `/api/channels/:id` | `api/channels#show`
+
+
+## `subscriptions`
+Verb | URI Pattern | Controller#Action
+-|-|-
+POST | `/api/subscriptions` | `api/subscriptions#create`
+DELETE | `/api/subscriptions/:id` | `api/subscriptions#destroy`
 
 
 ## `messages`
