@@ -6,7 +6,7 @@ class SessionForm extends React.Component {
     super(props);
 
     this.state = {
-      username: '',
+      screenname: '',
       password: ''
     };
 
@@ -48,11 +48,11 @@ class SessionForm extends React.Component {
         <h2>{formHeader}</h2>
         <p>or <Link to={authSwitchLink}>{authSwitchText}</Link></p>
 
-        <label>Username
+        <label>ScreenName
           <input
             type='text'
-            onChange={this.update('username')}
-            value={this.state.username}
+            onChange={this.update('screenname')}
+            value={this.state.screenname}
           />
         </label>
 

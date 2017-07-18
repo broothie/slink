@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  username        :string           not null
+#  screenname        :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  icon_url        :string
@@ -12,8 +12,8 @@
 #
 
 class User < ApplicationRecord
-  validates :username, :password_digest, :session_token, presence: true
-  validates :username, uniqueness: true, length: { minimum: 6 }
+  validates :screenname, :password_digest, :session_token, presence: true
+  validates :screenname, uniqueness: true, length: { minimum: 6 }
   validates :password, length: { minimum: 6, allow_nil: true }
 
   attr_reader :password
@@ -21,8 +21,8 @@ class User < ApplicationRecord
   after_initialize :ensure_icon_url
   before_validation :ensure_session_token
 
-  def self.find_by_credentials(username, password)
-    user = find_by(username: username)
+  def self.find_by_credentials(screenname, password)
+    user = find_by(screenname: screenname)
     return user if user && user.is_password?(password)
   end
 
@@ -46,6 +46,6 @@ class User < ApplicationRecord
   end
 
   def ensure_icon_url
-    self.icon_url ||= "https://robohash.org/#{self.username}.png"
+    self.icon_url ||= "https://robohash.org/#{self.screenname}.png"
   end
 end

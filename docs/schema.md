@@ -5,7 +5,7 @@
 Column Name | Data Type | Details
 -|-|-
 `id` | integer | `null: false`, primary key
-`username` | string | `null: false`, unique
+`screenname` | string | `null: false`, unique
 `password_digest` | string | `null: false`
 `session_token` | string | `null: false`, unique
 `icon_url` | string |

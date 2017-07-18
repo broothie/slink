@@ -5,7 +5,7 @@
   session: {
     currentUser: {
       id: 1,
-      username: ''
+      screenname: ''
     },
   },
 
@@ -23,7 +23,7 @@
   users: {
     1: {
       id: 1,
-      username: '',
+      screenname: '',
       icon_url: ''
     },
     // ...
