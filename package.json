@@ -23,5 +23,19 @@
   "bugs": {
     "url": "https://github.com/boothandrewd/slink/issues"
   },
-  "homepage": "https://github.com/boothandrewd/slink#readme"
+  "homepage": "https://github.com/boothandrewd/slink#readme",
+  "dependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.1",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.24.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-redux": "^5.0.5",
+    "react-router": "^4.1.2",
+    "react-router-dom": "^4.1.2",
+    "redux-logger": "^3.0.6",
+    "redux-thunk": "^2.2.0",
+    "webpack": "^3.3.0"
+  }
 }
