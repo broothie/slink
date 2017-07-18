@@ -5,11 +5,9 @@ export default (state = [], action) => {
 
   switch (action.type) {
     case RECEIVE_ERRORS:
-      console.log(action);
       return action.errors;
 
     default:
-      console.log(action);
       return state;
   }
 };

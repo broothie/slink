@@ -1,3 +1,15 @@
+<% signed_in = signed_in? %>
+<script type="text/javascript">
+  <% if signed_in %>
+    window.currentUser = <%=
+      render(
+        "api/users/user.json.jbuilder",
+        user: current_user
+      ).html_safe
+    %>;
+  <% end %>
+</script>
+
 <div id='root'>
   slinkchat coming soon...
 </div>

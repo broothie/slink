@@ -8,11 +8,15 @@ import * as APIUtil from './util/session_api_util';
 import * as actions from './actions/session_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+  const store = window.currentUser ? (
+    configureStore({ session: { currentUser: window.currentUser } })
+  ) : (
+    configureStore()
+  );
+  delete window.currentUser;
 
   // TODO: Remove testing objects on window
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  window.store = store;
   window.APIUtil = APIUtil;
   window.actions = actions;
 
