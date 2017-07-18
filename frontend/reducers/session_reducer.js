@@ -1,4 +1,3 @@
-import { merge } from 'lodash';
 import {
   RECEIVE_CURRENT_USER,
   RECEIVE_ERRORS
@@ -14,10 +13,10 @@ export default (state = defaultState, action) => {
 
   switch (action.type) {
     case RECEIVE_CURRENT_USER:
-      return merge({}, state, { currentUser: action.user });
+      return Object.assign({}, state, { currentUser: action.user, errors: [] });
 
     case RECEIVE_ERRORS:
-      return merge({}, state, { errors: action.errors });
+      return Object.assign({}, state, { errors: action.errors.responseJSON });
 
     default:
       return state;
