@@ -1,4 +1,4 @@
-import merge from 'lodash';
+import { merge } from 'lodash';
 import {
   RECEIVE_CURRENT_USER,
   RECEIVE_ERRORS
