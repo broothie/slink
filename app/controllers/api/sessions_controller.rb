@@ -14,7 +14,7 @@ class Api::SessionsController < ApplicationController
   end
 
   def destroy
-    if signed_in?
+    if signed_on?
       sign_off!
       render json: nil
     else

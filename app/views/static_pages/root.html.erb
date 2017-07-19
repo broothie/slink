@@ -1,6 +1,6 @@
-<% signed_in = signed_in? %>
+<% signed_on = signed_on? %>
 <script type="text/javascript">
-  <% if signed_in %>
+  <% if signed_on %>
     window.currentUser = <%=
       render(
         "api/users/user.json.jbuilder",
