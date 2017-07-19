@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  screenname        :string           not null
+#  screenname      :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  icon_url        :string
@@ -20,6 +20,11 @@ class User < ApplicationRecord
 
   after_initialize :ensure_icon_url
   before_validation :ensure_session_token
+
+  has_many :messages,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Message
 
   def self.find_by_credentials(screenname, password)
     user = find_by(screenname: screenname)
