@@ -11,6 +11,7 @@ class SessionForm extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemoClick = this.handleDemoClick.bind(this);
   }
 
   componentWillUnmount() {
@@ -20,6 +21,11 @@ class SessionForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state);
+  }
+
+  handleDemoClick(e) {
+    e.preventDefault();
+    this.props.demoSignOn();
   }
 
   update(field) {
@@ -57,7 +63,7 @@ class SessionForm extends React.Component {
             </div>
 
             <fieldset>
-              <label>ScreenName</label>
+              <label className='screenname'>ScreenName</label>
               <input
                 type='text'
                 onChange={this.update('screenname')}
@@ -84,7 +90,10 @@ class SessionForm extends React.Component {
                 }
               </ul>
 
-              <button onClick={this.handleSubmit}>Submit</button>
+              <div className='buttons'>
+                <button onClick={this.handleSubmit}>Submit</button>
+                <button onClick={this.handleDemoClick}>Demo</button>
+              </div>
             </fieldset>
           </div>
         </form>

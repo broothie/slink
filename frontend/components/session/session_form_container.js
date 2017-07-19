@@ -13,7 +13,11 @@ const mapDispatchToProps = (dispatch, { location: { pathname } }) => ({
   processForm: user => (
     dispatch((pathname === '/signup' ? signUp : signOn)(user))
   ),
-  clearErrors: () => dispatch(clearErrors())
+  clearErrors: () => dispatch(clearErrors()),
+  demoSignOn: () => dispatch(signOn({
+    screenname: 'demoUser',
+    password: '123456'
+  }))
 });
 
 export default connect(

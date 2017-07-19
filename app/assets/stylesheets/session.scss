@@ -59,6 +59,8 @@ $content-spacing: 10px;
           font-size: 80px;
           font-style: italic;
           transform: translateX(-8px);
+
+          color: $square-title-logo-yellow
         }
 
         h2 {
@@ -87,6 +89,16 @@ $content-spacing: 10px;
           li {
             margin-bottom: 3px;
           }
+        }
+
+        .screenname {
+          font-style: italic;
+          color: $screenname-font;
+        }
+
+        .buttons {
+          display: flex;
+          justify-content: space-around;
         }
       }
     }
