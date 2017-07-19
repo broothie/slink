@@ -79,6 +79,15 @@ $content-spacing: 10px;
         a {
           font-size: 11px;
         }
+
+        ul {
+          font-weight: normal;
+          font-size: 11px;
+
+          li {
+            margin-bottom: 3px;
+          }
+        }
       }
     }
   }

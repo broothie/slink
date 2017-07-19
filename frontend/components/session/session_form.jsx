@@ -76,6 +76,14 @@ class SessionForm extends React.Component {
             </fieldset>
 
             <fieldset>
+              <ul>
+                {
+                  this.props.errors.map((errorText, idx) => (
+                    <li key={idx}>- {errorText}</li>
+                  ))
+                }
+              </ul>
+
               <button onClick={this.handleSubmit}>Submit</button>
             </fieldset>
           </div>
