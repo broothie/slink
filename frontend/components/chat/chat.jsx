@@ -8,6 +8,6 @@ export default props => (
       <button onClick={props.signOff}>Sign Off</button>
     </main>
   ) : (
-    <Redirect to='/'/>
+    <Redirect to='/signon'/>
   )
 );
