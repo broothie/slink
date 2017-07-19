@@ -37,7 +37,7 @@ class SessionForm extends React.Component {
   }
 
   render() {
-    if (this.props.signedIn) {
+    if (this.props.signedOn) {
       return <Redirect to='/'/>;
     }
 
