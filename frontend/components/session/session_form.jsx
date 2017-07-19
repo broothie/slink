@@ -32,7 +32,7 @@ class SessionForm extends React.Component {
     return this.props.formType === '/signup' ? (
       ['Sign Up', '/signon', 'Sign On']
     ) : (
-      ['Sign On', '/signup', 'Sign Up']
+      ['Sign On', '/signup', 'Get a Screen Name']
     );
   }
 
@@ -44,28 +44,43 @@ class SessionForm extends React.Component {
     let [formHeader, authSwitchLink, authSwitchText] = this.formDetails();
 
     return (
-      <form>
-        <h2>{formHeader}</h2>
-        <p>or <Link to={authSwitchLink}>{authSwitchText}</Link></p>
+      <main className='session-main'>
+        <form className='session-form'>
+          <header>
+            {formHeader}
+          </header>
 
-        <label>ScreenName
-          <input
-            type='text'
-            onChange={this.update('screenname')}
-            value={this.state.screenname}
-          />
-        </label>
+          <div className='session-form-content'>
+            <div className='square-title-logo'>
+              <h1>Slink</h1>
+              <h2>Instant Messenger</h2>
+            </div>
 
-        <label>Password
-          <input
-            type='password'
-            onChange={this.update('password')}
-            value={this.state.password}
-          />
-        </label>
+            <fieldset>
+              <label>ScreenName</label>
+              <input
+                type='text'
+                onChange={this.update('screenname')}
+                value={this.state.screenname}
+              />
+              <Link to={authSwitchLink}>{authSwitchText}</Link>
+            </fieldset>
 
-        <button onClick={this.handleSubmit}>Submit</button>
-      </form>
+            <fieldset>
+              <label>Password</label>
+              <input
+                type='password'
+                onChange={this.update('password')}
+                value={this.state.password}
+              />
+            </fieldset>
+
+            <fieldset>
+              <button onClick={this.handleSubmit}>Submit</button>
+            </fieldset>
+          </div>
+        </form>
+      </main>
     );
   }
 }

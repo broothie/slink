@@ -6,13 +6,11 @@ import HelloContainer from './hello/hello_container';
 import ChatContainer from './chat/chat_container';
 
 export default () => (
-  <div>
-    <Switch>
-      <Route exact path='/chat' component={ChatContainer}/>
-      <AuthRoute exact path='/signup' component={SessionFormContainer}/>
-      <AuthRoute exact path='/signon' component={SessionFormContainer}/>
-      <Route exact path='/' component={HelloContainer}/>
-      <Redirect to='/'/>
-    </Switch>
-  </div>
+  <Switch>
+    <Route exact path='/chat' component={ChatContainer}/>
+    <AuthRoute exact path='/signup' component={SessionFormContainer}/>
+    <AuthRoute exact path='/signon' component={SessionFormContainer}/>
+    <Route exact path='/' component={HelloContainer}/>
+    <Redirect to='/'/>
+  </Switch>
 );

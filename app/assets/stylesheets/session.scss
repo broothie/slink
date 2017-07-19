@@ -1,0 +1,85 @@
+$form-width: 250px;
+$form-padding: 5px;
+$form-content-padding-vert: 5px;
+$form-content-padding-horz: 10px;
+$square-title-width: $form-width - $form-padding - $form-content-padding-horz - 30px;
+$content-spacing: 10px;
+
+.session-main {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  form {
+    width: $form-width;
+
+    padding: $form-padding;
+
+    display: flex;
+    flex-flow: column;
+
+    background-color: $ui-gray;
+
+    border: 0.5px solid $pane-edge-border;
+    box-shadow: 1px 1px 0px 1px $pane-edge-shadow;
+
+    header {
+      padding: 3px 7px;
+
+      @include blue-white-background;
+
+      color: $title-bar-text;
+      font-weight: normal;
+      font-size: 15px;
+    }
+
+    .session-form-content {
+      flex: 1;
+
+      padding: $form-content-padding-vert $form-content-padding-horz;
+
+      font-size: 13;
+
+      .square-title-logo {
+        padding: 5px;
+        margin-bottom: $content-spacing;
+
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-around;
+
+        color: $square-title-logo-white;
+        background-color: $square-title-logo-blue;
+
+        h1 {
+          font-size: 80px;
+          font-style: italic;
+          transform: translateX(-8px);
+        }
+
+        h2 {
+          font-size: 23px;
+        }
+      }
+
+      fieldset {
+        margin-bottom: $content-spacing;
+
+        display: flex;
+        flex-flow: column;
+
+        input {
+          width: 90%;
+        }
+
+        a {
+          font-size: 11px;
+        }
+      }
+    }
+  }
+}

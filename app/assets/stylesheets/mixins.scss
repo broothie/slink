@@ -1,0 +1,11 @@
+@mixin gradient-background($left, $right) {
+  background: $right; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left, $left , $right); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(right, $left, $right); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(right, $left, $right); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, $left , $right); /* Standard syntax */
+}
+
+@mixin blue-white-background {
+  @include gradient-background($title-bar-gradient-left, $title-bar-gradient-right);
+}

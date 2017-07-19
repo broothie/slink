@@ -5,10 +5,10 @@ export default props => (
   props.signedOn ? (
     <Redirect to='/chat'/>
   ) : (
-    <div>
+    <main className='hello-main'>
       Welcome to Slink Instant Messaging
       <Link to='/signup'>Sign Up</Link>
       <Link to='/signon'>Sign On</Link>
-    </div>
+    </main>
   )
 );
