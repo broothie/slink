@@ -5,6 +5,7 @@ import Root from './components/root';
 
 // TODO: Remove testing imports
 import * as APIUtil from './util/messages_api_util';
+import * as actions from './actions/message_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = window.currentUser ? (
@@ -17,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // TODO: Remove testing objects on window
   window.store = store;
   window.APIUtil = APIUtil;
-  // window.actions = actions;
+  window.actions = actions;
 
   ReactDOM.render(
     <Root store={store}/>,
