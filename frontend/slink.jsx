@@ -4,8 +4,10 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // TODO: Remove testing imports
-import * as APIUtil from './util/messages_api_util';
-import * as actions from './actions/message_actions';
+import * as messageApiUtil from './util/messages_api_util';
+import * as channelApiUtil from './util/channels_api_util';
+import * as messageActions from './actions/message_actions';
+import * as channelActions from './actions/channel_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = window.currentUser ? (
@@ -17,8 +19,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // TODO: Remove testing objects on window
   window.store = store;
-  window.APIUtil = APIUtil;
-  window.actions = actions;
+  window.messageApiUtil = messageApiUtil;
+  window.channelApiUtil = channelApiUtil;
+  window.messageActions = messageActions;
+  window.channelActions = channelActions;
 
   ReactDOM.render(
     <Root store={store}/>,

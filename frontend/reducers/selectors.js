@@ -1,3 +1,5 @@
 import { values } from 'lodash';
 
-export const allMessages = state => values(state.messages);
+export const channelMessages = (state, channelId) => (
+  values(state.messages).filter(message => message.channel_id === channelId)
+);

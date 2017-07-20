@@ -9,7 +9,7 @@ export default props => (
 
       <br/>
 
-      <MessageStreamWindowContainer/>
+      <MessageStreamWindowContainer channelId={1}/>
     </main>
   ) : (
     <Redirect to='/signon'/>
