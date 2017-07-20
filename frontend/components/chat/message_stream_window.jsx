@@ -1,4 +1,5 @@
 import React from 'react';
+import { values } from 'lodash';
 
 export default class MessageStreamWindow extends React.Component {
   componentWillMount() {
@@ -7,9 +8,18 @@ export default class MessageStreamWindow extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.messages.length !== this.props.messages.length) {
-      const stream = document.getElementsByClassName(this.streamIdentifier)[0];
-      stream.scrollTop = stream.scrollHeight;
+    const channel = this.props.channel;
+    const prevChannel = prevProps.channel;
+
+    if (channel) {
+      if (
+        !prevChannel ||
+        prevChannel.messages.length !== channel.messages.length
+      ) {
+        const stream =
+          document.getElementsByClassName(this.streamIdentifier)[0];
+        stream.scrollTop = stream.scrollHeight;
+      }
     }
   }
 
@@ -21,9 +31,13 @@ export default class MessageStreamWindow extends React.Component {
           rows='6'
           readOnly
           value={
-            this.props.messages.map(message => (
-              `${message.authorScreenname}: ${message.body}`
-            )).join('\n')
+            this.props.channel ? (
+              values(this.props.channel.messages).map(message => (
+                `${message.authorScreenname}: ${message.body}`
+              )).join('\n')
+            ) : (
+              ''
+            )
           }
         />
       </div>

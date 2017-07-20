@@ -1,10 +1,9 @@
 import { connect } from 'react-redux';
 import MessageStreamWindow from './message_stream_window';
-import { channelMessages } from '../../reducers/selectors';
 import { requestChannel } from '../../actions/channel_actions';
 
 const mapStateToProps = (state, { channelId }) => ({
-  messages: channelMessages(state, channelId)
+  channel: state.channels[channelId]
 });
 
 const mapDispatchToProps = (dispatch, { channelId }) => ({
