@@ -7,10 +7,8 @@ export default class MessageStreamWindow extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps);
     if (prevProps.messages.length !== this.props.messages.length) {
       const stream = document.getElementsByClassName(this.streamIdentifier)[0];
-      // TODO: Test
       stream.scrollTop = stream.scrollHeight;
     }
   }
