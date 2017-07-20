@@ -7,6 +7,14 @@ export default class MessageStreamWindow extends React.Component {
     this.streamIdentifier = `message-stream-channel-${this.props.channelId}`;
   }
 
+  componentDidMount() {
+    App.chat = App.cable.subscriptions.create('ChatChannel', {
+      connected: null,
+      received: ({ message }) => this.props.receiveMessage(JSON.parse(message)),
+      disconnected: null
+    });
+  }
+
   componentDidUpdate(prevProps) {
     const stream = document.getElementsByClassName(this.streamIdentifier)[0];
     stream.scrollTop = stream.scrollHeight;

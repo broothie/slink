@@ -7,9 +7,9 @@ class Api::MessagesController < ApplicationController
         .merge(author_id: current_user.id)
         .merge(channel_id: params[:channel_id])
     )
+
     if @message.save
-      render :show
-      # TODO: Socket broadcast
+      ActionCable.server.broadcast 'messages', message: render(:show)
     else
       render json: @message.errors.full_messages, status: 422
     end

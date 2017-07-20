@@ -10,7 +10,7 @@ export const receiveMessage = message => ({
 
 export const createMessage = (channelId, candidateMessage) => dispatch => (
   APIUtil.createMessage(channelId, candidateMessage).then(
-    message => dispatch(receiveMessage(message)),
+    null,
     errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
