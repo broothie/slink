@@ -1,3 +1,18 @@
+@mixin windows-95-outset {
+  border-top: 1px solid $pane-gray;
+  border-left: 1px solid $pane-gray;
+
+  border-right: 1px solid $outset-dark-shadow;
+  border-bottom: 1px solid $outset-dark-shadow;
+
+  box-shadow: inset 1px 1px $outset-white, inset -1px -1px $outset-light-shadow;
+}
+
+@mixin windows-95-pane {
+  background-color: $pane-gray;
+  @include windows-95-outset;
+}
+
 @mixin gradient-background($left, $right) {
   background: $right; /* For browsers that do not support gradients */
   background: -webkit-linear-gradient(left, $left , $right); /* For Safari 5.1 to 6.0 */
@@ -8,4 +23,24 @@
 
 @mixin blue-white-background {
   @include gradient-background($title-bar-gradient-left, $title-bar-gradient-right);
+}
+
+@mixin title-bar-colors {
+  color: $title-bar-text;
+  @include blue-white-background;
+}
+
+@mixin windows-95-inset {
+  border-top: 1px solid $inset-light-shadow;
+  border-left: 1px solid $inset-light-shadow;
+
+  border-right: 1px solid $inset-white;
+  border-bottom: 1px solid $inset-white;
+
+  box-shadow: inset 1px 1px $inset-dark-shadow, inset -1px -1px $pane-gray;
+}
+
+@mixin text-input {
+  background-color: $input-background;
+  @include windows-95-inset;
 }

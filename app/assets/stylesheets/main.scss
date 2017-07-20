@@ -1,6 +1,6 @@
-@import 'mixins.scss';
 @import 'colors.scss';
+@import 'mixins.scss';
 @import 'fonts.scss';
 @import 'core.scss';
 @import 'session.scss';
-@import 'chat.scss';
+@import 'chat/**/*';

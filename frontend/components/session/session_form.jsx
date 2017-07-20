@@ -52,7 +52,7 @@ class SessionForm extends React.Component {
     return (
       <main className='session-main'>
         <form className='session-form'>
-          <header>
+          <header className='title-bar'>
             {formHeader}
           </header>
 
@@ -91,7 +91,7 @@ class SessionForm extends React.Component {
               </ul>
 
               <div className='buttons'>
-                <button onClick={this.handleSubmit}>Submit</button>
+                <button onClick={this.handleSubmit}>{formHeader}</button>
                 <button onClick={this.handleDemoClick}>Demo</button>
               </div>
             </fieldset>

@@ -21,20 +21,7 @@ $content-spacing: 10px;
     display: flex;
     flex-flow: column;
 
-    background-color: $ui-gray;
-
-    border: 0.5px solid $pane-edge-border;
-    box-shadow: 1px 1px 0px 1px $pane-edge-shadow;
-
-    header {
-      padding: 3px 7px;
-
-      @include blue-white-background;
-
-      color: $title-bar-text;
-      font-weight: normal;
-      font-size: 15px;
-    }
+    @include windows-95-pane;
 
     .session-form-content {
       flex: 1;
@@ -73,6 +60,10 @@ $content-spacing: 10px;
 
         display: flex;
         flex-flow: column;
+
+        label {
+          font-weight: bold;
+        }
 
         input {
           width: 90%;

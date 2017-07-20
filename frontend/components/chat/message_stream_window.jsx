@@ -7,11 +7,18 @@ export default class MessageStreamWindow extends React.Component {
 
   render() {
     return (
-      <textarea readOnly value={
-        this.props.messages.map(message => (
-          `${message.author_screenname}: ${message.body}`
-        )).join('\n')
-      }/>
+      <div>
+        <textarea
+          className='message-stream-window'
+          rows='6'
+          readOnly
+          value={
+            this.props.messages.map(message => (
+              `${message.author_screenname}: ${message.body}`
+            )).join('\n')
+          }
+        />
+      </div>
     );
   }
 }

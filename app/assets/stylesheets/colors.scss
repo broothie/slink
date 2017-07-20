@@ -1,20 +1,30 @@
-$link-color: blue;
+// Panes and inset/outset
+$pane-gray: #D4D0C9;
+$input-background: white;
 
-$input-box-background: #FEFEFE;
+$outset-dark-shadow: #404040;
+$outset-light-shadow: #808080;
+$outset-white: white;
 
-$button-shading: #202020;
+$inset-light-shadow: #808080;
+$inset-dark-shadow: black;
+$inset-white: white;
 
-$pane-edge-border: darkgray;
-$pane-edge-shadow: #707070;
+$hr-dark-shadow: #808080;
+$hr-light-shadow: #FFFFFF;
 
+// Desktop color
 $desktop-green: #00807F;
-$ui-gray: #C0C0C0;
 
+// Title bars
 $title-bar-text: #FEFEFE;
-$mid-title-bar-gradient: #073E9E;
 $title-bar-gradient-left: #08008E;
 $title-bar-gradient-right: #75B3D3;
 
+// Text
+$link-color: blue;
+
+// Specific stuff
 $square-title-logo-blue: #095FA8;
 $square-title-logo-white: #FEFEFE;
 $square-title-logo-yellow: #FDEC54;

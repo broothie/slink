@@ -11,7 +11,6 @@ body {
   background-color: $desktop-green;
 
   font-family: sans-serif;
-  font-weight: bold;
 }
 
 a {
@@ -19,20 +18,33 @@ a {
   text-decoration: underline;
 }
 
+header.title-bar {
+  padding: 3px 7px;
+
+  @include title-bar-colors;
+  font-size: 14px;
+  font-family: serif;
+  font-weight: bold;
+}
+
 input {
   height: 24px;
 
   padding-left: 5px;
 
-  font-weight: normal;
-  background-color: $input-box-background;
+  @include text-input;
+}
 
-  border: 0.5px solid $pane-edge-border;
-  box-shadow: 1px 1px 0px 1px $pane-edge-shadow inset;
+textarea {
+  padding: 5px 8px;
+  @include text-input;
 }
 
 button {
   padding: 4px 6px;
+  @include windows-95-pane;
 
-  box-shadow: -1px -1px 1px 1px $button-shading inset;
+  &:active {
+    @include windows-95-inset;
+  }
 }
