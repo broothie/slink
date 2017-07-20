@@ -26,7 +26,7 @@ export default class ChatWindow extends React.Component {
 
   render() {
     return (
-      <div className='chat-window'>
+      <form className='chat-window'>
         <header className='title-bar'>
           {this.props.windowName} - Instant Message
         </header>
@@ -48,7 +48,7 @@ export default class ChatWindow extends React.Component {
             </button>
           </footer>
         </div>
-      </div>
+      </form>
     );
   }
 }
