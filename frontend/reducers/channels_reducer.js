@@ -1,5 +1,6 @@
 import { merge } from 'lodash';
-import { RECEIVE_CHANNEL, RECEIVE_MESSAGE } from '../actions/channel_actions';
+import { RECEIVE_CHANNEL } from '../actions/channel_actions';
+import { RECEIVE_MESSAGE } from '../actions/message_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);

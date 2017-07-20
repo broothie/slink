@@ -8,19 +8,8 @@ export default class MessageStreamWindow extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const channel = this.props.channel;
-    const prevChannel = prevProps.channel;
-
-    if (channel) {
-      if (
-        !prevChannel ||
-        prevChannel.messages.length !== channel.messages.length
-      ) {
-        const stream =
-          document.getElementsByClassName(this.streamIdentifier)[0];
-        stream.scrollTop = stream.scrollHeight;
-      }
-    }
+    const stream = document.getElementsByClassName(this.streamIdentifier)[0];
+    stream.scrollTop = stream.scrollHeight;
   }
 
   render() {

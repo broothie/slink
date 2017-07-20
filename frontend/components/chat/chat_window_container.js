@@ -8,9 +8,9 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-  sendMessage: body => dispatch(createMessage({
+  sendMessage: body => dispatch(createMessage(ownProps.channelId, {
     body,
-    channel_id: ownProps.channelId,
+    // channelId: ownProps.channelId,
     timestamp: new Date()
   }))
 });

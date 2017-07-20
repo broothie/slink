@@ -8,8 +8,8 @@ export const receiveMessage = message => ({
   message
 });
 
-export const createMessage = candidateMessage => dispatch => (
-  APIUtil.createMessage(candidateMessage).then(
+export const createMessage = (channelId, candidateMessage) => dispatch => (
+  APIUtil.createMessage(channelId, candidateMessage).then(
     message => dispatch(receiveMessage(message)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   )

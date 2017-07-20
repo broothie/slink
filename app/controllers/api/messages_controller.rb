@@ -2,7 +2,11 @@ class Api::MessagesController < ApplicationController
   before_action :require_signed_on!
 
   def create
-    @message = Message.new(message_params.merge(author_id: current_user.id))
+    @message = Message.new(
+      message_params
+        .merge(author_id: current_user.id)
+        .merge(channel_id: params[:channel_id])
+    )
     if @message.save
       render :show
       # TODO: Socket broadcast
