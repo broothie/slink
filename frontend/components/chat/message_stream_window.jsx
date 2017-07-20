@@ -14,7 +14,7 @@ export default class MessageStreamWindow extends React.Component {
           readOnly
           value={
             this.props.messages.map(message => (
-              `${message.author_screenname}: ${message.body}`
+              `${message.authorScreenname}: ${message.body}`
             )).join('\n')
           }
         />

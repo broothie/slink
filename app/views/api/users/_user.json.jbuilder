@@ -1,1 +1,4 @@
-json.extract! user, :id, :screenname, :icon_url
+user.attributes.each do |(key, value)|
+  json.key_format! camelize: :lower
+  json.set! key, value
+end
