@@ -19,7 +19,9 @@ export default class ChatWindow extends React.Component {
 
   sendMessage(e) {
     e.preventDefault();
-    this.props.sendMessage(this.state.message);
+    this.props.sendMessage(this.state.message).then(() => (
+      this.setState({ message: '' })
+    ));
   }
 
   render() {
@@ -35,6 +37,7 @@ export default class ChatWindow extends React.Component {
           <MessageStreamWindowContainer channelId={this.props.channelId}/>
           <hr/>
           <textarea
+            value={this.state.message}
             onChange={this.updateMessage}
             rows='2'
           />
