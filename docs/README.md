@@ -9,7 +9,8 @@ Slink is a real time chat app inspired by [Slack][slack] powered by [Ruby on Rai
 - [ ] Live Chat
 - [ ] Channels
 - [ ] Direct Messaging
-- [ ] Teams
+<!-- - [ ] Teams -->
+- [ ] Drag'n'Drop
 - [ ] Production README
 
 ## Design Docs
