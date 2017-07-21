@@ -35,17 +35,21 @@ export default class ChatWindow extends React.Component {
   }
 
   render() {
+    const channel = this.props.channel;
+
     return (
       <div className='chat-window'>
         <header className='title-bar'>
-          {this.props.windowName} - Instant Message
+          {channel.name} - Instant Message
         </header>
 
-        <hr/>
+        <hr className='hr-divider'/>
 
         <div className='chat-window-content'>
-          <MessageStreamWindowContainer channelId={this.props.channelId}/>
-          <hr/>
+          <MessageStreamWindowContainer channel={channel}/>
+
+          <hr className='hr-divider'/>
+
           <textarea
             value={this.state.message}
             onChange={this.updateMessage}

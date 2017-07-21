@@ -3,8 +3,8 @@ import { values } from 'lodash';
 
 export default class MessageStreamWindow extends React.Component {
   componentWillMount() {
-    this.props.requestChannel();
-    this.streamIdentifier = `message-stream-channel-${this.props.channelId}`;
+    // this.props.requestChannel();
+    // this.streamIdentifier = ;
   }
 
   componentDidMount() {
@@ -16,20 +16,25 @@ export default class MessageStreamWindow extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const stream = document.getElementsByClassName(this.streamIdentifier)[0];
-    stream.scrollTop = stream.scrollHeight;
+    // const stream = document.getElementsByClassName(this.streamIdentifier)[0];
+    // stream.scrollTop = stream.scrollHeight;
+    this.messageInput.scrollTop = this.messageInput.scrollHeight;
   }
 
   render() {
+    const channel = this.props.channel;
+    const streamIdentifier = `message-stream-channel-${channel.id}`;
+
     return (
       <div>
         <textarea
-          className={`message-stream-window ${this.streamIdentifier}`}
+          className={`message-stream-window ${streamIdentifier}`}
+          ref={input => { this.messageInput = input; }}
           rows='6'
           readOnly
           value={
-            this.props.channel ? (
-              values(this.props.channel.messages).map(message => (
+            channel ? (
+              values(channel.messages).map(message => (
                 `${message.authorScreenname}: ${message.body}`
               )).join('\n')
             ) : (
