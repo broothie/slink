@@ -11,6 +11,7 @@ export default class ChatWindow extends React.Component {
 
     this.updateMessage = this.updateMessage.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
   }
 
   updateMessage(e) {
@@ -24,9 +25,18 @@ export default class ChatWindow extends React.Component {
     ));
   }
 
+  handleEnter(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      this.props.sendMessage(this.state.message).then(() => (
+        this.setState({ message: '' })
+      ));
+    }
+  }
+
   render() {
     return (
-      <form className='chat-window'>
+      <div className='chat-window'>
         <header className='title-bar'>
           {this.props.windowName} - Instant Message
         </header>
@@ -39,16 +49,19 @@ export default class ChatWindow extends React.Component {
           <textarea
             value={this.state.message}
             onChange={this.updateMessage}
+            onKeyPress={this.handleEnter}
             rows='2'
           />
+
           <footer>
             <button
+              type='submit'
               onClick={this.sendMessage}
               >Send
             </button>
           </footer>
         </div>
-      </form>
+      </div>
     );
   }
 }

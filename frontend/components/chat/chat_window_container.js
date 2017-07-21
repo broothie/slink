@@ -3,19 +3,14 @@ import ChatWindow from './chat_window';
 import { createMessage } from '../../actions/message_actions';
 import { merge } from 'lodash';
 
-const mapStateToProps = state => ({
-
-});
-
 const mapDispatchToProps = (dispatch, ownProps) => ({
   sendMessage: body => dispatch(createMessage(ownProps.channelId, {
     body,
-    // channelId: ownProps.channelId,
     timestamp: new Date()
   }))
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(ChatWindow);
