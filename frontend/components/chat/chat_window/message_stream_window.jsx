@@ -2,11 +2,6 @@ import React from 'react';
 import { values } from 'lodash';
 
 export default class MessageStreamWindow extends React.Component {
-  componentWillMount() {
-    // this.props.requestChannel();
-    // this.streamIdentifier = ;
-  }
-
   componentDidMount() {
     App.chat = App.cable.subscriptions.create('ChatChannel', {
       connected: null,
@@ -16,8 +11,6 @@ export default class MessageStreamWindow extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    // const stream = document.getElementsByClassName(this.streamIdentifier)[0];
-    // stream.scrollTop = stream.scrollHeight;
     this.messageInput.scrollTop = this.messageInput.scrollHeight;
   }
 
