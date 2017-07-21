@@ -59,7 +59,10 @@ export default class ChatWindow extends React.Component {
 
           <footer>
             <button
-              type='submit'
+              onClick={() => this.props.closeWindow()}
+              >Close
+            </button>
+            <button
               onClick={this.sendMessage}
               >Send
             </button>
