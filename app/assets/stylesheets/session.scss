@@ -23,75 +23,76 @@ $content-spacing: 10px;
 
     @include windows-95-pane;
 
-    .session-form-content {
-      flex: 1;
+  }
+}
 
-      padding: $form-content-padding-vert $form-content-padding-horz;
+.session-form-content {
+  flex: 1;
 
-      font-size: 13;
+  padding: $form-content-padding-vert $form-content-padding-horz;
 
-      .square-title-logo {
-        padding: 5px;
-        margin-bottom: $content-spacing;
+  font-size: 13;
 
-        display: flex;
-        flex-flow: column;
-        align-items: center;
-        justify-content: space-around;
+  fieldset {
+    margin-bottom: $content-spacing;
 
-        color: $square-title-logo-white;
-        background-color: $square-title-logo-blue;
+    display: flex;
+    flex-flow: column;
 
-        h1 {
-          font-size: 80px;
-          font-style: italic;
-          transform: translateX(-8px);
+    label {
+      font-weight: bold;
+    }
 
-          color: $square-title-logo-yellow;
-        }
+    input {
+      width: 90%;
+    }
 
-        h2 {
-          font-size: 23px;
-        }
-      }
+    a {
+      font-size: 14px;
+    }
 
-      fieldset {
-        margin-bottom: $content-spacing;
+    ul {
+      font-weight: normal;
+      font-size: 11px;
 
-        display: flex;
-        flex-flow: column;
-
-        label {
-          font-weight: bold;
-        }
-
-        input {
-          width: 90%;
-        }
-
-        a {
-          font-size: 11px;
-        }
-
-        ul {
-          font-weight: normal;
-          font-size: 11px;
-
-          li {
-            margin-bottom: 3px;
-          }
-        }
-
-        .screenname {
-          font-style: italic;
-          color: $screenname-font;
-        }
-
-        .buttons {
-          display: flex;
-          justify-content: space-around;
-        }
+      li {
+        margin-bottom: 3px;
       }
     }
   }
+}
+
+.square-title-logo {
+  padding: 5px;
+  margin-bottom: $content-spacing;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-around;
+
+  color: $square-title-logo-white;
+  background-color: $square-title-logo-blue;
+
+  h1 {
+    font-size: 80px;
+    font-style: italic;
+    transform: translateX(-8px);
+
+    color: $square-title-logo-yellow;
+  }
+
+  h2 {
+    font-size: 23px;
+  }
+}
+
+.screenname {
+  font-style: italic;
+  color: $screenname-font;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
 }

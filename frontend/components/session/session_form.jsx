@@ -68,6 +68,7 @@ class SessionForm extends React.Component {
                 type='text'
                 onChange={this.update('screenname')}
                 value={this.state.screenname}
+                tabIndex='1'
               />
               <Link to={authSwitchLink}>{authSwitchText}</Link>
             </fieldset>
@@ -78,6 +79,7 @@ class SessionForm extends React.Component {
                 type='password'
                 onChange={this.update('password')}
                 value={this.state.password}
+                tabIndex='2'
               />
             </fieldset>
 
@@ -91,7 +93,12 @@ class SessionForm extends React.Component {
               </ul>
 
               <div className='buttons'>
-                <button onClick={this.handleSubmit}>{formHeader}</button>
+                <button
+                  onClick={this.handleSubmit}
+                  tabIndex='3'
+                  type='submit'
+                >{formHeader}
+                </button>
                 <button onClick={this.handleDemoClick}>Demo</button>
               </div>
             </fieldset>
