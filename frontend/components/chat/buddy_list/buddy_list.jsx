@@ -1,12 +1,12 @@
 import React from 'react';
-import ChannelIndex from './channel_index';
+import ChannelIndexContainer from './channel_index_container';
 
 export default class BuddyList extends React.Component {
 
   render() {
     return (
       <div className='buddy-list'>
-        <ChannelIndex channelInfos={this.props.channelInfos}/>
+        <ChannelIndexContainer channelInfos={this.props.channelInfos}/>
       </div>
     );
   }

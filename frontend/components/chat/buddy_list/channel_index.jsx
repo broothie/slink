@@ -1,10 +1,15 @@
 import React from 'react';
 
-export default ({ channelInfos }) => (
+export default props => (
   <ul>
     {
-      channelInfos.map((channelInfo, idx) => (
-        <li key={idx}>{channelInfo.name}</li>
+      props.channelInfos.map((channelInfo, idx) => (
+        <button
+          key={idx}
+          onClick={() => props.addWindow(channelInfo.id)}
+        >
+          {channelInfo.name}
+        </button>
       ))
     }
   </ul>
