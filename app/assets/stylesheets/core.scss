@@ -27,6 +27,13 @@ header.title-bar {
   font-weight: bold;
 }
 
+hr.hr-divider {
+  margin-top: 5px;
+
+  border-top: 1px solid $hr-dark-shadow;
+  border-bottom: 1px solid $hr-light-shadow;
+}
+
 input {
   height: 24px;
 

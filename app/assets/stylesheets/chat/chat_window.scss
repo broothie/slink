@@ -23,13 +23,6 @@ $window-content-padding-horz: 10px;
   flex-flow: column;
 
   @include windows-95-pane;
-
-  hr {
-    margin-top: 5px;
-
-    border-top: 1px solid $hr-dark-shadow;
-    border-bottom: 1px solid $hr-light-shadow;
-  }
 }
 
 .chat-window-content {
