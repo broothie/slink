@@ -3,6 +3,7 @@ import { receiveErrors } from './errors_actions';
 
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
+export const CREATE_CABLE = 'CREATE_CABLE';
 
 export const receiveChannel = channel => ({
   type: RECEIVE_CHANNEL,
@@ -12,6 +13,10 @@ export const receiveChannel = channel => ({
 export const receiveChannels = channels => ({
   type: RECEIVE_CHANNELS,
   channels
+});
+
+export const createCable = () => ({
+  type: CREATE_CABLE
 });
 
 export const requestChannel = channelId => dispatch => (

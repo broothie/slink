@@ -12,4 +12,5 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require action_cable
 //= require_tree .

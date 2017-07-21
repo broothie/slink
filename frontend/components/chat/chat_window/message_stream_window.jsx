@@ -3,15 +3,31 @@ import { values } from 'lodash';
 
 export default class MessageStreamWindow extends React.Component {
   componentDidMount() {
-    App.chat = App.cable.subscriptions.create('ChatChannel', {
-      connected: null,
-      received: ({ message }) => this.props.receiveMessage(JSON.parse(message)),
-      disconnected: null
+    const channel = this.props.channel;
+
+    this.connection = this.props.cable.subscriptions.create('ChatChannel', {
+      connected: () => (
+        console.log(`Connected to ${channel.name}, id: ${channel.id}`)
+      ),
+
+      received: (data) => {
+        const message = JSON.parse(data.message);
+        console.log(`Received message id: ${message.id}`);
+        return this.props.receiveMessage(message);
+      },
+
+      disconnected: () => (
+        console.log(`Disconnected from ${channel.name}, id: ${channel.id}`)
+      )
     });
   }
 
   componentDidUpdate(prevProps) {
     this.messageInput.scrollTop = this.messageInput.scrollHeight;
+  }
+
+  componentWillUnmount() {
+    // TODO: Disconnect connection
   }
 
   render() {

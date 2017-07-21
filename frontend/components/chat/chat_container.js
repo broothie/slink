@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
 import Chat from './chat';
-import { requestUserChannels } from '../../actions/channel_actions';
+import { createCable } from '../../actions/channel_actions';
 
-const mapStateToProps = ({ session: { currentUser }, channels, windows }) => ({
+const mapStateToProps = ({ session: { currentUser } }) => ({
   signedOn: Boolean(currentUser)
 });
 
 const mapDispatchToProps = dispatch => ({
-  
+  createCable: () => dispatch(createCable())
 });
 
 export default connect(
