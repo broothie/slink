@@ -1,16 +1,27 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import ChatWindowContainer from './chat_window_container';
-import MessageStreamWindowContainer from './message_stream_window_container';
+// import ChatWindowContainer from './chat_window_container';
+import BuddyListContainer from './buddy_list_container';
 
-export default props => (
-  props.signedOn ? (
-    <main className='chat-main'>
-      <ChatWindowContainer windowName={'Channel 1'} channelId={1}/>
-      <br/>
-      <button onClick={props.signOff}>Sign Off</button>
-    </main>
-  ) : (
-    <Redirect to='/signon'/>
-  )
-);
+// <ChatWindowContainer windowName={'Channel 1'} channelId={1}/>
+export default class Chat extends React.Component {
+  componentWillMount() {
+    this.props.requestUserChannels();
+  }
+
+  render() {
+    if (!this.props.signedOn) {
+      return <Redirect to='/signon'/>;
+    }
+
+    return (
+      <main className='chat-main'>
+        <BuddyListContainer/>
+
+        <br/>
+
+        <button onClick={this.props.signOff}>Sign Off</button>
+      </main>
+    );
+  }
+}

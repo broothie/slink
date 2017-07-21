@@ -1,5 +1,5 @@
 import { merge } from 'lodash';
-import { RECEIVE_CHANNEL } from '../actions/channel_actions';
+import { RECEIVE_CHANNEL, RECEIVE_CHANNELS } from '../actions/channel_actions';
 import { RECEIVE_MESSAGE } from '../actions/message_actions';
 
 export default (state = {}, action) => {
@@ -8,6 +8,9 @@ export default (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_CHANNEL:
       return merge({}, state, { [action.channel.id]: action.channel });
+
+    case RECEIVE_CHANNELS:
+    return action.channels;
 
     case RECEIVE_MESSAGE:
       return merge({}, state, {

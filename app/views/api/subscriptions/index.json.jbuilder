@@ -1,5 +1,5 @@
 @channels.each do |channel|
   json.set! channel.id do
-    json.merge! channel.attributes
+    json.partial! 'api/channels/channel', channel: channel
   end
 end
