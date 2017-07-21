@@ -11,3 +11,11 @@ export const fetchUserChannels = () => (
     url: 'api/subscriptions'
   })
 );
+
+export const searchChannels = channelNameQuery => (
+  $.ajax({
+    type: 'GET',
+    url: 'api/channels',
+    data: { channel: { name_query: channelNameQuery } }
+  })
+);

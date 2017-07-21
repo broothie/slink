@@ -3,7 +3,9 @@ import ReactDOM from 'react-dom';
 import configureStore from './store/store';
 import Root from './components/root';
 
-import * as actions from './actions/window_actions';
+// TODO: Remove testing imports
+import * as APIUtil from './util/channels_api_util';
+import * as actions from './actions/channel_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = window.currentUser ? (
@@ -13,7 +15,9 @@ document.addEventListener('DOMContentLoaded', () => {
   );
   delete window.currentUser;
 
+  // TODO: Remove testing window objects
   window.store = store;
+  window.APIUtil = APIUtil;
   window.actions = actions;
 
   ReactDOM.render(
