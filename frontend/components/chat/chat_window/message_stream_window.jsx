@@ -27,7 +27,7 @@ export default class MessageStreamWindow extends React.Component {
   }
 
   componentWillUnmount() {
-    // TODO: Disconnect connection
+    this.props.cable.subscriptions.remove(this.connection);
   }
 
   render() {
