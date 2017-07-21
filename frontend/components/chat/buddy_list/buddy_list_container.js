@@ -1,16 +1,12 @@
 import { connect } from 'react-redux';
 import BuddyList from './buddy_list';
-import { getChannelInfos } from '../../../reducers/selectors';
-
-const mapStateToProps = (state) => ({
-  channelInfos: getChannelInfos(state)
-});
+import { signOff } from '../../../actions/session_actions';
 
 const mapDispatchToProps = dispatch => ({
-  
+  signOff: () => dispatch(signOff())
 });
 
 export default connect(
-  mapStateToProps,
+  null,
   mapDispatchToProps
 )(BuddyList);
