@@ -5,21 +5,26 @@ export default class MessageStreamWindow extends React.Component {
   componentDidMount() {
     const channel = this.props.channel;
 
-    this.connection = this.props.cable.subscriptions.create('ChatChannel', {
-      connected: () => (
-        console.log(`Connected to ${channel.name}, id: ${channel.id}`)
-      ),
+    this.connection = this.props.cable.subscriptions.create(
+      {
+        channel: 'ChatChannel',
+        id: channel.id
+      }, {
+        connected: () => (
+          console.log(`Connected to ${channel.name}, id: ${channel.id}`)
+        ),
 
-      received: (data) => {
-        const message = JSON.parse(data.message);
-        console.log(`Received message id: ${message.id}`);
-        return this.props.receiveMessage(message);
-      },
+        received: (data) => {
+          const message = JSON.parse(data.message);
+          console.log(`Received message id: ${message.id}`);
+          return this.props.receiveMessage(message);
+        },
 
-      disconnected: () => (
-        console.log(`Disconnected from ${channel.name}, id: ${channel.id}`)
-      )
-    });
+        disconnected: () => (
+          console.log(`Disconnected from ${channel.name}, id: ${channel.id}`)
+        )
+      }
+    );
   }
 
   componentDidUpdate(prevProps) {

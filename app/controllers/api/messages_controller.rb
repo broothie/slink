@@ -2,14 +2,16 @@ class Api::MessagesController < ApplicationController
   before_action :require_signed_on!
 
   def create
+    channel = Channel.find(params[:channel_id])
+
     @message = Message.new(
       message_params
         .merge(author_id: current_user.id)
-        .merge(channel_id: params[:channel_id])
+        .merge(channel_id: channel.id)
     )
 
     if @message.save
-      ActionCable.server.broadcast 'messages', message: render(:show)
+      ChatChannel.broadcast_to(channel, message: render(:show))
     else
       render json: @message.errors.full_messages, status: 422
     end
