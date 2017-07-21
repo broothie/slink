@@ -32,6 +32,11 @@ class User < ApplicationRecord
     through: :subscriptions,
     source: :channel
 
+  has_many :owned_channels,
+    primary_key: :id,
+    foreign_key: :owner_id,
+    class_name: :Channel
+
   def self.find_by_credentials(screenname, password)
     user = find_by(screenname: screenname)
     return user if user && user.is_password?(password)

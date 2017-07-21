@@ -7,11 +7,16 @@
 #  team_id    :integer
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  owner_id   :integer          default(1), not null
 #
 
 class Channel < ApplicationRecord
-  validates :name, presence: true # TODO: Validate team_id
+  validates :name, presence: true
 
   has_many :users
   has_many :messages
+  belongs_to :owner,
+    primary_key: :id,
+    foreign_key: :owner_id,
+    class_name: :User
 end
