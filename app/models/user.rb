@@ -32,9 +32,6 @@ class User < ApplicationRecord
     through: :subscriptions,
     source: :channel
 
-  # TODO: Add memberships association
-  # TODO: Add teams association
-
   def self.find_by_credentials(screenname, password)
     user = find_by(screenname: screenname)
     return user if user && user.is_password?(password)

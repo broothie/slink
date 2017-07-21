@@ -14,5 +14,4 @@ class Channel < ApplicationRecord
 
   has_many :users
   has_many :messages
-  # belongs_to :team # TODO: Create team association
 end
