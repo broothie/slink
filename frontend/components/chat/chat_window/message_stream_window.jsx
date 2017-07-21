@@ -1,4 +1,5 @@
 import React from 'react';
+import MessageItem from './message_item';
 import { values } from 'lodash';
 
 export default class MessageStreamWindow extends React.Component {
@@ -40,23 +41,16 @@ export default class MessageStreamWindow extends React.Component {
   render() {
     const channel = this.props.channel;
     const streamIdentifier = `message-stream-channel-${channel.id}`;
+    const messages = values(channel.messages);
 
     return (
-      <textarea
-        className={`message-stream-window ${streamIdentifier}`}
-        ref={input => { this.messageInput = input; }}
-        rows='6'
-        readOnly
-        value={
-          channel ? (
-            values(channel.messages).map(message => (
-              `${message.authorScreenname}: ${message.body}`
-            )).join('\n')
-          ) : (
-            ''
-          )
+      <ul ref={input => { this.messageInput = input; }}>
+        {
+          messages.map((message, idx) => (
+            <MessageItem key={idx} message={message}/>
+          ))
         }
-      />
+      </ul>
     );
   }
 }

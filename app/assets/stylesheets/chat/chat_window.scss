@@ -12,6 +12,8 @@ $window-content-padding-horz: 10px;
   flex-flow: column;
 
   @include windows-95-pane;
+
+  margin-bottom: 50px;
 }
 
 .chat-window-content {
@@ -23,6 +25,17 @@ $window-content-padding-horz: 10px;
   padding: $window-content-padding-vert $window-content-padding-horz;
 
   box-sizing: border-box;
+
+  ul {
+    @include text-input;
+    padding: 5px 8px;
+    overflow: scroll;
+    height: 180px;
+
+    li {
+
+    }
+  }
 
   textarea {
     width: 100%;
