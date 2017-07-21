@@ -27,6 +27,20 @@ header.title-bar {
   font-weight: bold;
 }
 
+header.title-bar-with-exit {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+
+  button {
+    padding: 0px 3px;
+    margin-right: -2px;
+
+    color: black;
+    font-family: sans-serif;
+  }
+}
+
 hr.hr-divider {
   margin: 2.5px 0;
 
@@ -45,6 +59,7 @@ input {
 textarea {
   padding: 5px 8px;
   @include text-input;
+  resize: none;
 }
 
 button {

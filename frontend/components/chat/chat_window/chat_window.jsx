@@ -39,8 +39,13 @@ export default class ChatWindow extends React.Component {
 
     return (
       <div className='chat-window'>
-        <header className='title-bar'>
+        <header className='title-bar title-bar-with-exit'>
           {channel.name} - Instant Message
+          <button
+            onClick={() => this.props.closeWindow()}
+          >
+            X
+          </button>
         </header>
 
         <hr className='hr-divider'/>
@@ -59,12 +64,9 @@ export default class ChatWindow extends React.Component {
 
           <footer>
             <button
-              onClick={() => this.props.closeWindow()}
-              >Close
-            </button>
-            <button
               onClick={this.sendMessage}
-              >Send
+            >
+              Send
             </button>
           </footer>
         </div>
