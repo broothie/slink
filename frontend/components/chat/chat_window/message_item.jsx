@@ -1,7 +1,17 @@
 import React from 'react';
 
-export default ({ message: { id, authorScreenname, body}}) => (
-  <li>
-    {authorScreenname}: {body}
-  </li>
-);
+export default ({ currentUser, message: { authorScreenname, body}}) => {
+  const klass = currentUser.screenname === authorScreenname ? (
+    'ownUser-message'
+  ) : (
+    'foreignUser-message'
+  );
+
+  return (
+    <li>
+      <span className={klass}>
+        {authorScreenname}
+      </span>: {body}
+    </li>
+  );
+};

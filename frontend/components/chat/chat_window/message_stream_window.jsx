@@ -1,5 +1,5 @@
 import React from 'react';
-import MessageItem from './message_item';
+import MessageItemContainer from './message_item_container';
 import { values } from 'lodash';
 
 export default class MessageStreamWindow extends React.Component {
@@ -47,7 +47,7 @@ export default class MessageStreamWindow extends React.Component {
       <ul ref={input => { this.messageInput = input; }}>
         {
           messages.map((message, idx) => (
-            <MessageItem key={idx} message={message}/>
+            <MessageItemContainer key={idx} message={message}/>
           ))
         }
       </ul>

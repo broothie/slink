@@ -33,14 +33,16 @@ $window-content-padding-horz: 10px;
     height: 180px;
 
     li {
+      font-family: serif;
 
+      .ownUser-message {
+        color: blue;
+      }
+
+      .foreignUser-message {
+        color: red;
+      }
     }
-  }
-
-  textarea {
-    width: 100%;
-    resize: none;
-    font-family: serif;
   }
 
   footer {
@@ -52,13 +54,4 @@ $window-content-padding-horz: 10px;
       margin: 5px 5px;
     }
   }
-}
-
-.message-stream-window {
-  width: 100%;
-
-  resize: none;
-
-  font-family: serif;
-  font-weight: normal;
 }
