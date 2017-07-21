@@ -5,7 +5,9 @@ export default ({ channels }) => (
   <ul>
     {
       channels.map((channel, idx) => (
-        <ChatWindowContainer key={idx} channel={channel}/>
+        <li>
+          <ChatWindowContainer key={idx} channel={channel}/>
+        </li>
       ))
     }
   </ul>

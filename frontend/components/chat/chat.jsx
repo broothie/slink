@@ -15,11 +15,13 @@ export default class Chat extends React.Component {
 
     return (
       <main className='chat-main'>
-        <BuddyListContainer/>
+        <section>
+          <BuddyListContainer/>
+        </section>
 
-        <br/>
-
-        <ChatWindowIndexContainer/>
+        <section>
+          <ChatWindowIndexContainer/>
+        </section>
       </main>
     );
   }

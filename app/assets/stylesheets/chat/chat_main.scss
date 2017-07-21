@@ -1,2 +1,31 @@
+.chat-main {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: center;
+
+  // Buddy List
+  section:first-child {
+    margin: auto 60px;
+  }
+
+  // Chat windows
+  section:last-child {
+    flex: 1;
+
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+
+    ul li {
+      margin-bottom: 50px;
+    }
+  }
+}
+
 @import 'chat_window.scss';
 @import 'buddy_list.scss';
