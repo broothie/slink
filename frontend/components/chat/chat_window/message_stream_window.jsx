@@ -25,9 +25,11 @@ export default class MessageStreamWindow extends React.Component {
         )
       }
     );
+
+    this.messageInput.scrollTop = this.messageInput.scrollHeight;
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate() {
     this.messageInput.scrollTop = this.messageInput.scrollHeight;
   }
 
