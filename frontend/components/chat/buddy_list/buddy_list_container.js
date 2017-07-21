@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import BuddyList from './buddy_list';
-import { getChannelInfos } from '../../reducers/selectors';
+import { getChannelInfos } from '../../../reducers/selectors';
 
 const mapStateToProps = (state) => ({
   channelInfos: getChannelInfos(state)
