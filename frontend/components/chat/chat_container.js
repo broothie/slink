@@ -5,7 +5,7 @@ import { requestUserChannels } from '../../actions/channel_actions';
 import { values } from 'lodash';
 
 const mapStateToProps = ({ session: { currentUser }, channels, windows }) => ({
-  channels: values(channels).filter(channel => windows.includes(channel.id)),
+  channels: windows.map(idx => channels[idx]),
   signedOn: Boolean(currentUser)
 });
 
