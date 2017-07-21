@@ -7,15 +7,15 @@ export default class ChannelIndex extends React.Component {
 
   render() {
     return (
-      <ul>
+      <ul className='channel-index'>
         {
           this.props.channelInfos.map((channelInfo, idx) => (
-            <button
+            <li
               key={idx}
               onClick={() => this.props.addWindow(channelInfo.id)}
             >
-              {channelInfo.name}
-            </button>
+               - {channelInfo.name}
+            </li>
           ))
         }
       </ul>

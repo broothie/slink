@@ -3,7 +3,17 @@ import ChannelIndexContainer from './channel_index_container';
 
 export default ({ signOff }) => (
   <div className='buddy-list'>
-    <button onClick={signOff}>Sign Off</button>
-    <ChannelIndexContainer/>
+    <header className='title-bar'>Buddy List</header>
+    <div className='buddy-list-content'>
+      <label>Channels</label>
+
+      <ChannelIndexContainer/>
+
+      <hr className='hr-divider'/>
+
+      <footer>
+        <button onClick={signOff}>Sign Off</button>
+      </footer>
+    </div>
   </div>
 );

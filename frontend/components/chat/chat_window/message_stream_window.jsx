@@ -40,23 +40,21 @@ export default class MessageStreamWindow extends React.Component {
     const streamIdentifier = `message-stream-channel-${channel.id}`;
 
     return (
-      <div>
-        <textarea
-          className={`message-stream-window ${streamIdentifier}`}
-          ref={input => { this.messageInput = input; }}
-          rows='6'
-          readOnly
-          value={
-            channel ? (
-              values(channel.messages).map(message => (
-                `${message.authorScreenname}: ${message.body}`
-              )).join('\n')
-            ) : (
-              ''
-            )
-          }
-        />
-      </div>
+      <textarea
+        className={`message-stream-window ${streamIdentifier}`}
+        ref={input => { this.messageInput = input; }}
+        rows='6'
+        readOnly
+        value={
+          channel ? (
+            values(channel.messages).map(message => (
+              `${message.authorScreenname}: ${message.body}`
+            )).join('\n')
+          ) : (
+            ''
+          )
+        }
+      />
     );
   }
 }

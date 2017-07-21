@@ -1,0 +1,39 @@
+
+.buddy-list {
+  @include windows-95-pane;
+
+  width: 200px;
+  height: 500px;
+
+  display: flex;
+  flex-flow: column;
+}
+
+.buddy-list-content {
+  flex: 1;
+
+  padding: 5px 10px;
+
+  display: flex;
+  flex-flow: column;
+
+  label {
+    margin-bottom: 3px;
+  }
+}
+
+.channel-index {
+  @include text-input;
+
+  flex: 1;
+
+  padding: 5px 8px;
+
+  li {
+    cursor: pointer;
+
+    &:hover {
+      background-color: $square-title-logo-yellow;
+    }
+  }
+}

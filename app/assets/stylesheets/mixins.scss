@@ -11,6 +11,8 @@
 @mixin windows-95-pane {
   background-color: $pane-gray;
   @include windows-95-outset;
+
+  padding: 5px;
 }
 
 @mixin gradient-background($left, $right) {
