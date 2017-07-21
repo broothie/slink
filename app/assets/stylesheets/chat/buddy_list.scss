@@ -37,3 +37,21 @@
     }
   }
 }
+
+.add-channel {
+  box-sizing: border-box;
+
+  input {
+    width: 100%;
+
+  }
+  ul {
+    @include text-input;
+    height: 100px;
+    padding: 5px 8px;
+
+    li {
+      cursor: pointer;
+    }
+  }
+}
