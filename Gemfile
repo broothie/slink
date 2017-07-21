@@ -51,7 +51,6 @@ group :development do
 
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'pry-rails'
   gem 'annotate'
 
   gem 'guard-livereload', '~> 2.5', require: false
