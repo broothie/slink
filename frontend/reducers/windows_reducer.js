@@ -23,7 +23,7 @@ export default (state = defaultState, action) => {
 
     case REMOVE_CHAT_WINDOW:
       chatWindowsSet.delete(action.channelId);
-      return merge({}, state, { chatWindows: Array.from(chatWindowsSet)});
+      return Object.assign({}, state, { chatWindows: Array.from(chatWindowsSet)});
 
     case CLEAR_WINDOWS:
       return defaultState;

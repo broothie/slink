@@ -14,7 +14,9 @@ class Api::ChannelsController < ApplicationController
   def show
     @channel = Channel.find_by(id: params[:id])
     if @channel
-      current_user.channels << @channel
+      unless current_user.channels.include?(@channel)
+        current_user.channels << @channel
+      end
       render :show
     else
       render json: ["Channel doesn't exist"], status: 404

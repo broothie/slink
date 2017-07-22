@@ -49,6 +49,7 @@
     @include text-input;
     height: 100px;
     padding: 5px 8px;
+    overflow: scroll;
 
     li {
       cursor: pointer;

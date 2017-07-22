@@ -40,7 +40,6 @@ export default class MessageStreamWindow extends React.Component {
 
   render() {
     const channel = this.props.channel;
-    const streamIdentifier = `message-stream-channel-${channel.id}`;
     const messages = values(channel.messages);
 
     return (
