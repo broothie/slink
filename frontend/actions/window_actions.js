@@ -10,3 +10,7 @@ export const removeChatWindow = channelId => ({
   type: REMOVE_CHAT_WINDOW,
   channelId
 });
+
+export const clearWindows = () => ({
+  type: CLEAR_WINDOWS
+});

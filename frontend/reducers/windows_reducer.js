@@ -1,20 +1,32 @@
 import {
   RECEIVE_CHAT_WINDOW,
-  REMOVE_CHAT_WINDOW
+  REMOVE_CHAT_WINDOW,
+  CLEAR_WINDOWS
 } from '../actions/window_actions';
 import { merge } from 'lodash';
 
-export default (state = [], action) => {
+const defaultState = {
+  chatWindows: [],
+  utilityWindows: {
+    addChannel: false
+  }
+};
+
+export default (state = defaultState, action) => {
   Object.freeze(state);
 
-  const stateSet = new Set(state);
+  const chatWindowsSet = new Set(state.chatWindows);
   switch (action.type) {
     case RECEIVE_CHAT_WINDOW:
-      return Array.from(stateSet.add(action.channelId));
+      return merge({}, state, { chatWindows: [action.channelId] });
 
     case REMOVE_CHAT_WINDOW:
-      stateSet.delete(action.channelId);
-      return Array.from(stateSet);
+      chatWindowsSet.delete(action.channelId);
+      console.log(chatWindowsSet);
+      return Object.assign({}, state, { chatWindows: Array.from(chatWindowsSet)});
+
+    case CLEAR_WINDOWS:
+      return defaultState;
 
     default:
       return state;
