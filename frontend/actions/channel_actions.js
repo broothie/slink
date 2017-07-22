@@ -25,6 +25,11 @@ export const receiveChannelsQueryList = channels => ({
   channels
 });
 
+export const clearChannelsQueryList = () => ({
+  type: RECEIVE_CHANNELS_QUERY_LIST,
+  channels: []
+});
+
 export const requestChannel = channelId => dispatch => (
   APIUtil.fetchChannel(channelId).then(
     channel => dispatch(receiveChannel(channel)),

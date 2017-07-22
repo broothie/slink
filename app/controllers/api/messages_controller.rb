@@ -2,7 +2,7 @@ class Api::MessagesController < ApplicationController
   before_action :require_signed_on!
 
   def create
-    channel = Channel.find(params[:channel_id])
+    channel = Channel.find_by(id: params[:channel_id])
 
     @message = Message.new(
       message_params

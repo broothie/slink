@@ -11,6 +11,10 @@ export default class AddChannel extends React.Component {
     this.queryUpdate = this.queryUpdate.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearChannelsList();
+  }
+
   queryUpdate(e) {
     this.setState({ query: e.target.value });
     this.props.queryChannels(e.target.value);
