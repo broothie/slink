@@ -18,12 +18,12 @@ export default (state = defaultState, action) => {
   const chatWindowsSet = new Set(state.chatWindows);
   switch (action.type) {
     case RECEIVE_CHAT_WINDOW:
-      return merge({}, state, { chatWindows: [action.channelId] });
+      chatWindowsSet.add(action.channelId);
+      return merge({}, state, { chatWindows: Array.from(chatWindowsSet) });
 
     case REMOVE_CHAT_WINDOW:
       chatWindowsSet.delete(action.channelId);
-      console.log(chatWindowsSet);
-      return Object.assign({}, state, { chatWindows: Array.from(chatWindowsSet)});
+      return merge({}, state, { chatWindows: Array.from(chatWindowsSet)});
 
     case CLEAR_WINDOWS:
       return defaultState;
