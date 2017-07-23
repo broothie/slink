@@ -1,11 +1,25 @@
 import React from 'react';
 import ChannelIndexContainer from './channel_index_container';
 
-export default ({ signOff }) => (
+export default ({ signOff, openWindow }) => (
   <div className='buddy-list'>
-    <header className='title-bar'>Buddy List</header>
+    <header className='title-bar'>Channel List</header>
     <div className='buddy-list-content'>
-      <label>Channels</label>
+      <div className='button-row'>
+        <button
+          onClick={() => openWindow('addChannel')}
+        >
+          Add Channel
+        </button>
+
+        <button
+          onClick={() => openWindow('createChannel')}
+        >
+          New Channel
+        </button>
+      </div>
+
+      <hr className='hr-divider'/>
 
       <ChannelIndexContainer/>
 

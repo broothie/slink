@@ -16,9 +16,15 @@
 
   display: flex;
   flex-flow: column;
+}
 
-  label {
-    margin-bottom: 3px;
+.button-row {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+
+  button {
+    font-size: 13px;
   }
 }
 
