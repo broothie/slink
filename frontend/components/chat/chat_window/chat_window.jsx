@@ -38,7 +38,10 @@ export default class ChatWindow extends React.Component {
   sendMessage() {
     this.props.sendMessage(this.state.message).then(() => (
       this.setState({ message: '' })
-    )).then(() => (this.sendSound.play()));
+    )).then(() => {
+      this.props.clearErrors();
+      return this.sendSound.play();
+    });
   }
 
   render() {
@@ -48,7 +51,7 @@ export default class ChatWindow extends React.Component {
       <div className='chat-window'>
         <header className='title-bar title-bar-with-exit'>
           {channel.name} - Instant Message
-          
+
           <button
             onClick={() => this.props.closeWindow()}
           >
