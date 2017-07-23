@@ -44,7 +44,7 @@ export default (state = defaultState, action) => {
     case REMOVE_UTILITY_WINDOW:
       utilityWindowsSet.delete(componentMap[action.windowName]);
       return Object.assign({}, state, {
-        utilityWindows: Array.from(action.windowName)
+        utilityWindows: Array.from(utilityWindowsSet)
       });
 
     case CLEAR_WINDOWS:
