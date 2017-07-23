@@ -2,17 +2,28 @@
 .add-channel {
   @include windows-95-pane;
   box-sizing: border-box;
+  width: 225px;
+  height: 300px;
+
+  display: flex;
+  flex-flow: column;
 
   .add-channel-content {
+    flex: 1;
     padding: 5px;
+
+    display: flex;
+    flex-flow: column;
 
     input {
       width: 100%;
+      margin-bottom: 5px;
     }
 
     ul {
       @include text-input;
-      height: 100px;
+      flex: 1;
+
       padding: 5px 8px;
       overflow: scroll;
 
