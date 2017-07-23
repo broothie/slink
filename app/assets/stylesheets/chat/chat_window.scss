@@ -5,15 +5,16 @@ $window-content-padding-horz: 10px;
 
 .chat-window {
   width: $window-width;
-
   padding: $window-padding;
+
+  position: fixed;
 
   display: flex;
   flex-flow: column;
 
   @include windows-95-pane;
 
-  margin-bottom: 20px;
+  // margin-bottom: 20px;
 }
 
 .chat-window-content {
