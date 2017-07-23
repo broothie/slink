@@ -2,6 +2,7 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
+      @user.channels << Channel.find_by(name: 'World Chat')
       sign_on!(@user)
       render :show
     else

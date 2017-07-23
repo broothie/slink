@@ -18,7 +18,7 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  after_initialize :ensure_icon_url
+  before_validation :ensure_icon_url
   before_validation :ensure_session_token
 
   has_many :messages,
@@ -35,7 +35,8 @@ class User < ApplicationRecord
   has_many :owned_channels,
     primary_key: :id,
     foreign_key: :owner_id,
-    class_name: :Channel
+    class_name: :Channel,
+    dependent: :destroy
 
   def self.find_by_credentials(screenname, password)
     user = find_by(screenname: screenname)

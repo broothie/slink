@@ -20,7 +20,8 @@ class Channel < ApplicationRecord
     through: :subscriptions,
     source: :user
 
-  has_many :messages
+  has_many :messages, dependent: :destroy
+
   belongs_to :owner,
     primary_key: :id,
     foreign_key: :owner_id,
