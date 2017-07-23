@@ -23,26 +23,35 @@ export default class AddChannel extends React.Component {
   render() {
     return (
       <form className='add-channel'>
-        <label>Add Channel</label>
-        <input
-          type='text'
-          placeholder='Search for channels'
-          value={this.state.query}
-          onChange={this.queryUpdate}
-        />
+        <header className='title-bar title-bar-with-exit'>
+          Add Channel
 
-        <ul>
-          {
-            this.props.channelQuerys.map((channelQuery, idx) => (
-              <li
-                key={idx}
-                onDoubleClick={() => this.props.addChannel(channelQuery.id)}
-              >
-                {channelQuery.name}
-              </li>
-            ))
-          }
-        </ul>
+          <button
+            onClick={this.props.closeWindow}
+          >X</button>
+        </header>
+
+        <div className='add-channel-content'>
+          <input
+            type='text'
+            placeholder='Search for channels'
+            value={this.state.query}
+            onChange={this.queryUpdate}
+          />
+
+          <ul>
+            {
+              this.props.channelQuerys.map((channelQuery, idx) => (
+                <li
+                  key={idx}
+                  onDoubleClick={() => this.props.addChannel(channelQuery.id)}
+                >
+                  {channelQuery.name}
+                </li>
+              ))
+            }
+          </ul>
+        </div>
       </form>
     );
   }

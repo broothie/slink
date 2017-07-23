@@ -1,0 +1,28 @@
+
+.add-channel {
+  @include windows-95-pane;
+  box-sizing: border-box;
+
+  .add-channel-content {
+    padding: 5px;
+
+    input {
+      width: 100%;
+    }
+
+    ul {
+      @include text-input;
+      height: 100px;
+      padding: 5px 8px;
+      overflow: scroll;
+
+      li {
+        cursor: pointer;
+
+        &:hover {
+          background-color: $square-title-logo-yellow;
+        }
+      }
+    }
+  }
+}

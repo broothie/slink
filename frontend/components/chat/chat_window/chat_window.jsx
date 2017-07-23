@@ -48,6 +48,7 @@ export default class ChatWindow extends React.Component {
       <div className='chat-window'>
         <header className='title-bar title-bar-with-exit'>
           {channel.name} - Instant Message
+          
           <button
             onClick={() => this.props.closeWindow()}
           >
