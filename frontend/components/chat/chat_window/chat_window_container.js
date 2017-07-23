@@ -3,6 +3,10 @@ import ChatWindow from './chat_window';
 import { createMessage } from '../../../actions/message_actions';
 import { removeChatWindow } from '../../../actions/window_actions';
 
+const mapStateToProps = ({ errors }) => ({
+  errors
+});
+
 const mapDispatchToProps = (dispatch, { channel: { id } }) => ({
   sendMessage: body => dispatch(createMessage(id, {
     body,
@@ -12,6 +16,6 @@ const mapDispatchToProps = (dispatch, { channel: { id } }) => ({
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(ChatWindow);

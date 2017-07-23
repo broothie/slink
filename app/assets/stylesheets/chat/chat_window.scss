@@ -26,25 +26,6 @@ $window-content-padding-horz: 10px;
 
   box-sizing: border-box;
 
-  ul {
-    @include text-input;
-    padding: 5px 8px;
-    overflow: scroll;
-    height: 180px;
-
-    li {
-      font-family: serif;
-
-      .ownUser-message {
-        color: blue;
-      }
-
-      .foreignUser-message {
-        color: red;
-      }
-    }
-  }
-
   footer {
     display: flex;
     justify-content: flex-end;
@@ -52,6 +33,25 @@ $window-content-padding-horz: 10px;
 
     button {
       margin: 5px 5px;
+    }
+  }
+}
+
+.message-stream-window {
+  @include text-input;
+  padding: 5px 8px;
+  overflow: scroll;
+  height: 180px;
+
+  li {
+    font-family: serif;
+
+    .ownUser-message {
+      color: blue;
+    }
+
+    .foreignUser-message {
+      color: red;
     }
   }
 }

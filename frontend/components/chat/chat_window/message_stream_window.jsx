@@ -54,7 +54,10 @@ export default class MessageStreamWindow extends React.Component {
     const messages = values(channel.messages);
 
     return (
-      <ul ref={input => { this.messageInput = input; }}>
+      <ul
+        className='message-stream-window'
+        ref={input => { this.messageInput = input; } }
+      >
         {
           messages.map((message, idx) => (
             <MessageItemContainer key={idx} message={message}/>

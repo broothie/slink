@@ -70,6 +70,14 @@ export default class ChatWindow extends React.Component {
           />
 
           <footer>
+            <ul>
+              {
+                this.props.errors.map((errorText, idx) => (
+                  <li key={idx}>{errorText}</li>
+                ))
+              }
+            </ul>
+
             <button
               onClick={this.handleSend}
             >
