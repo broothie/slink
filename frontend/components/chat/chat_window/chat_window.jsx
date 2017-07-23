@@ -52,7 +52,10 @@ export default class ChatWindow extends React.Component {
     const channel = this.props.channel;
 
     return (
-      <div className='chat-window'>
+      <div
+        className='chat-window'
+        ref={pane => {$(pane).draggable({ handle: 'header' });}}
+      >
         <header className='title-bar title-bar-with-exit'>
           {channel.name} - Instant Message
 

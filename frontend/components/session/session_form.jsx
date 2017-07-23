@@ -55,7 +55,10 @@ class SessionForm extends React.Component {
 
     return (
       <main className='session-main'>
-        <form className='session-form'>
+        <form
+          className='session-form'
+          ref={pane => {$(pane).draggable({ handle: 'header' });}}
+        >
           <header className='title-bar'>
             {formHeader}
           </header>

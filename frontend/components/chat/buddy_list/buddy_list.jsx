@@ -2,7 +2,10 @@ import React from 'react';
 import ChannelIndexContainer from './channel_index_container';
 
 export default ({ signOff, openWindow }) => (
-  <div className='buddy-list'>
+  <div
+    className='buddy-list'
+    ref={pane => {$(pane).draggable({ handle: 'header' });}}
+  >
     <header className='title-bar'>Channel List</header>
     <div className='buddy-list-content'>
       <div className='button-row'>

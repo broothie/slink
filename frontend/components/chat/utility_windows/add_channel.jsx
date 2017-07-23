@@ -26,7 +26,10 @@ export default class AddChannel extends React.Component {
 
   render() {
     return (
-      <form className='add-channel'>
+      <form
+        className='add-channel'
+        ref={pane => {$(pane).draggable({ handle: 'header' });}}
+      >
         <header className='title-bar title-bar-with-exit'>
           Add Channel
 
