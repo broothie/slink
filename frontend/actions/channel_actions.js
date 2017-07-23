@@ -40,7 +40,7 @@ export const requestChannel = channelId => dispatch => (
 export const subscribeToChannel = channelId => dispatch => (
   APIUtil.subscribeToChannel(channelId).then(
     channel => dispatch(receiveChannel(channel)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
 
@@ -59,6 +59,6 @@ export const queryChannels = nameQuery => dispatch => (
 export const createChannel = channelName => dispatch => (
   APIUtil.createChannel(channelName).then(
     channel => dispatch(receiveChannel(channel)),
-    errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );

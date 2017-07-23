@@ -22,7 +22,6 @@ $content-spacing: 10px;
     flex-flow: column;
 
     @include windows-95-pane;
-
   }
 }
 
@@ -39,12 +38,14 @@ $content-spacing: 10px;
     display: flex;
     flex-flow: column;
 
+    box-sizing: border-box;
+
     label {
       font-weight: bold;
     }
 
     input {
-      width: 90%;
+      width: 100%;
     }
 
     a {

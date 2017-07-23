@@ -19,6 +19,10 @@ export default class ChatWindow extends React.Component {
     this.handleSend = this.handleSend.bind(this);
   }
 
+  componentDidMount() {
+    this.input.focus();
+  }
+
   updateMessage(e) {
     this.setState({ message: e.target.value });
   }
@@ -71,6 +75,7 @@ export default class ChatWindow extends React.Component {
             onChange={this.updateMessage}
             onKeyPress={this.handleEnter}
             rows='2'
+            ref={input => {this.input = input;}}
           />
 
           <footer>

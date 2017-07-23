@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default props => (
-  <ul>
+  <ul className='utility-windows'>
     {
       props.utilityWindows.map((Component, idx) => (
         <li key={idx}>

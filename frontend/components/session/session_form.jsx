@@ -14,6 +14,10 @@ class SessionForm extends React.Component {
     this.handleDemoClick = this.handleDemoClick.bind(this);
   }
 
+  componentDidMount() {
+    this.screenNameInput.focus();
+  }
+
   componentWillUnmount() {
     this.props.clearErrors();
   }
@@ -69,6 +73,7 @@ class SessionForm extends React.Component {
                 onChange={this.update('screenname')}
                 value={this.state.screenname}
                 tabIndex='1'
+                ref={input => {this.screenNameInput = input;}}
               />
               <Link to={authSwitchLink}>{authSwitchText}</Link>
             </fieldset>

@@ -11,6 +11,10 @@ export default class AddChannel extends React.Component {
     this.queryUpdate = this.queryUpdate.bind(this);
   }
 
+  componentDidMount() {
+    this.input.focus();
+  }
+
   componentWillUnmount() {
     this.props.clearChannelsList();
   }
@@ -37,6 +41,7 @@ export default class AddChannel extends React.Component {
             placeholder='Search for channels'
             value={this.state.query}
             onChange={this.queryUpdate}
+            ref={input => {this.input = input;}}
           />
 
           <ul>

@@ -1,0 +1,27 @@
+
+.create-channel {
+  @include windows-95-pane;
+
+  width: 250px;
+}
+
+.create-channel-content {
+  padding: 5px;
+
+  box-sizing: border-box;
+
+  input[type='text'] {
+    width: 100%;
+  }
+
+  footer {
+    display: flex;
+    flex-flow: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    button {
+      margin: 5px;
+    }
+  }
+}
