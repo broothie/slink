@@ -6,10 +6,11 @@ Rails.application.routes.draw do
 
     resource :session, only: %i[create destroy]
 
-    resources :subscriptions, only: %i[index create destroy]
+    resources :subscriptions, only: %i[index destroy]
 
     resources :channels, only: %i[create index show] do
       resources :messages, only: %i[create]
+      resources :subscriptions, only: %i[create]
     end
   end
 

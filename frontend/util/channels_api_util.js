@@ -5,6 +5,13 @@ export const fetchChannel = channelId => (
   })
 );
 
+export const subscribeToChannel = channelId => (
+  $.ajax({
+    type: 'POST',
+    url: `api/channels/${channelId}/subscriptions`
+  })
+);
+
 export const fetchUserChannels = () => (
   $.ajax({
     type: 'GET',
@@ -17,5 +24,13 @@ export const searchChannels = channelNameQuery => (
     type: 'GET',
     url: 'api/channels',
     data: { channel: { name_query: channelNameQuery } }
+  })
+);
+
+export const createChannel = channelName => (
+  $.ajax({
+    type: 'POST',
+    url: 'api/channels',
+    data: { channel: { name: channelName } }
   })
 );

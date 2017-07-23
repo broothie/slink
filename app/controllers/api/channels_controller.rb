@@ -9,14 +9,17 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
+    @channel = Channel.new(channel_params.merge(owner_id: current_user.id))
+    if @channel.save
+      render :show
+    else
+      render json: @channel.errors.full_messages, status: 422
+    end
   end
 
   def show
     @channel = Channel.find_by(id: params[:id])
     if @channel
-      unless current_user.channels.include?(@channel)
-        current_user.channels << @channel
-      end
       render :show
     else
       render json: ["Channel doesn't exist"], status: 404
@@ -27,5 +30,9 @@ class Api::ChannelsController < ApplicationController
 
   def channel_query_params
     params.require(:channel).permit(:name_query)
+  end
+
+  def channel_params
+    params.require(:channel).permit(:name)
   end
 end

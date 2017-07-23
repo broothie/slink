@@ -37,6 +37,13 @@ export const requestChannel = channelId => dispatch => (
   )
 );
 
+export const subscribeToChannel = channelId => dispatch => (
+  APIUtil.subscribeToChannel(channelId).then(
+    channel => dispatch(receiveChannel(channel)),
+    errors => dispatch(receiveErrors(errors))
+  )
+);
+
 export const requestUserChannels = () => dispatch => (
   APIUtil.fetchUserChannels().then(
     channels => dispatch(receiveChannels(channels))
