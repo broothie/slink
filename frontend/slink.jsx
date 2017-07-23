@@ -4,8 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // TODO: Remove testing imports
-import * as APIUtil from './util/channels_api_util';
-import * as actions from './actions/channel_actions';
+// import * as APIUtil from './util/channels_api_util';
+import * as actions from './actions/window_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = window.currentUser ? (
@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // TODO: Remove testing window objects
   window.store = store;
-  window.APIUtil = APIUtil;
+  // window.APIUtil = APIUtil;
   window.actions = actions;
 
   ReactDOM.render(

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
 import BuddyListContainer from './buddy_list/buddy_list_container';
+import UtilityWindowsContainer from './utility_windows/utility_windows_container';
 import ChatWindowIndexContainer from './chat_window/chat_window_index_container';
 
 export default class Chat extends React.Component {
@@ -20,6 +21,7 @@ export default class Chat extends React.Component {
         </section>
 
         <section>
+          <UtilityWindowsContainer/>
           <ChatWindowIndexContainer/>
         </section>
       </main>

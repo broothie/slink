@@ -1,8 +1,6 @@
 import React from 'react';
 import ChannelIndexContainer from './channel_index_container';
 
-import AddChannelContainer from '../channel_windows/add_channel_container';
-
 export default ({ signOff }) => (
   <div className='buddy-list'>
     <header className='title-bar'>Buddy List</header>
@@ -10,10 +8,6 @@ export default ({ signOff }) => (
       <label>Channels</label>
 
       <ChannelIndexContainer/>
-
-      <hr className='hr-divider'/>
-
-      <AddChannelContainer/>
 
       <hr className='hr-divider'/>
 
