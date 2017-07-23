@@ -11,6 +11,7 @@ class Api::ChannelsController < ApplicationController
   def create
     @channel = Channel.new(channel_params.merge(owner_id: current_user.id))
     if @channel.save
+      current_user.channels << @channel
       render :show
     else
       render json: @channel.errors.full_messages, status: 422

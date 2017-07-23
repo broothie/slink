@@ -55,3 +55,10 @@ export const queryChannels = nameQuery => dispatch => (
     channels => dispatch(receiveChannelsQueryList(channels))
   )
 );
+
+export const createChannel = channelName => dispatch => (
+  APIUtil.createChannel(channelName).then(
+    channel => dispatch(receiveChannel(channel)),
+    errors => dispatch(receiveErrors(errors))
+  )
+);

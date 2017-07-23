@@ -12,13 +12,14 @@
 
 class Channel < ApplicationRecord
   validates :name, presence: true
+  validates :name, uniqueness: true
 
   has_many :subscriptions
 
   has_many :users,
     through: :subscriptions,
     source: :user
-    
+
   has_many :messages
   belongs_to :owner,
     primary_key: :id,
