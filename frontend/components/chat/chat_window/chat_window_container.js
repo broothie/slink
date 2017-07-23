@@ -1,10 +1,14 @@
 import { connect } from 'react-redux';
 import ChatWindow from './chat_window';
 import { createMessage } from '../../../actions/message_actions';
-import { removeChatWindow } from '../../../actions/window_actions';
+import {
+  removeChatWindow,
+  incrementZIndex
+} from '../../../actions/window_actions';
 import { clearErrors } from '../../../actions/errors_actions';
 
-const mapStateToProps = ({ errors }) => ({
+const mapStateToProps = ({ windows: { lastZIndex }, errors }) => ({
+  zIndex: lastZIndex,
   errors
 });
 
@@ -14,6 +18,7 @@ const mapDispatchToProps = (dispatch, { channel: { id } }) => ({
     timestamp: new Date()
   })),
   closeWindow: () => dispatch(removeChatWindow(id)),
+  incrementZIndex: () => dispatch(incrementZIndex()),
   clearErrors: () => dispatch(clearErrors())
 });
 

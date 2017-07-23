@@ -9,9 +9,11 @@ export default class AddChannel extends React.Component {
     };
 
     this.queryUpdate = this.queryUpdate.bind(this);
+    this.bringToFront = this.bringToFront.bind(this);
   }
 
   componentDidMount() {
+    $(this.pane).draggable({ handle: 'header' });
     this.input.focus();
   }
 
@@ -24,11 +26,18 @@ export default class AddChannel extends React.Component {
     this.props.queryChannels(e.target.value);
   }
 
+  bringToFront(e) {
+    this.pane.style.zIndex = this.props.zIndex;
+    this.props.incrementZIndex();
+    console.log('pane', this.pane);
+  }
+
   render() {
     return (
       <form
         className='add-channel'
-        ref={pane => {$(pane).draggable({ handle: 'header' });}}
+        ref={pane => { this.pane = pane; }}
+        onMouseDown={this.bringToFront}
       >
         <header className='title-bar title-bar-with-exit'>
           Add Channel

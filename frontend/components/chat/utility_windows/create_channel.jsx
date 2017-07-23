@@ -10,9 +10,11 @@ export default class CreateChannel extends React.Component {
 
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.bringToFront = this.bringToFront.bind(this);
   }
 
   componentDidMount() {
+    $(this.pane).draggable({ handle: 'header' });
     this.input.focus();
   }
 
@@ -29,11 +31,17 @@ export default class CreateChannel extends React.Component {
     this.props.createChannel(this.state.name).then(this.props.closeWindow);
   }
 
+  bringToFront(e) {
+    this.pane.style.zIndex = this.props.zIndex;
+    this.props.incrementZIndex();
+  }
+
   render() {
     return (
       <form
         className='create-channel'
-        ref={pane => {$(pane).draggable({ handle: 'header' });}}
+        ref={pane => { this.pane = pane; }}
+        onMouseDown={this.bringToFront}
       >
         <header className='title-bar title-bar-with-exit'>
           New Channel

@@ -1,16 +1,21 @@
 import { connect } from 'react-redux';
 import CreateChannel from './create_channel';
-import { removeUtilityWindow } from '../../../actions/window_actions';
+import {
+  removeUtilityWindow,
+  incrementZIndex
+} from '../../../actions/window_actions';
 import { createChannel } from '../../../actions/channel_actions';
 import { clearErrors } from '../../../actions/errors_actions';
 
-const mapStateToProps = ({ errors }) => ({
+const mapStateToProps = ({ windows: { lastZIndex },  errors }) => ({
+  zIndex: lastZIndex,
   errors
 });
 
 const mapDispatchToProps = dispatch => ({
   createChannel: channelName => dispatch(createChannel(channelName)),
   closeWindow: () => dispatch(removeUtilityWindow('createChannel')),
+  incrementZIndex: () => dispatch(incrementZIndex()),
   clearErrors: () => dispatch(clearErrors())
 });
 

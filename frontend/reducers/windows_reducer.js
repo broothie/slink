@@ -5,6 +5,7 @@ import {
   REMOVE_CHAT_WINDOW,
   RECEIVE_UTILITY_WINDOW,
   REMOVE_UTILITY_WINDOW,
+  INCREMENT_Z_INDEX,
   CLEAR_WINDOWS
 } from '../actions/window_actions';
 import { merge } from 'lodash';
@@ -16,7 +17,8 @@ const componentMap = {
 
 const defaultState = {
   chatWindows: [],
-  utilityWindows: []
+  utilityWindows: [],
+  lastZIndex: 1
 };
 
 export default (state = defaultState, action) => {
@@ -46,6 +48,9 @@ export default (state = defaultState, action) => {
       return Object.assign({}, state, {
         utilityWindows: Array.from(utilityWindowsSet)
       });
+
+    case INCREMENT_Z_INDEX:
+      return merge({}, state, { lastZIndex: state.lastZIndex + 1 });
 
     case CLEAR_WINDOWS:
       return defaultState;

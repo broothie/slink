@@ -17,9 +17,11 @@ export default class ChatWindow extends React.Component {
     this.sendMessage = this.sendMessage.bind(this);
     this.handleEnter = this.handleEnter.bind(this);
     this.handleSend = this.handleSend.bind(this);
+    this.bringToFront = this.bringToFront.bind(this);
   }
 
   componentDidMount() {
+    $(this.pane).draggable({ handle: 'header' });
     this.input.focus();
   }
 
@@ -39,6 +41,11 @@ export default class ChatWindow extends React.Component {
     }
   }
 
+  bringToFront(e) {
+    this.pane.style.zIndex = this.props.zIndex;
+    this.props.incrementZIndex();
+  }
+
   sendMessage() {
     this.props.sendMessage(this.state.message).then(() => (
       this.setState({ message: '' })
@@ -54,7 +61,8 @@ export default class ChatWindow extends React.Component {
     return (
       <div
         className='chat-window'
-        ref={pane => {$(pane).draggable({ handle: 'header' });}}
+        ref={pane => { this.pane = pane; }}
+        onMouseDown={this.bringToFront}
       >
         <header className='title-bar title-bar-with-exit'>
           {channel.name} - Instant Message
