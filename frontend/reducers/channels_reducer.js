@@ -10,7 +10,7 @@ export default (state = {}, action) => {
       return merge({}, state, { [action.channel.id]: action.channel });
 
     case RECEIVE_CHANNELS:
-    return action.channels;
+      return action.channels;
 
     case RECEIVE_MESSAGE:
       return merge({}, state, {

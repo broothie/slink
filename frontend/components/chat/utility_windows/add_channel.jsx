@@ -17,6 +17,8 @@ export default class AddChannel extends React.Component {
 
     this.pane.style.right = '300px';
     this.pane.style.top = '50px';
+    this.pane.style.zIndex = this.props.zIndex;
+    this.props.incrementZIndex();
 
     this.input.focus();
   }
@@ -33,7 +35,6 @@ export default class AddChannel extends React.Component {
   bringToFront(e) {
     this.pane.style.zIndex = this.props.zIndex;
     this.props.incrementZIndex();
-    console.log('pane', this.pane);
   }
 
   render() {

@@ -1,0 +1,13 @@
+
+.create-private-chat {
+  @include windows-95-pane;
+
+  width: 250px;
+  position: fixed;
+}
+
+.create-private-chat-content {
+  padding: 5px;
+
+  box-sizing: border-box;
+}

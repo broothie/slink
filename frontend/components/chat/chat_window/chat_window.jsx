@@ -25,6 +25,8 @@ export default class ChatWindow extends React.Component {
 
     this.pane.style.left = '50px';
     this.pane.style.top = '50px';
+    this.pane.style.zIndex = this.props.zIndex;
+    this.props.incrementZIndex();
 
     this.input.focus();
   }

@@ -1,5 +1,6 @@
 import AddChannelContainer from '../components/chat/utility_windows/add_channel_container';
 import CreateChannelContainer from '../components/chat/utility_windows/create_channel_container';
+import CreatePrivateChatContainer from '../components/chat/utility_windows/create_private_chat_container';
 import {
   RECEIVE_CHAT_WINDOW,
   REMOVE_CHAT_WINDOW,
@@ -12,7 +13,8 @@ import { merge } from 'lodash';
 
 const componentMap = {
   addChannel: AddChannelContainer,
-  createChannel: CreateChannelContainer
+  createChannel: CreateChannelContainer,
+  createPrivateChat: CreatePrivateChatContainer
 };
 
 const defaultState = {

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default ({ currentUser, message: { authorScreenname, body}}) => {
+export default ({ currentUser, message: { authorScreenname, body }, createPrivateChannel }) => {
   const klass = currentUser.screenname === authorScreenname ? (
     'ownUser-message'
   ) : (
@@ -9,7 +9,13 @@ export default ({ currentUser, message: { authorScreenname, body}}) => {
 
   return (
     <li>
-      <span className={klass}>
+      <span
+        className={klass}
+        onClick={() => createPrivateChannel([
+          currentUser.screenname,
+          authorScreenname
+        ])}
+      >
         {authorScreenname}
       </span>: {body}
     </li>

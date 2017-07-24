@@ -53,6 +53,12 @@ export default class BuddyList extends React.Component {
             >
               New Channel
             </button>
+
+            <button
+              onClick={() => openWindow('createPrivateChat')}
+            >
+              New DM
+            </button>
           </div>
 
           <hr className='hr-divider'/>
