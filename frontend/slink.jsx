@@ -5,7 +5,7 @@ import Root from './components/root';
 
 // // TODO: Remove testing imports
 // import * as APIUtil from './util/channels_api_util';
-// import * as actions from './actions/window_actions';
+// import * as actions from './actions/channel_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = window.currentUser ? (

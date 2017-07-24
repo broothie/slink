@@ -32,14 +32,15 @@ class Api::ChannelsController < ApplicationController
   def create_private
     screennames = private_channel_params[:screennames]
     screennames.push(current_user.screenname)
+    screennames.uniq!
+
+    users = User.where(screenname: screennames)
 
     @channel = Channel.new(
-      name: screennames.join(', '),
+      name: users.map(&:screenname).join(', '),
       owner_id: current_user.id,
       private: true
     )
-
-    users = User.where(screenname: screennames)
 
     if @channel.save
       @channel.users.concat(users)

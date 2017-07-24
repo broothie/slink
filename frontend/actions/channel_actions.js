@@ -3,7 +3,6 @@ import { receiveErrors } from './errors_actions';
 
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
-export const CREATE_CABLE = 'CREATE_CABLE';
 export const RECEIVE_CHANNELS_QUERY_LIST = 'RECEIVE_CHANNELS_QUERY_LIST';
 
 export const receiveChannel = channel => ({
@@ -54,6 +53,13 @@ export const queryChannels = nameQuery => dispatch => (
 
 export const createChannel = channelName => dispatch => (
   APIUtil.createChannel(channelName).then(
+    channel => dispatch(receiveChannel(channel)),
+    errors => dispatch(receiveErrors(errors.responseJSON))
+  )
+);
+
+export const createPrivateChannel = screennames => dispatch => (
+  APIUtil.createPrivateChannel(screennames).then(
     channel => dispatch(receiveChannel(channel)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   )
