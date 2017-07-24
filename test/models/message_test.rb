@@ -6,7 +6,7 @@
 #  body       :string           not null
 #  timestamp  :datetime         not null
 #  author_id  :integer          not null
-#  channel_id :integer          default(1)
+#  channel_id :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
