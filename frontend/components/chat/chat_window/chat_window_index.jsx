@@ -10,8 +10,8 @@ export default class ChatWindowIndex extends React.Component {
     return (
       <ul>
         {
-          this.props.channels.map((channel, idx) => (
-            <li key={idx}>
+          this.props.channels.map(channel => (
+            <li key={channel.name}>
               <ChatWindowContainer channel={channel} cable={this.cable}/>
             </li>
           ))
