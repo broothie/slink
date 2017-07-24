@@ -14,9 +14,9 @@
 class User < ApplicationRecord
   validates :screenname, :password_digest, :session_token, presence: true
   validates :screenname, uniqueness: true, length: { minimum: 6 }
-  validates :screenname, format: { with: /^[[:alpha:]]\w*$/ }
+  validates :screenname, format: { with: /\A[[:alpha:]]\w*\z/ }
   validates :password, length: { minimum: 6, allow_nil: true }
-  validates :password, format: { with: /^[[:alpha:]][\w@#$%^&*]*$/ }
+  validates :password, format: { with: /\A[\w@#$%^&*]*\z/ }
 
   attr_reader :password
 
