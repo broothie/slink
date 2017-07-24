@@ -2,8 +2,8 @@
 .buddy-list {
   @include windows-95-pane;
 
-  width: 200px;
-  height: 500px;
+  width: 260px;
+  height: 600px;
 
   display: flex;
   flex-flow: column;
@@ -31,19 +31,31 @@
 }
 
 .channel-index {
-  @include text-input;
-
   flex: 1;
 
-  padding: 5px 8px;
+  div {
+    height: 50%;
 
-  overflow: scroll;
+    display: flex;
+    flex-flow: column;
 
-  li {
-    cursor: pointer;
+    ul {
+      flex: 1;
 
-    &:hover {
-      background-color: $square-title-logo-yellow;
+      padding: 5px 8px;
+      margin-bottom: 5px;
+
+      @include text-input;
+
+      overflow: scroll;
+
+      li {
+        cursor: pointer;
+
+        &:hover {
+          background-color: $square-title-logo-yellow;
+        }
+      }
     }
   }
 }

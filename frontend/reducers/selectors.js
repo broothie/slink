@@ -1,5 +1,13 @@
 import { values } from 'lodash';
 
 export const getChannelInfos = ({ channels }) => (
-  values(channels).map(({ name, id }) => ({ name, id }))
+  values(channels)
+    .filter(channel => !channel.private)
+    .map(({ name, id }) => ({ name, id }))
+);
+
+export const getDmInfos = ({ channels }) => (
+  values(channels)
+    .filter(channel => channel.private)
+    .map(({ name, id }) => ({ name, id }))
 );

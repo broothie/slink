@@ -1,4 +1,4 @@
-json.extract! channel, :id, :name
+json.extract! channel, :id, :name, :private
 json.messages do
   channel.messages.includes(:author).each do |message|
     json.set! message.id do
