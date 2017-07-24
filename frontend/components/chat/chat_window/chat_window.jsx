@@ -77,7 +77,10 @@ export default class ChatWindow extends React.Component {
         <hr className='hr-divider'/>
 
         <div className='chat-window-content'>
-          <MessageStreamWindowContainer channel={channel}/>
+          <MessageStreamWindowContainer
+            channel={channel}
+            cable={this.props.cable}
+          />
 
           <hr className='hr-divider'/>
 

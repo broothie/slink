@@ -16,10 +16,6 @@ export const receiveChannels = channels => ({
   channels
 });
 
-export const createCable = () => ({
-  type: CREATE_CABLE
-});
-
 export const receiveChannelsQueryList = channels => ({
   type: RECEIVE_CHANNELS_QUERY_LIST,
   channels
