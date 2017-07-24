@@ -5,7 +5,12 @@ export default class BuddyList extends React.Component {
   constructor(props) {
     super(props);
 
+    this.signOffSound = new Audio(
+      'http://gauss.ececs.uc.edu/Courses/c653/lectures/AIM/sound/doorslam.wav'
+    );
+
     this.bringToFront = this.bringToFront.bind(this);
+    this.handleSignOff = this.handleSignOff.bind(this);
   }
 
   componentDidMount() {
@@ -19,8 +24,14 @@ export default class BuddyList extends React.Component {
     this.props.incrementZIndex();
   }
 
+  handleSignOff(e) {
+    this.props.signOff().then(
+      () => this.signOffSound.play()
+    );
+  }
+
   render() {
-    const { signOff, openWindow } = this.props;
+    const openWindow = this.props.openWindow;
 
     return (
       <div
@@ -51,7 +62,7 @@ export default class BuddyList extends React.Component {
           <hr className='hr-divider'/>
 
           <footer>
-            <button onClick={signOff}>Sign Off</button>
+            <button onClick={this.handleSignOff}>Sign Off</button>
           </footer>
         </div>
       </div>

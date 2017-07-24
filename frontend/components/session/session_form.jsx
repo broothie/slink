@@ -10,6 +10,10 @@ class SessionForm extends React.Component {
       password: ''
     };
 
+    this.signOnSound = new Audio(
+      'http://gauss.ececs.uc.edu/Courses/c653/lectures/AIM/sound/dooropen.wav'
+    );
+
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoClick = this.handleDemoClick.bind(this);
   }
@@ -24,12 +28,16 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state);
+    this.props.processForm(this.state).then(
+      () => this.signOnSound.play()
+    );
   }
 
   handleDemoClick(e) {
     e.preventDefault();
-    this.props.demoSignOn();
+    this.props.demoSignOn().then(
+      () => this.signOnSound.play()
+    );
   }
 
   update(field) {
