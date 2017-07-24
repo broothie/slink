@@ -15,6 +15,10 @@ export default class CreateChannel extends React.Component {
 
   componentDidMount() {
     $(this.pane).draggable({ handle: 'header' });
+
+    this.pane.style.right = '300px';
+    this.pane.style.top = '50px';
+    
     this.input.focus();
   }
 

@@ -10,6 +10,8 @@ export default class BuddyList extends React.Component {
 
   componentDidMount() {
     $(this.pane).draggable({ handle: 'header' });
+    this.pane.style.right = '50px';
+    this.pane.style.top = '50px';
   }
 
   bringToFront(e) {
