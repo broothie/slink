@@ -1,9 +1,11 @@
 class Api::ChannelsController < ApplicationController
+  before_action :require_signed_on!
+
   def index
     @channels = Channel.where(
       'lower(name) LIKE ?',
       "%#{channel_query_params[:name_query].downcase}%"
-    ).includes(:owner)
+    ).where(private: false).includes(:owner)
 
     render :index
   end
@@ -27,6 +29,26 @@ class Api::ChannelsController < ApplicationController
     end
   end
 
+  def create_private
+    screennames = private_channel_params[:screennames]
+    screennames.push(current_user.screenname)
+
+    @channel = Channel.new(
+      name: screennames.join(', '),
+      owner_id: current_user.id,
+      private: true
+    )
+
+    users = User.where(screenname: screennames)
+
+    if @channel.save
+      @channel.users.concat(users)
+      render :show
+    else
+      render json: @channel.errors.full_messages, status: 422
+    end
+  end
+
   private
 
   def channel_query_params
@@ -35,5 +57,9 @@ class Api::ChannelsController < ApplicationController
 
   def channel_params
     params.require(:channel).permit(:name)
+  end
+
+  def private_channel_params
+    params.require(:channel).permit(screennames: [])
   end
 end
