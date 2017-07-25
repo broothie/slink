@@ -4,7 +4,7 @@ class Api::ChannelsController < ApplicationController
   def index
     @channels = Channel.where(
       'lower(name) LIKE ?',
-      "%#{channel_query_params[:name_query].downcase}%"
+      "%#{channel_query_params[:name_query].downcase.chars.join('%')}%"
     ).where(private: false).includes(:owner)
 
     render :index

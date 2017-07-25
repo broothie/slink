@@ -1,4 +1,13 @@
 class Api::UsersController < ApplicationController
+  def index
+    @users = User.where(
+      'lower(screenname) LIKE ?',
+      "%#{user_query_params[:name_query].downcase.chars.join('%')}%"
+    )
+
+    render :index
+  end
+
   def create
     @user = User.new(user_params)
     if @user.save
@@ -14,5 +23,9 @@ class Api::UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:screenname, :password)
+  end
+
+  def user_query_params
+    params.require(:user).permit(:name_query)
   end
 end
