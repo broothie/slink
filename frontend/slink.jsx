@@ -4,7 +4,7 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // // TODO: Remove testing imports
-import * as APIUtil from './util/users_api_util';
+import * as APIUtil from './util/query_api_util';
 // import * as actions from './actions/channel_actions';
 
 document.addEventListener('DOMContentLoaded', () => {

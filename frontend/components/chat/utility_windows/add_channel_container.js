@@ -1,18 +1,18 @@
 import { connect } from 'react-redux';
 import AddChannel from './add_channel';
+import { subscribeToChannel } from '../../../actions/channel_actions';
 import {
   queryChannels,
-  subscribeToChannel,
   clearChannelsQueryList
-} from '../../../actions/channel_actions';
+} from '../../../actions/query_actions';
 import {
   removeUtilityWindow,
   incrementZIndex
 } from '../../../actions/window_actions';
 import { values } from 'lodash';
 
-const mapStateToProps = ({ channelQuerys, windows: { lastZIndex } }) => ({
-  channelQuerys: values(channelQuerys.channels),
+const mapStateToProps = ({ querys, windows: { lastZIndex } }) => ({
+  channelQuerys: values(querys.channels),
   zIndex: lastZIndex
 });
 

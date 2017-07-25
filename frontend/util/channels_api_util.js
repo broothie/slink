@@ -19,14 +19,6 @@ export const fetchUserChannels = () => (
   })
 );
 
-export const searchChannels = channelNameQuery => (
-  $.ajax({
-    type: 'GET',
-    url: 'api/channels',
-    data: { channel: { name_query: channelNameQuery } }
-  })
-);
-
 export const createChannel = channelName => (
   $.ajax({
     type: 'POST',
