@@ -46,6 +46,8 @@ export default class BuddyList extends React.Component {
             <h2>Slink<br/> <em>Instant<br/> Messenger</em></h2>
           </div>
 
+          <hr className='hr-divider'/>
+
           <div className='button-row'>
             <button
               onClick={() => openWindow('addChannel')}
