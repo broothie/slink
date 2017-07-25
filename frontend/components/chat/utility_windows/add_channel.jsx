@@ -49,7 +49,9 @@ export default class AddChannel extends React.Component {
 
           <button
             onClick={this.props.closeWindow}
-          >X</button>
+          >
+            <img src='http://res.cloudinary.com/dfawecall/image/upload/t_media_lib_thumb/v1501006578/x-symbol_idzbho.png'/>
+          </button>
         </header>
 
         <div className='add-channel-content'>

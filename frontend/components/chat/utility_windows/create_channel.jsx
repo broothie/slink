@@ -53,7 +53,7 @@ export default class CreateChannel extends React.Component {
           New Channel
 
           <button onClick={this.props.closeWindow}>
-            X
+            <img src='http://res.cloudinary.com/dfawecall/image/upload/t_media_lib_thumb/v1501006578/x-symbol_idzbho.png'/>
           </button>
         </header>
 

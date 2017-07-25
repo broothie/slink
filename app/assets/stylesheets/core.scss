@@ -39,11 +39,15 @@ header.title-bar-with-exit {
 
   button {
     padding: 0px 3px;
-    margin-right: -2px;
+    margin-right: -4px;
 
     color: black;
 
     @include font-sans-serif;
+
+    img {
+      width: 8px;
+    }
   }
 }
 

@@ -13,12 +13,12 @@ export default class ChannelIndex extends React.Component {
         <label>Channels</label>
           <ul>
             {
-              this.props.channelInfos.map((channelInfo, idx) => (
+              this.props.channelInfos.map(channelInfo => (
                 <li
-                  key={idx}
+                  key={channelInfo.id}
                   onClick={() => this.props.addWindow(channelInfo.id)}
                 >
-                   - {channelInfo.name}
+                   - <span>{channelInfo.name}</span>
                 </li>
               ))
             }
@@ -29,12 +29,12 @@ export default class ChannelIndex extends React.Component {
           <label>Direct Messages</label>
           <ul>
             {
-              this.props.dmInfos.map((dmInfo, idx) => (
+              this.props.dmInfos.map(dmInfo => (
                 <li
-                  key={idx}
+                  key={dmInfo.id}
                   onClick={() => this.props.addWindow(dmInfo.id)}
                 >
-                   - {dmInfo.name}
+                   - <span>{dmInfo.name}</span>
                 </li>
               ))
             }
