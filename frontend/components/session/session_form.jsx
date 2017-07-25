@@ -86,7 +86,10 @@ class SessionForm extends React.Component {
                 tabIndex='1'
                 ref={input => {this.screenNameInput = input;}}
               />
-              <Link to={authSwitchLink}>{authSwitchText}</Link>
+              <div className='links'>
+                <Link to={authSwitchLink}>{authSwitchText}</Link>
+                <a onClick={this.handleDemoClick}>Demo</a>
+              </div>
             </fieldset>
 
             <fieldset>
@@ -115,7 +118,6 @@ class SessionForm extends React.Component {
                   type='submit'
                 >{formHeader}
                 </button>
-                <button onClick={this.handleDemoClick}>Demo</button>
               </div>
             </fieldset>
           </div>

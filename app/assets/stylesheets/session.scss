@@ -41,6 +41,8 @@ $content-spacing: 10px;
     box-sizing: border-box;
 
     label {
+      font-family: arial, sans-serif;
+      font-size: 14px;
       font-weight: bold;
     }
 
@@ -48,8 +50,13 @@ $content-spacing: 10px;
       width: 100%;
     }
 
-    a {
-      font-size: 14px;
+    .links {
+      font-size: 13px;
+
+      a {
+        margin-right: 7px;
+        cursor: pointer;
+      }
     }
 
     ul {
@@ -95,5 +102,5 @@ $content-spacing: 10px;
 
 .buttons {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-end;
 }

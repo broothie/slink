@@ -13,8 +13,6 @@ $window-content-padding-horz: 10px;
   flex-flow: column;
 
   @include windows-95-pane;
-
-  // margin-bottom: 20px;
 }
 
 .chat-window-content {
@@ -36,6 +34,11 @@ $window-content-padding-horz: 10px;
       margin: 5px;
     }
   }
+
+  textarea {
+    @include font-times;
+    font-size: 15px;
+  }
 }
 
 .message-stream-window {
@@ -44,8 +47,11 @@ $window-content-padding-horz: 10px;
   overflow: scroll;
   height: 180px;
 
+  @include font-times;
+  font-size: 15px;
+
   li {
-    font-family: serif;
+    font-weight: 100;
 
     .ownUser-message {
       color: blue;
@@ -57,6 +63,7 @@ $window-content-padding-horz: 10px;
 
     span {
       cursor: pointer;
+      font-weight: bold;
     }
   }
 }

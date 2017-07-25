@@ -39,6 +39,12 @@
     display: flex;
     flex-flow: column;
 
+    label {
+      font-size: 15px;
+      font-weight: bold;
+      margin-left: 4px;
+    }
+
     ul {
       flex: 1;
 
@@ -46,6 +52,10 @@
       margin-bottom: 5px;
 
       @include text-input;
+
+      // @include font-chicago;
+      font-size: 14px;
+      font-weight: bold;
 
       overflow: scroll;
 

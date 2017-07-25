@@ -46,3 +46,15 @@
   background-color: $input-background;
   @include windows-95-inset;
 }
+
+@mixin font-times {
+  font-family: font86463, Times, serif;
+}
+
+@mixin font-sans-serif {
+  font-family: 'MS Sans Serif', Arial, sans-serif;
+}
+
+@mixin font-chicago {
+  font-family: 'Chicago', Arial, sans-serif;
+}

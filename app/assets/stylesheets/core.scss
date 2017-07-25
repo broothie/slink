@@ -5,12 +5,14 @@ body,
 {
   height: 100%;
   width: 100%;
+
+  @include font-sans-serif;
+  font-size: 13px;
+  font-weight: bolder;
 }
 
 body {
   background-color: $desktop-green;
-
-  font-family: sans-serif;
 }
 
 a {
@@ -22,9 +24,10 @@ header.title-bar {
   padding: 3px 7px;
 
   @include title-bar-colors;
+
+  @include font-times;
   font-size: 14px;
-  font-family: serif;
-  font-weight: bold;
+  font-weight: normal;
 
   cursor: default;
 }
@@ -39,7 +42,8 @@ header.title-bar-with-exit {
     margin-right: -2px;
 
     color: black;
-    font-family: sans-serif;
+
+    @include font-sans-serif;
   }
 }
 
