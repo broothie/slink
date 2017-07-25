@@ -15,6 +15,11 @@ export const receiveChannels = channels => ({
   channels
 });
 
+export const clearChannels = () => ({
+  type: RECEIVE_CHANNELS,
+  channels: {}
+});
+
 export const receiveChannelsQueryList = channels => ({
   type: RECEIVE_CHANNELS_QUERY_LIST,
   channels
