@@ -71,7 +71,7 @@ export default class CreatePrivateChat extends React.Component {
 
           <ul>
             {
-              this.props.userQuerys.map((userQuery, idx) => (
+              this.props.userQueries.map((userQuery, idx) => (
                 <li key={idx}>
                   {userQuery.screenname}
                 </li>

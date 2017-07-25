@@ -72,7 +72,7 @@ export default class AddChannel extends React.Component {
 
           <ul>
             {
-              this.props.channelQuerys.map((channelQuery, idx) => (
+              this.props.channelQueries.map((channelQuery, idx) => (
                 <li
                   key={idx}
                 >

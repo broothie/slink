@@ -11,8 +11,8 @@ import {
 } from '../../../actions/window_actions';
 import { values } from 'lodash';
 
-const mapStateToProps = ({ querys, windows: { lastZIndex } }) => ({
-  channelQuerys: values(querys.channels),
+const mapStateToProps = ({ queries, windows: { lastZIndex } }) => ({
+  channelQueries: values(queries.channels),
   zIndex: lastZIndex
 });
 

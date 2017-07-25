@@ -11,8 +11,8 @@ import {
 import { createPrivateChannel } from '../../../actions/channel_actions';
 import { values } from 'lodash';
 
-const mapStateToProps = ({ querys, windows: { lastZIndex } }) => ({
-  userQuerys: values(querys.users),
+const mapStateToProps = ({ queries, windows: { lastZIndex } }) => ({
+  userQueries: values(queries.users),
   zIndex: lastZIndex
 });
 

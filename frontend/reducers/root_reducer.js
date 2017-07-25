@@ -8,7 +8,7 @@ import errorsReducer from './errors_reducer';
 export default combineReducers({
   session: sessionReducer,
   channels: channelsReducer,
-  querys: queryReducer,
+  queries: queryReducer,
   windows: windowsReducer,
   errors: errorsReducer
 });
