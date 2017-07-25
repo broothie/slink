@@ -67,6 +67,20 @@ $content-spacing: 10px;
         margin-bottom: 3px;
       }
     }
+
+    button {
+      border: none;
+      box-shadow: none;
+
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+
+      img {
+        width: 35px;
+        margin-bottom: 3px;
+      }
+    }
   }
 }
 
@@ -82,16 +96,14 @@ $content-spacing: 10px;
   color: $square-title-logo-white;
   background-color: $square-title-logo-blue;
 
-  h1 {
-    font-size: 80px;
-    font-style: italic;
-    transform: translateX(-8px);
-
-    color: $square-title-logo-yellow;
+  img {
+    margin: 20px 3px;
+    width: 160px;
+    height: auto;
   }
 
   h2 {
-    font-size: 23px;
+    font-size: 19px;
   }
 }
 

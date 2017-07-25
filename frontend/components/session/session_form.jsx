@@ -73,9 +73,11 @@ class SessionForm extends React.Component {
 
           <div className='session-form-content'>
             <div className='square-title-logo'>
-              <h1>Slink</h1>
-              <h2>Instant Messenger</h2>
+              <img src='http://res.cloudinary.com/dfawecall/image/upload/v1500956186/Logomakr_5NM6R1_ibdrdc.png'/>
+              <h2>Slink Instant Messenger</h2>
             </div>
+
+            <hr className='hr-divider'/>
 
             <fieldset>
               <label className='screenname'>ScreenName</label>
@@ -116,7 +118,9 @@ class SessionForm extends React.Component {
                   onClick={this.handleSubmit}
                   tabIndex='3'
                   type='submit'
-                >{formHeader}
+                >
+                  <img src='http://res.cloudinary.com/dfawecall/image/upload/v1500958922/Logomakr_61kii0_xuknyt.png'/>
+                  {formHeader}
                 </button>
               </div>
             </fieldset>
