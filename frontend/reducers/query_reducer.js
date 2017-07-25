@@ -13,7 +13,7 @@ export default (state = defaultState, action) => {
 
   switch (action.type) {
     case RECEIVE_USERS_QUERY_LIST:
-      return merge({}, state, { users: action.users });
+      return Object.assign({}, state, { users: action.users });
 
     case RECEIVE_CHANNELS_QUERY_LIST:
       return Object.assign({}, state, { channels: action.channels });

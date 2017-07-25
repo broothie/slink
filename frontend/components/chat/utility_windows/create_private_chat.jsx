@@ -5,11 +5,11 @@ export default class CreatePrivateChat extends React.Component {
     super(props);
 
     this.state = {
-      screennames: ''
+      query: ''
     };
 
     this.bringToFront = this.bringToFront.bind(this);
-    this.handleUpdate = this.handleUpdate.bind(this);
+    this.queryUpdate = this.queryUpdate.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -21,11 +21,12 @@ export default class CreatePrivateChat extends React.Component {
     this.pane.style.zIndex = this.props.zIndex;
     this.props.incrementZIndex();
 
-    // this.input.focus();
+    this.input.focus();
   }
 
-  handleUpdate(e) {
-    this.setState({ screennames: e.target.value });
+  queryUpdate(e) {
+    this.setState({ query: e.target.value });
+    this.props.queryUsers(e.target.value);
   }
 
   handleSubmit(e) {
@@ -50,7 +51,7 @@ export default class CreatePrivateChat extends React.Component {
         onMouseDown={this.bringToFront}
       >
         <header className='title-bar title-bar-with-exit'>
-          Add Channel
+          Create New Private Chat
 
           <button
             onClick={this.props.closeWindow}
@@ -60,16 +61,23 @@ export default class CreatePrivateChat extends React.Component {
         </header>
 
         <div className='create-private-chat-content'>
-          <textarea
-            onChange={this.handleUpdate}
-            value={this.state.screennames}
+          <input
+            type='text'
+            placeholder='Search for users'
+            value={this.state.query}
+            onChange={this.queryUpdate}
+            ref={input => {this.input = input;}}
           />
 
-          <button
-            onClick={this.handleSubmit}
-          >
-            Submit
-          </button>
+          <ul>
+            {
+              this.props.userQuerys.map((userQuery, idx) => (
+                <li key={idx}>
+                  {userQuery.screenname}
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </form>
     );
