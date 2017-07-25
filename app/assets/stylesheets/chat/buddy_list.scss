@@ -53,7 +53,6 @@
 
       @include text-input;
 
-      // @include font-chicago;
       font-size: 14px;
       font-weight: bold;
 
@@ -67,5 +66,28 @@
         }
       }
     }
+  }
+}
+
+.square-title-logo-small {
+  padding: 5px;
+  margin-bottom: $content-spacing;
+
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+
+  color: $square-title-logo-white;
+  background-color: $square-title-logo-blue;
+
+  img {
+    margin: 5px;
+    margin-left: 30px;
+    width: 100px;
+    height: auto;
+  }
+
+  h2 {
+    font-size: 14px;
   }
 }

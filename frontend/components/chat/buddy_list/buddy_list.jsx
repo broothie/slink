@@ -41,6 +41,11 @@ export default class BuddyList extends React.Component {
       >
         <header className='title-bar'>Channel List</header>
         <div className='buddy-list-content'>
+          <div className='square-title-logo-small'>
+            <img src='http://res.cloudinary.com/dfawecall/image/upload/v1500956186/Logomakr_5NM6R1_ibdrdc.png'/>
+            <h2>Slink<br/> <em>Instant<br/> Messenger</em></h2>
+          </div>
+
           <div className='button-row'>
             <button
               onClick={() => openWindow('addChannel')}
