@@ -37,6 +37,13 @@ export default class AddChannel extends React.Component {
     this.props.incrementZIndex();
   }
 
+  setHandleClick(id) {
+    return e => {
+      e.preventDefault();
+      return this.props.addChannel(id);
+    };
+  }
+
   render() {
     return (
       <form
@@ -68,9 +75,13 @@ export default class AddChannel extends React.Component {
               this.props.channelQuerys.map((channelQuery, idx) => (
                 <li
                   key={idx}
-                  onDoubleClick={() => this.props.addChannel(channelQuery.id)}
                 >
                   {channelQuery.name}
+                  <button
+                    onClick={this.setHandleClick(channelQuery.id)}
+                  >
+                    Add
+                  </button>
                 </li>
               ))
             }
