@@ -12,7 +12,7 @@ import {
 import { values } from 'lodash';
 
 const mapStateToProps = ({ channelQuerys, windows: { lastZIndex } }) => ({
-  channelQuerys: values(channelQuerys),
+  channelQuerys: values(channelQuerys.channels),
   zIndex: lastZIndex
 });
 
