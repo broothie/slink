@@ -42,7 +42,16 @@ export default class BuddyList extends React.Component {
         ref={pane => { this.pane = pane; }}
         onMouseDown={this.bringToFront}
       >
-        <header className='title-bar'>Channel List</header>
+        <header className='title-bar title-bar-with-exit'>
+          Channel List
+
+          <button
+            onClick={this.handleSignOff}
+          >
+            <img src='http://res.cloudinary.com/dfawecall/image/upload/t_media_lib_thumb/v1501006578/x-symbol_idzbho.png'/>
+          </button>
+        </header>
+
         <div className='buddy-list-content'>
           <div className='square-title-logo-small'>
             <img src='http://res.cloudinary.com/dfawecall/image/upload/v1500956186/Logomakr_5NM6R1_ibdrdc.png'/>
