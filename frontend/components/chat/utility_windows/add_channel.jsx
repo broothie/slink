@@ -43,7 +43,11 @@ export default class AddChannel extends React.Component {
   setHandleClick(id) {
     return e => {
       e.preventDefault();
-      return this.props.addChannel(id);
+      this.props.addChannel(id).then(
+        data => this.props.addChatWindow(data.channel.id)
+      ).then(
+        () => this.props.closeWindow()
+      );
     };
   }
 
@@ -77,6 +81,7 @@ export default class AddChannel extends React.Component {
             {
               this.props.channelQueryResults.map((channelQuery, idx) => (
                 <li
+                  onDoubleClick={this.setHandleClick(channelQuery.id)}
                   key={idx}
                 >
                   {channelQuery.name}

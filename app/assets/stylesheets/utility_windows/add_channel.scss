@@ -10,47 +10,48 @@
   display: flex;
   flex-flow: column;
 
-  .add-channel-content {
+}
+
+.add-channel-content {
+  flex: 1;
+  padding: 5px;
+
+  display: flex;
+  flex-flow: column;
+
+  input {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  ul {
+    @include text-input;
     flex: 1;
-    padding: 5px;
 
-    display: flex;
-    flex-flow: column;
+    padding: 5px 8px;
+    overflow: scroll;
 
-    input {
-      width: 100%;
-      margin-bottom: 5px;
-    }
+    li {
+      cursor: pointer;
+      display: flex;
+      flex-flow: row;
+      justify-content: space-between;
+      align-items: baseline;
 
-    ul {
-      @include text-input;
-      flex: 1;
+      padding: 0px 5px;
 
-      padding: 5px 8px;
-      overflow: scroll;
+      &:hover {
+        background-color: WhiteSmoke;
+      }
 
-      li {
-        cursor: pointer;
-        display: flex;
-        flex-flow: row;
-        justify-content: space-between;
-        align-items: baseline;
-
-        padding: 0px 5px;
+      button {
+        border: none;
+        box-shadow: none;
+        background-color: transparent;
+        color: $link-color;
 
         &:hover {
-          background-color: $highlight-color;
-        }
-
-        button {
-          border: none;
-          box-shadow: none;
-          background-color: transparent;
-          color: $link-color;
-
-          &:hover {
-            text-decoration: underline;
-          }
+          text-decoration: underline;
         }
       }
     }

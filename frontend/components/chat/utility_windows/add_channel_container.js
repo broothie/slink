@@ -6,6 +6,7 @@ import {
   clearChannelsQueryResults
 } from '../../../actions/query_actions';
 import {
+  receiveChatWindow,
   removeUtilityWindow,
   incrementZIndex
 } from '../../../actions/window_actions';
@@ -19,6 +20,7 @@ const mapStateToProps = ({ queryResults, windows: { lastZIndex } }) => ({
 const mapDispatchToProps = dispatch => ({
   queryChannels: nameQuery => dispatch(queryChannels(nameQuery)),
   addChannel: channelId => dispatch(subscribeToChannel(channelId)),
+  addChatWindow: channelId => dispatch(receiveChatWindow(channelId)),
   clearChannelsList: () => dispatch(clearChannelsQueryResults()),
   incrementZIndex: () => dispatch(incrementZIndex()),
   closeWindow: () => dispatch(removeUtilityWindow('addChannel'))
