@@ -32,7 +32,7 @@ export default class CreatePrivateChat extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     const selectedUserIds = this.state.selectedUsers.map(user => user.id);
-    const filteredQueryResults = nextProps.userQueries.filter(user => (
+    const filteredQueryResults = nextProps.userQueryResults.filter(user => (
       !selectedUserIds.includes(user.id)
     ));
 

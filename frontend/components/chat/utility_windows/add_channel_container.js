@@ -3,7 +3,7 @@ import AddChannel from './add_channel';
 import { subscribeToChannel } from '../../../actions/channel_actions';
 import {
   queryChannels,
-  clearChannelsQueryList
+  clearChannelsQueryResults
 } from '../../../actions/query_actions';
 import {
   removeUtilityWindow,
@@ -11,15 +11,15 @@ import {
 } from '../../../actions/window_actions';
 import { values } from 'lodash';
 
-const mapStateToProps = ({ queries, windows: { lastZIndex } }) => ({
-  channelQueries: values(queries.channels),
+const mapStateToProps = ({ queryResults, windows: { lastZIndex } }) => ({
+  channelQueryResults: values(queryResults.channels),
   zIndex: lastZIndex
 });
 
 const mapDispatchToProps = dispatch => ({
   queryChannels: nameQuery => dispatch(queryChannels(nameQuery)),
   addChannel: channelId => dispatch(subscribeToChannel(channelId)),
-  clearChannelsList: () => dispatch(clearChannelsQueryList()),
+  clearChannelsList: () => dispatch(clearChannelsQueryResults()),
   incrementZIndex: () => dispatch(incrementZIndex()),
   closeWindow: () => dispatch(removeUtilityWindow('addChannel'))
 });

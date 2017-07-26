@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import CreatePrivateChat from './create_private_chat';
 import {
   queryUsers,
-  clearUsersQueryList
+  clearUsersQueryResults
 } from '../../../actions/query_actions';
 import {
   removeUtilityWindow,
@@ -11,8 +11,8 @@ import {
 import { createPrivateChannel } from '../../../actions/channel_actions';
 import { values } from 'lodash';
 
-const mapStateToProps = ({ queries, windows: { lastZIndex } }) => ({
-  userQueries: values(queries.users),
+const mapStateToProps = ({ queryResults, windows: { lastZIndex } }) => ({
+  userQueryResults: values(queryResults.users),
   zIndex: lastZIndex
 });
 

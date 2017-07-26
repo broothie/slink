@@ -1,36 +1,36 @@
 import * as APIUtil from '../util/query_api_util';
 
-export const RECEIVE_CHANNELS_QUERY_LIST = 'RECEIVE_CHANNELS_QUERY_LIST';
-export const RECEIVE_USERS_QUERY_LIST = 'RECEIVE_USERS_QUERY_LIST';
+export const RECEIVE_CHANNEL_QUERY_RESULTS = 'RECEIVE_CHANNEL_QUERY_RESULTS';
+export const RECEIVE_USER_QUERY_RESULTS = 'RECEIVE_USER_QUERY_RESULTS';
 
-export const receiveChannelsQueryList = channels => ({
-  type: RECEIVE_CHANNELS_QUERY_LIST,
+export const receiveChannelsQueryResults = channels => ({
+  type: RECEIVE_CHANNEL_QUERY_RESULTS,
   channels
 });
 
-export const clearChannelsQueryList = () => ({
-  type: RECEIVE_CHANNELS_QUERY_LIST,
+export const clearChannelsQueryResults = () => ({
+  type: RECEIVE_CHANNEL_QUERY_RESULTS,
   channels: {}
 });
 
-export const receiveUsersQueryList = users => ({
-  type: RECEIVE_USERS_QUERY_LIST,
+export const receiveUsersQueryResults = users => ({
+  type: RECEIVE_USER_QUERY_RESULTS,
   users
 });
 
-export const clearUsersQueryList = users => ({
-  type: RECEIVE_USERS_QUERY_LIST,
+export const clearUsersQueryResults = users => ({
+  type: RECEIVE_USER_QUERY_RESULTS,
   users: {}
 });
 
 export const queryChannels = nameQuery => dispatch => (
   APIUtil.searchChannels(nameQuery).then(
-    channels => dispatch(receiveChannelsQueryList(channels))
+    channels => dispatch(receiveChannelsQueryResults(channels))
   )
 );
 
 export const queryUsers = nameQuery => dispatch => (
   APIUtil.searchUsers(nameQuery).then(
-    users => dispatch(receiveUsersQueryList(users))
+    users => dispatch(receiveUsersQueryResults(users))
   )
 );
