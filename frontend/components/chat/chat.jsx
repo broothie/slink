@@ -5,6 +5,10 @@ import UtilityWindowsContainer from './utility_windows/utility_windows_container
 import ChatWindowIndexContainer from './chat_window/chat_window_index_container';
 
 export default class Chat extends React.Component {
+  componentWillMount() {
+    this.cable = ActionCable.createConsumer();
+  }
+
   render() {
     if (!this.props.signedOn) {
       return <Redirect to='/signon'/>;
@@ -12,11 +16,11 @@ export default class Chat extends React.Component {
 
     return (
       <main className='chat-main'>
-        <BuddyListContainer/>
+        <BuddyListContainer cable={this.cable}/>
 
         <UtilityWindowsContainer/>
 
-        <ChatWindowIndexContainer/>
+        <ChatWindowIndexContainer cable={this.cable}/>
       </main>
     );
   }
