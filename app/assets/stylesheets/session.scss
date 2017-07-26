@@ -13,7 +13,7 @@ $content-spacing: 10px;
   justify-content: center;
   align-items: center;
 
-  pane {
+  > div {
     width: $pane-width;
 
     padding: $pane-padding;
@@ -25,7 +25,7 @@ $content-spacing: 10px;
   }
 }
 
-.session-pane-content {
+.session-form-content {
   flex: 1;
 
   padding: $pane-content-padding-vert $pane-content-padding-horz;
