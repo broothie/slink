@@ -13,6 +13,28 @@ export default class BuddyList extends React.Component {
     this.handleSignOff = this.handleSignOff.bind(this);
   }
 
+  componentWillMount() {
+    const currentUser = this.props.currentUser;
+
+    this.connection = this.props.cable.subscriptions.create('AppearanceChannel',
+      {
+        connected: () => (
+          console.log(`Connected to appearances, id: ${currentUser.id}`)
+        ),
+
+        received: channelId => (
+          this.props.requestChannel(channelId).then(
+            ({ channel }) => this.props.addChatWindow(channel.id)
+          )
+        ),
+
+        disconnected: () => (
+          console.log(`disconnected from appearances, id: ${currentUser.id}`)
+        )
+      }
+    );
+  }
+
   componentDidMount() {
     $(this.pane).draggable({
       handle: 'header',
@@ -20,6 +42,10 @@ export default class BuddyList extends React.Component {
     });
     this.pane.style.right = '50px';
     this.pane.style.top = '50px';
+  }
+
+  componentWillUnmount() {
+    this.props.cable.subscriptions.remove(this.connection);
   }
 
   bringToFront(e) {

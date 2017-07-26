@@ -12,6 +12,12 @@ class Api::MessagesController < ApplicationController
 
     if @message.save
       ChatChannel.broadcast_to(channel, message: render(:show))
+
+      if channel.private
+        channel.users.each do |user|
+          AppearanceChannel.broadcast_to(user, channel.id)
+        end
+      end
     else
       render json: @message.errors.full_messages, status: 422
     end

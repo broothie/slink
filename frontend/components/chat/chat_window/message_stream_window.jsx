@@ -23,7 +23,7 @@ export default class MessageStreamWindow extends React.Component {
           console.log(`Connected to ${channel.name}, id: ${channel.id}`)
         ),
 
-        received: (data) => {
+        received: data => {
           const message = JSON.parse(data.message);
           console.log(`Received message id: ${message.id}`);
           if (this.props.currentUser.id !== message.authorId) {
