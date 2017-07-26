@@ -19,6 +19,11 @@ class SessionForm extends React.Component {
   }
 
   componentDidMount() {
+    $(this.pane).draggable({
+      handle: 'header',
+      containment: 'body'
+    });
+
     this.screenNameInput.focus();
   }
 
@@ -65,7 +70,7 @@ class SessionForm extends React.Component {
       <main className='session-main'>
         <form
           className='session-form'
-          ref={pane => {$(pane).draggable({ handle: 'header' });}}
+          ref={el => { this.pane = el;}}
         >
           <header className='title-bar'>
             {formHeader}
