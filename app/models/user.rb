@@ -26,7 +26,8 @@ class User < ApplicationRecord
   has_many :messages,
     primary_key: :id,
     foreign_key: :author_id,
-    class_name: :Message
+    class_name: :Message,
+    dependent: :destroy
 
   has_many :subscriptions
 
