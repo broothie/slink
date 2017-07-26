@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import CreateChannel from './create_channel';
 import {
+  receiveChatWindow,
   removeUtilityWindow,
   incrementZIndex
 } from '../../../actions/window_actions';
@@ -14,6 +15,7 @@ const mapStateToProps = ({ windows: { lastZIndex },  errors }) => ({
 
 const mapDispatchToProps = dispatch => ({
   createChannel: channelName => dispatch(createChannel(channelName)),
+  addChatWindow: channelId => dispatch(receiveChatWindow(channelId)),
   closeWindow: () => dispatch(removeUtilityWindow('createChannel')),
   incrementZIndex: () => dispatch(incrementZIndex()),
   clearErrors: () => dispatch(clearErrors())

@@ -44,7 +44,7 @@ export default class AddChannel extends React.Component {
     return e => {
       e.preventDefault();
       this.props.addChannel(id).then(
-        data => this.props.addChatWindow(data.channel.id)
+        ({ channel }) => this.props.addChatWindow(channel.id)
       ).then(
         () => this.props.closeWindow()
       );

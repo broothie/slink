@@ -88,7 +88,7 @@ export default class CreatePrivateChat extends React.Component {
     this.props.createPrivateChannelById(
       this.state.selectedUsers.map(user => user.id)
     ).then(
-      data => this.props.addChatWindow(data.channel.id)
+      ({ channel }) => this.props.addChatWindow(channel.id)
     ).then(
       () => this.props.closeWindow()
     );

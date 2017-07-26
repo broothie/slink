@@ -37,7 +37,11 @@ export default class CreateChannel extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createChannel(this.state.name).then(this.props.closeWindow);
+    this.props.createChannel(this.state.name).then(
+      ({ channel }) => this.props.addChatWindow(channel.id)
+    ).then(
+      () => this.props.closeWindow()
+    );
   }
 
   bringToFront(e) {
