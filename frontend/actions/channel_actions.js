@@ -52,3 +52,10 @@ export const createPrivateChannel = screennames => dispatch => (
     errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
+
+export const createPrivateChannelById = ids => dispatch => (
+  APIUtil.createPrivateChannelById(ids).then(
+    channel => dispatch(receiveChannel(channel)),
+    errors => dispatch(receiveErrors(errors.responseJSON))
+  )
+);

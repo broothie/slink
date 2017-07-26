@@ -50,6 +50,25 @@ class Api::ChannelsController < ApplicationController
     end
   end
 
+  def create_private_by_id
+    ids = (private_channel_params[:ids] + [current_user.id]).uniq
+
+    users = User.where(id: ids)
+
+    @channel = Channel.new(
+      name: users.map(&:screenname).join(', '),
+      owner_id: current_user.id,
+      private: true
+    )
+
+    if @channel.save
+      @channel.users.concat(users)
+      render :show
+    else
+      render json: @channel.errors.full_messages, status: 422
+    end
+  end
+
   private
 
   def channel_query_params
@@ -61,6 +80,6 @@ class Api::ChannelsController < ApplicationController
   end
 
   def private_channel_params
-    params.require(:channel).permit(screennames: [])
+    params.require(:channel).permit(screennames: [], ids: [])
   end
 end

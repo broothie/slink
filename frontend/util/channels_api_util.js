@@ -34,3 +34,11 @@ export const createPrivateChannel = screennames => (
     data: { channel: { screennames } }
   })
 );
+
+export const createPrivateChannelById = ids => (
+  $.ajax({
+    type: 'POST',
+    url: 'api/channels/private_by_id',
+    data: { channel: { ids } }
+  })
+);

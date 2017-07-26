@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :subscriptions, only: %i[create]
     end
     post 'channels/private' => 'channels#create_private'
+    post 'channels/private_by_id' => 'channels#create_private_by_id'
   end
 
   mount ActionCable.server => '/cable'
