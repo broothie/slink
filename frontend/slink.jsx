@@ -4,8 +4,8 @@ import configureStore from './store/store';
 import Root from './components/root';
 
 // TODO: Remove testing imports
-import * as APIUtil from './util/channels_api_util';
-import * as actions from './actions/channel_actions';
+import * as APIUtil from './util/messages_api_util';
+import * as actions from './actions/message_actions';
 
 document.addEventListener('DOMContentLoaded', () => {
   const store = window.currentUser ? (

@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     resources :subscriptions, only: %i[index destroy]
 
     resources :channels, only: %i[create index show] do
-      resources :messages, only: %i[create]
+      resources :messages, only: %i[index create]
       resources :subscriptions, only: %i[create]
     end
     post 'channels/private' => 'channels#create_private'

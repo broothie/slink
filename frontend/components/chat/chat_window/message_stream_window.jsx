@@ -11,6 +11,10 @@ export default class MessageStreamWindow extends React.Component {
     );
   }
 
+  componentWillMount() {
+    this.props.requestChannelMessages();
+  }
+
   componentDidMount() {
     const channel = this.props.channel;
 
@@ -51,7 +55,6 @@ export default class MessageStreamWindow extends React.Component {
 
   render() {
     const channel = this.props.channel;
-    const messages = values(channel.messages);
 
     return (
       <ul
@@ -59,7 +62,7 @@ export default class MessageStreamWindow extends React.Component {
         ref={input => { this.messageInput = input; } }
       >
         {
-          messages.map((message, idx) => (
+          channel.messages.map((message, idx) => (
             <MessageItemContainer key={idx} message={message}/>
           ))
         }

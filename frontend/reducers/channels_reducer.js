@@ -1,6 +1,9 @@
 import { merge } from 'lodash';
 import { RECEIVE_CHANNEL, RECEIVE_CHANNELS } from '../actions/channel_actions';
-import { RECEIVE_MESSAGE } from '../actions/message_actions';
+import {
+  RECEIVE_MESSAGE,
+  RECEIVE_CHANNEL_MESSAGES
+} from '../actions/message_actions';
 
 export default (state = {}, action) => {
   Object.freeze(state);
@@ -16,6 +19,13 @@ export default (state = {}, action) => {
       return merge({}, state, {
         [action.message.channelId]: {
           messages: { [action.message.id]: action.message }
+        }
+      });
+
+    case RECEIVE_CHANNEL_MESSAGES:
+      return merge({}, state, {
+        [action.channelId]: {
+          messages: action.messages
         }
       });
 

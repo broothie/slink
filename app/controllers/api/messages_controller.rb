@@ -1,6 +1,16 @@
 class Api::MessagesController < ApplicationController
   before_action :require_signed_on!
 
+  def index
+    channel = Channel.find_by(id: params[:channel_id])
+    if channel
+      @messages = channel.messages.order(timestamp: :asc)
+      render :index
+    else
+      render json: ["Channel doesn't exist"], status: 404
+    end
+  end
+
   def create
     channel = Channel.find_by(id: params[:channel_id])
 
