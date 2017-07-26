@@ -21,7 +21,10 @@ export default class ChatWindow extends React.Component {
   }
 
   componentDidMount() {
-    $(this.pane).draggable({ handle: 'header' });
+    $(this.pane).draggable({
+      handle: 'header',
+      containment: 'body'
+     });
 
     this.pane.style.left = '50px';
     this.pane.style.top = '50px';
