@@ -5,12 +5,15 @@ export default class CreatePrivateChat extends React.Component {
     super(props);
 
     this.state = {
-      query: ''
+      query: '',
+      userQueryResults: [],
+      selectedUsers: []
     };
 
     this.bringToFront = this.bringToFront.bind(this);
     this.queryUpdate = this.queryUpdate.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
+    // this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -24,7 +27,18 @@ export default class CreatePrivateChat extends React.Component {
     this.pane.style.zIndex = this.props.zIndex;
     this.props.incrementZIndex();
 
-    this.input.focus();
+    this.userQueryInput.focus();
+  }
+
+  componentWillReceiveProps(nextProps) {
+    const selectedUserIds = this.state.selectedUsers.map(user => user.id);
+    const filteredQueryResults = nextProps.userQueries.filter(user => (
+      !selectedUserIds.includes(user.id)
+    ));
+
+    this.setState({
+      userQueryResults: filteredQueryResults
+    });
   }
 
   queryUpdate(e) {
@@ -32,14 +46,33 @@ export default class CreatePrivateChat extends React.Component {
     this.props.queryUsers(e.target.value);
   }
 
-  handleSubmit(e) {
-    e.preventDefault();
-    this.props.createPrivateChannel(
-      this.state.screennames.split(',').map(name => name.trim())
-    ).then(
-      this.props.closeWindow()
-    );
+  handleEnter(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      if (this.state.userQueryResults.length === 0) {
+        return;
+      }
+
+      const newSelectedUsers = this.state.selectedUsers.concat(
+        this.state.userQueryResults[0]
+      );
+
+      this.setState({
+        query: '',
+        userQueryResults: [],
+        selectedUsers: newSelectedUsers
+      });
+    }
   }
+
+  // handleSubmit(e) {
+  //   e.preventDefault();
+  //   this.props.createPrivateChannel(
+  //     this.state.screennames.split(',').map(name => name.trim())
+  //   ).then(
+  //     this.props.closeWindow()
+  //   );
+  // }
 
   bringToFront(e) {
     this.pane.style.zIndex = this.props.zIndex;
@@ -50,7 +83,7 @@ export default class CreatePrivateChat extends React.Component {
     return (
       <form
         className='create-private-chat'
-        ref={pane => { this.pane = pane; }}
+        ref={el => { this.pane = el; }}
         onMouseDown={this.bringToFront}
       >
         <header className='title-bar title-bar-with-exit'>
@@ -69,14 +102,27 @@ export default class CreatePrivateChat extends React.Component {
             placeholder='Search for users'
             value={this.state.query}
             onChange={this.queryUpdate}
-            ref={input => {this.input = input;}}
+            onKeyPress={this.handleEnter}
+            ref={el => {this.userQueryInput = el;}}
           />
 
           <ul>
             {
-              this.props.userQueries.map((userQuery, idx) => (
+              this.state.userQueryResults.map((userQuery, idx) => (
                 <li key={idx}>
                   {userQuery.screenname}
+                </li>
+              ))
+            }
+          </ul>
+
+          <br/>
+
+          <ul>
+            {
+              this.state.selectedUsers.map((selectedUser, idx) => (
+                <li key={idx}>
+                  {selectedUser.screenname}
                 </li>
               ))
             }
