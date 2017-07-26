@@ -81,7 +81,7 @@ export default class CreatePrivateChat extends React.Component {
 
   render() {
     return (
-      <form
+      <div
         className='create-private-chat'
         ref={el => { this.pane = el; }}
         onMouseDown={this.bringToFront}
@@ -128,7 +128,7 @@ export default class CreatePrivateChat extends React.Component {
             }
           </ul>
         </div>
-      </form>
+      </div>
     );
   }
 }

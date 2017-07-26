@@ -68,7 +68,7 @@ class SessionForm extends React.Component {
 
     return (
       <main className='session-main'>
-        <form
+        <div
           className='session-form'
           ref={el => { this.pane = el;}}
         >
@@ -130,7 +130,7 @@ class SessionForm extends React.Component {
               </div>
             </fieldset>
           </div>
-        </form>
+        </div>
       </main>
     );
   }

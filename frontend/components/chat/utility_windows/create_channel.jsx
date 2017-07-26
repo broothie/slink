@@ -47,7 +47,7 @@ export default class CreateChannel extends React.Component {
 
   render() {
     return (
-      <form
+      <div
         className='create-channel'
         ref={pane => { this.pane = pane; }}
         onMouseDown={this.bringToFront}
@@ -86,7 +86,7 @@ export default class CreateChannel extends React.Component {
             </button>
           </footer>
         </div>
-      </form>
+      </div>
     );
   }
 }

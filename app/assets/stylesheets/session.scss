@@ -1,8 +1,8 @@
-$form-width: 250px;
-$form-padding: 5px;
-$form-content-padding-vert: 5px;
-$form-content-padding-horz: 10px;
-$square-title-width: $form-width - $form-padding - $form-content-padding-horz - 30px;
+$pane-width: 250px;
+$pane-padding: 5px;
+$pane-content-padding-vert: 5px;
+$pane-content-padding-horz: 10px;
+$square-title-width: $pane-width - $pane-padding - $pane-content-padding-horz - 30px;
 $content-spacing: 10px;
 
 .session-main {
@@ -13,10 +13,10 @@ $content-spacing: 10px;
   justify-content: center;
   align-items: center;
 
-  form {
-    width: $form-width;
+  pane {
+    width: $pane-width;
 
-    padding: $form-padding;
+    padding: $pane-padding;
 
     display: flex;
     flex-flow: column;
@@ -25,10 +25,10 @@ $content-spacing: 10px;
   }
 }
 
-.session-form-content {
+.session-pane-content {
   flex: 1;
 
-  padding: $form-content-padding-vert $form-content-padding-horz;
+  padding: $pane-content-padding-vert $pane-content-padding-horz;
 
   font-size: 13;
 
