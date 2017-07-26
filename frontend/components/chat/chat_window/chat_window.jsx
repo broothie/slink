@@ -34,6 +34,10 @@ export default class ChatWindow extends React.Component {
     this.input.focus();
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors();
+  }
+
   updateMessage(e) {
     this.setState({ message: e.target.value });
   }

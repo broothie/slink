@@ -30,6 +30,8 @@ export default class BuddyList extends React.Component {
   handleSignOff(e) {
     this.props.signOff().then(
       () => this.signOffSound.play()
+    ).then(
+      this.props.clearWindows()
     );
   }
 

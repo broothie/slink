@@ -79,4 +79,8 @@ button {
   &:active {
     @include windows-95-inset;
   }
+
+  &:focus {
+    background-color: #808080;
+  }
 }
