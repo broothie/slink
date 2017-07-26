@@ -11,6 +11,7 @@ export default class CreateChannel extends React.Component {
     this.handleInput = this.handleInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.bringToFront = this.bringToFront.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
   }
 
   componentDidMount() {
@@ -33,6 +34,17 @@ export default class CreateChannel extends React.Component {
 
   handleInput(e) {
     this.setState({ name: e.target.value });
+  }
+
+  handleEnter(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+      this.props.createChannel(this.state.name).then(
+        ({ channel }) => this.props.addChatWindow(channel.id)
+      ).then(
+        () => this.props.closeWindow()
+      );
+    }
   }
 
   handleSubmit(e) {
@@ -70,6 +82,7 @@ export default class CreateChannel extends React.Component {
             placeholder='Channel name'
             onChange={this.handleInput}
             value={this.state.name}
+            onKeyPress={this.handleEnter}
             ref={input => {this.input = input;}}
           />
 
