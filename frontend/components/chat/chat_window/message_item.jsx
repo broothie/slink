@@ -1,23 +1,39 @@
 import React from 'react';
 
-export default ({ currentUser, message: { authorScreenname, body }, createPrivateChannel }) => {
-  const klass = currentUser.screenname === authorScreenname ? (
-    'ownUser-message'
-  ) : (
-    'foreignUser-message'
-  );
+export default class MessageItem extends React.Component {
 
-  return (
-    <li>
-      <span
-        className={klass}
-        onClick={() => createPrivateChannel([
-          currentUser.screenname,
-          authorScreenname
-        ])}
-      >
-        {authorScreenname}
-      </span>: {body}
-    </li>
-  );
-};
+  setHandleScreennameClick(otherId) {
+    return e => {
+      this.props.createPrivateChannelById(
+        [this.props.currentUser.id, otherId]
+      ).then(
+        ({ channel }) => this.props.addChatWindow(channel.id)
+      );
+    };
+  }
+
+  render() {
+    const {
+      currentUser,
+      message: { authorId, authorScreenname, body },
+      createPrivateChannel
+    } = this.props;
+
+    const klass = currentUser.screenname === authorScreenname ? (
+      'ownUser-message'
+    ) : (
+      'foreignUser-message'
+    );
+
+    return (
+      <li>
+        <span
+          className={klass}
+          onClick={this.setHandleScreennameClick(authorId)}
+        >
+          {authorScreenname}
+        </span>: {body}
+      </li>
+    );
+  }
+}

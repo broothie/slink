@@ -51,9 +51,15 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create_private_by_id
-    ids = (private_channel_params[:ids] + [current_user.id]).uniq
+    user_ids = (private_channel_params[:ids] + [current_user.id]).map(&:to_i)
 
-    users = User.where(id: ids)
+    @channel = Channel.find_by_user_ids(user_ids).first
+    if @channel
+      render :show
+      return
+    end
+
+    users = User.where(id: user_ids)
 
     @channel = Channel.new(
       name: users.map(&:screenname).join(', '),

@@ -27,4 +27,16 @@ class Channel < ApplicationRecord
     primary_key: :id,
     foreign_key: :owner_id,
     class_name: :User
+
+  def self.find_by_user_ids(user_ids)
+    user_ids.uniq!
+    user_ids.sort!
+    includes(:users).select do |channel|
+      user_ids == channel.users.map(&:id).sort
+    end
+  end
+
+  def self.exists_by_user_ids?(user_ids)
+    !find_by_user_ids(user_ids).empty?
+  end
 end

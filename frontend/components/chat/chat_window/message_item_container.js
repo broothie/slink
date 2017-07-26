@@ -1,15 +1,17 @@
 import { connect } from 'react-redux';
 import MessageItem from './message_item';
-import { createPrivateChannel } from '../../../actions/channel_actions';
+import { createPrivateChannelById } from '../../../actions/channel_actions';
+import { receiveChatWindow } from '../../../actions/window_actions';
 
 const mapStateToProps = ({ session: { currentUser } }) => ({
   currentUser
 });
 
 const mapDispatchToProps = dispatch => ({
-  createPrivateChannel: screennames => (
-    dispatch(createPrivateChannel(screennames))
-  )
+  createPrivateChannelById: ids => (
+    dispatch(createPrivateChannelById(ids))
+  ),
+  addChatWindow: channelId => dispatch(receiveChatWindow(channelId))
 });
 
 export default connect(
