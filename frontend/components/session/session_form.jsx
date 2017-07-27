@@ -16,6 +16,7 @@ class SessionForm extends React.Component {
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoClick = this.handleDemoClick.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
   }
 
   componentDidMount() {
@@ -46,7 +47,16 @@ class SessionForm extends React.Component {
   }
 
   update(field) {
-    return e => this.setState({ [field]: e.target.value });
+    return e => {
+      this.setState({ [field]: e.target.value });
+      this.props.clearErrors();
+    };
+  }
+
+  handleEnter(e) {
+    if (e.key === 'Enter') {
+      this.handleSubmit(e);
+    }
   }
 
   formDetails() {
@@ -89,6 +99,7 @@ class SessionForm extends React.Component {
               <input
                 type='text'
                 onChange={this.update('screenname')}
+                onKeyPress={this.handleEnter}
                 value={this.state.screenname}
                 tabIndex='1'
                 ref={input => {this.screenNameInput = input;}}
@@ -104,6 +115,7 @@ class SessionForm extends React.Component {
               <input
                 type='password'
                 onChange={this.update('password')}
+                onKeyPress={this.handleEnter}
                 value={this.state.password}
                 tabIndex='2'
               />
