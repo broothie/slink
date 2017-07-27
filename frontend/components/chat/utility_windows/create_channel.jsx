@@ -69,7 +69,7 @@ export default class CreateChannel extends React.Component {
         onMouseDown={this.bringToFront}
       >
         <header className='title-bar title-bar-with-exit'>
-          New Channel
+          Create Channel
 
           <button onClick={this.props.closeWindow}>
             <img src='http://res.cloudinary.com/dfawecall/image/upload/t_media_lib_thumb/v1501006578/x-symbol_idzbho.png'/>
@@ -77,6 +77,7 @@ export default class CreateChannel extends React.Component {
         </header>
 
         <div className='create-channel-content'>
+          <div>
           <input
             type='text'
             placeholder='Channel name'
@@ -86,6 +87,14 @@ export default class CreateChannel extends React.Component {
             ref={input => {this.input = input;}}
           />
 
+          <button
+            type='submit'
+            onClick={this.handleSubmit}
+          >
+            Create
+          </button>
+          </div>
+
           <footer>
             <ul>
               {
@@ -94,13 +103,6 @@ export default class CreateChannel extends React.Component {
                 ))
               }
             </ul>
-
-            <button
-              type='submit'
-              onClick={this.handleSubmit}
-            >
-              Create
-            </button>
           </footer>
         </div>
       </div>

@@ -107,7 +107,7 @@ export default class CreatePrivateChat extends React.Component {
         onMouseDown={this.bringToFront}
       >
         <header className='title-bar title-bar-with-exit'>
-          Create New Private Chat
+          Create Chat
 
           <button
             onClick={this.props.closeWindow}

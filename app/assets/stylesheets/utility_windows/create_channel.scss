@@ -12,8 +12,19 @@
 
   box-sizing: border-box;
 
-  input[type='text'] {
-    width: 100%;
+  div {
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+
+    input[type='text'] {
+      width: 100%;
+      margin-right: 3px;
+    }
+
+    button {
+      font-size: 12px;
+    }
   }
 
   footer {
@@ -21,9 +32,5 @@
     flex-flow: row;
     justify-content: flex-end;
     align-items: center;
-
-    button {
-      margin: 5px;
-    }
   }
 }
