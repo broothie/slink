@@ -27,6 +27,8 @@ class Api::MessagesController < ApplicationController
         channel.users.each do |user|
           AppearanceChannel.broadcast_to(user, channel.id)
         end
+
+        # TODO: Some SmarterChild algo
       end
     else
       render json: @message.errors.full_messages, status: 422

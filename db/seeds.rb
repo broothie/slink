@@ -1,10 +1,12 @@
 [Channel, Message, Subscription, User].each(&:destroy_all)
 
 demo_user = User.create(screenname: 'demoUser', password: '123456')
+smarter_child = User.create(screenname: 'SmarterChild', password: 'drowssap')
 
 # Create world chat
 world_chat = Channel.create(name: 'World Chat', owner_id: demo_user.id)
 world_chat.users << demo_user
+world_chat.users << smarter_child
 
 # Create some users
 20.times do
@@ -15,6 +17,7 @@ world_chat.users << demo_user
   u.channels << world_chat
 end
 
+# Create messages for World Chat
 50.times do
   Message.create(
     body: Faker::Hipster.sentence,
@@ -24,6 +27,7 @@ end
   )
 end
 
+# Define channel builder
 def build_channel(channel_name, user)
   channel = Channel.create(name: channel_name, owner_id: user.id)
 
@@ -42,6 +46,7 @@ def build_channel(channel_name, user)
   end
 end
 
+# Build a bunch of channels
 build_channel('#ChuckNorris', demo_user) { Faker::ChuckNorris.fact }
 build_channel('Beer', demo_user) { Faker::Beer.style }
 build_channel('HPFans', demo_user) { Faker::HarryPotter.quote }
