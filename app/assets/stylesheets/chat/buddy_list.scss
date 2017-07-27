@@ -40,12 +40,15 @@
 
   @include text-input;
   padding: 5px 8px;
+  padding-right: 10px;
   overflow: scroll;
 
   div {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+
+    border-bottom: 1px solid $outset-light-shadow;
 
     &:hover {
       background-color: WhiteSmoke;
@@ -73,7 +76,8 @@
   }
 
   ul {
-    margin-left: 20px;
+    margin-left: 10px;
+    margin-bottom: 10px;
 
     li {
       padding: 4px;
