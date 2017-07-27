@@ -12,7 +12,9 @@ export default class MessageStreamWindow extends React.Component {
   }
 
   componentWillMount() {
-    this.props.requestChannelMessages();
+    this.props.requestChannelMessages().then(
+      () => { this.messageInput.scrollTop = this.messageInput.scrollHeight; }
+    );
   }
 
   componentDidMount() {
@@ -33,7 +35,8 @@ export default class MessageStreamWindow extends React.Component {
           if (this.props.currentUser.id !== message.authorId) {
             this.receiveAudio.play();
           }
-          return this.props.receiveMessage(message);
+          this.props.receiveMessage(message);
+          this.messageInput.scrollTop = this.messageInput.scrollHeight;
         },
 
         disconnected: () => (
@@ -42,10 +45,6 @@ export default class MessageStreamWindow extends React.Component {
       }
     );
 
-    this.messageInput.scrollTop = this.messageInput.scrollHeight;
-  }
-
-  componentDidUpdate() {
     this.messageInput.scrollTop = this.messageInput.scrollHeight;
   }
 
