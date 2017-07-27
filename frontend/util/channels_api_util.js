@@ -27,18 +27,17 @@ export const createChannel = channelName => (
   })
 );
 
-export const createPrivateChannel = screennames => (
-  $.ajax({
-    type: 'POST',
-    url: 'api/channels/private',
-    data: { channel: { screennames } }
-  })
-);
-
 export const createPrivateChannelById = ids => (
   $.ajax({
     type: 'POST',
     url: 'api/channels/private_by_id',
     data: { channel: { ids } }
+  })
+);
+
+export const destroyChannel = channelId => (
+  $.ajax({
+    type: 'DELETE',
+    url: `api/channels/${channelId}/subscriptions/0`  // Sub has arbitrary :id
   })
 );

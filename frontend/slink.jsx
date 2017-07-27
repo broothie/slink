@@ -5,8 +5,8 @@ import Root from './components/root';
 
 // TODO: Remove testing imports
 import { merge } from 'lodash';
-import * as APIUtil from './util/messages_api_util';
-import * as actions from './actions/message_actions';
+import * as APIUtil from './util/channels_api_util';
+import * as actions from './actions/channel_actions';
 window.APIUtil = APIUtil;
 window.actions = actions;
 window.merge = merge;

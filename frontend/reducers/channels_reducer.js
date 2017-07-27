@@ -1,5 +1,9 @@
 import { merge } from 'lodash';
-import { RECEIVE_CHANNEL, RECEIVE_CHANNELS } from '../actions/channel_actions';
+import {
+  RECEIVE_CHANNEL,
+  RECEIVE_CHANNELS,
+  REMOVE_CHANNEL
+} from '../actions/channel_actions';
 import {
   RECEIVE_MESSAGE,
   RECEIVE_CHANNEL_MESSAGES
@@ -15,6 +19,10 @@ export default (state = {}, action) => {
 
     case RECEIVE_CHANNELS:
       return action.channels;
+
+    case REMOVE_CHANNEL:
+      delete stateCopy[action.channel.id];
+      return stateCopy;
 
     case RECEIVE_MESSAGE:
       stateCopy[action.message.channelId].messages.push(action.message);

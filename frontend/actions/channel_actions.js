@@ -3,6 +3,7 @@ import { receiveErrors } from './errors_actions';
 
 export const RECEIVE_CHANNEL = 'RECEIVE_CHANNEL';
 export const RECEIVE_CHANNELS = 'RECEIVE_CHANNELS';
+export const REMOVE_CHANNEL = 'REMOVE_CHANNEL';
 
 export const receiveChannel = channel => ({
   type: RECEIVE_CHANNEL,
@@ -13,6 +14,11 @@ export const receiveChannels = channels => ({
   type: RECEIVE_CHANNELS,
   channels
 });
+
+export const removeChannel = channel => ({
+  type: REMOVE_CHANNEL,
+  channel
+})
 
 export const clearChannels = () => ({
   type: RECEIVE_CHANNELS,
@@ -46,16 +52,16 @@ export const createChannel = channelName => dispatch => (
   )
 );
 
-export const createPrivateChannel = screennames => dispatch => (
-  APIUtil.createPrivateChannel(screennames).then(
+export const createPrivateChannelById = ids => dispatch => (
+  APIUtil.createPrivateChannelById(ids).then(
     channel => dispatch(receiveChannel(channel)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );
 
-export const createPrivateChannelById = ids => dispatch => (
-  APIUtil.createPrivateChannelById(ids).then(
-    channel => dispatch(receiveChannel(channel)),
+export const destroyChannel = channelId => dispatch => (
+  APIUtil.destroyChannel(channelId).then(
+    channel => dispatch(removeChannel(channel)),
     errors => dispatch(receiveErrors(errors.responseJSON))
   )
 );

@@ -15,4 +15,14 @@ class Api::SubscriptionsController < ApplicationController
       render json: ["Channel doesn't exist"], status: 404
     end
   end
+
+  def destroy
+    @channel = Channel.find_by(id: params[:channel_id])
+    if @channel
+      @channel.users.delete(current_user)
+      render 'api/channels/show', channel: @channel
+    else
+      render json: ["Channel doesn't exist"], status: 404
+    end
+  end
 end

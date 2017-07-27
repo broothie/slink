@@ -5,6 +5,14 @@ export default class ChannelIndex extends React.Component {
     this.props.requestUserChannels();
   }
 
+  setHandleRemoveClick(channelId) {
+    return e => {
+      e.preventDefault();
+      this.props.removeChatWindow(channelId);
+      this.props.destroyChannel(channelId);
+    };
+  }
+
   render() {
     return (
       <div className='channel-index'>
@@ -24,7 +32,11 @@ export default class ChannelIndex extends React.Component {
                 onDoubleClick={() => this.props.addWindow(dmInfo.id)}
               >
                 <span>{dmInfo.name}</span>
-                <a>Remove</a>
+                <a
+                  onClick={this.setHandleRemoveClick(dmInfo.id)}
+                >
+                  Remove
+                </a>
               </li>
             ))
           }
@@ -49,7 +61,11 @@ export default class ChannelIndex extends React.Component {
                 onDoubleClick={() => this.props.addWindow(channelInfo.id)}
               >
                 <span>{channelInfo.name}</span>
-                <a>Remove</a>
+                <a
+                  onClick={this.setHandleRemoveClick(channelInfo.id)}
+                >
+                  Remove
+                </a>
               </li>
             ))
           }

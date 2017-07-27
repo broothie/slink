@@ -1,7 +1,13 @@
 import { connect } from 'react-redux';
 import ChannelIndex from './channel_index';
-import { receiveChatWindow } from '../../../actions/window_actions';
-import { requestUserChannels } from '../../../actions/channel_actions';
+import {
+  receiveChatWindow,
+  removeChatWindow
+} from '../../../actions/window_actions';
+import {
+  requestUserChannels,
+  destroyChannel
+} from '../../../actions/channel_actions';
 import {
   getChannelInfos,
   getDmInfos
@@ -14,6 +20,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
   requestUserChannels: () => dispatch(requestUserChannels()),
+  destroyChannel: channelId => dispatch(destroyChannel(channelId)),
+  removeChatWindow: channelId => dispatch(removeChatWindow(channelId)),
   addWindow: channelId => dispatch(receiveChatWindow(channelId))
 });
 
