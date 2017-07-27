@@ -10,6 +10,7 @@ export default class AddChannel extends React.Component {
 
     this.queryUpdate = this.queryUpdate.bind(this);
     this.bringToFront = this.bringToFront.bind(this);
+    this.handleEnter = this.handleEnter.bind(this);
   }
 
   componentDidMount() {
@@ -51,6 +52,19 @@ export default class AddChannel extends React.Component {
     };
   }
 
+  handleEnter(e) {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+
+      if (this.props.channelQueryResults.length === 0) {
+        return;
+      }
+
+      const channel = this.props.channelQueryResults[0];
+      this.setHandleClick(channel.id)(e);
+    }
+  }
+
   render() {
     return (
       <div
@@ -59,7 +73,7 @@ export default class AddChannel extends React.Component {
         onMouseDown={this.bringToFront}
       >
         <header className='title-bar title-bar-with-exit'>
-          Add Channel
+          Find Channel
 
           <button
             onClick={this.props.closeWindow}
@@ -74,7 +88,8 @@ export default class AddChannel extends React.Component {
             placeholder='Search for channels'
             value={this.state.query}
             onChange={this.queryUpdate}
-            ref={input => {this.input = input;}}
+            ref={input => { this.input = input; }}
+            onKeyPress={this.handleEnter}
           />
 
           <ul>
