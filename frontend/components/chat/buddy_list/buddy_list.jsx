@@ -120,7 +120,7 @@ export default class BuddyList extends React.Component {
 
           <hr className='hr-divider'/>
 
-          <ChannelIndexContainer/>
+          <ChannelIndexContainer openWindow={openWindow}/>
         </div>
       </div>
     );

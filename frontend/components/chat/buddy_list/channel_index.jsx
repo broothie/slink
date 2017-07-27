@@ -11,7 +11,9 @@ export default class ChannelIndex extends React.Component {
         <div>
           <h1>Chats</h1>
           <span>
-            <a>New</a>
+            <a onClick={() => this.props.openWindow('createPrivateChat')}>
+              New
+            </a>
           </span>
         </div>
         <ul>
@@ -31,8 +33,12 @@ export default class ChannelIndex extends React.Component {
         <div>
           <h1>Channels</h1>
           <span>
-            <a>Find</a>
-            <a>Create</a>
+            <a onClick={() => this.props.openWindow('addChannel')}>
+              Find
+            </a>
+            <a onClick={() => this.props.openWindow('createChannel')}>
+              Create
+            </a>
           </span>
         </div>
         <ul>
