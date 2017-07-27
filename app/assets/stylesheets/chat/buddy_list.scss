@@ -23,10 +23,17 @@
 .button-row {
   display: flex;
   flex-flow: row;
-  justify-content: space-between;
+  justify-content: flex-start;
 
-  button {
-    font-size: 13px;
+  span {
+    margin-right: 10px;
+    text-decoration: underline;
+    cursor: pointer;
+
+    &:hover {
+      font-weight: bolder;
+      color: $outset-light-shadow;
+    }
   }
 }
 

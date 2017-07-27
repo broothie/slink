@@ -91,6 +91,28 @@ export default class BuddyList extends React.Component {
         </header>
 
         <div className='buddy-list-content'>
+          <div className='button-row'>
+            <span
+              onClick={() => openWindow('createPrivateChat')}
+            >
+              Chat
+            </span>
+
+            <span
+              onClick={() => openWindow('addChannel')}
+            >
+              Find Channel
+            </span>
+
+            <span
+              onClick={() => openWindow('createChannel')}
+            >
+              Create Channel
+            </span>
+          </div>
+
+          <hr className='hr-divider'/>
+
           <div className='square-title-logo-small'>
             <img src='http://res.cloudinary.com/dfawecall/image/upload/v1500956186/Logomakr_5NM6R1_ibdrdc.png'/>
             <h2>Slink<br/> <em>Instant<br/> Messenger</em></h2>
@@ -98,35 +120,7 @@ export default class BuddyList extends React.Component {
 
           <hr className='hr-divider'/>
 
-          <div className='button-row'>
-            <button
-              onClick={() => openWindow('addChannel')}
-            >
-              Add Channel
-            </button>
-
-            <button
-              onClick={() => openWindow('createChannel')}
-            >
-              New Channel
-            </button>
-
-            <button
-              onClick={() => openWindow('createPrivateChat')}
-            >
-              New DM
-            </button>
-          </div>
-
-          <hr className='hr-divider'/>
-
           <ChannelIndexContainer/>
-
-          <hr className='hr-divider'/>
-
-          <footer>
-            <button onClick={this.handleSignOff}>Sign Off</button>
-          </footer>
         </div>
       </div>
     );
