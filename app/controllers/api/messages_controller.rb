@@ -4,7 +4,7 @@ class Api::MessagesController < ApplicationController
   def index
     channel = Channel.find_by(id: params[:channel_id])
     if channel
-      @messages = channel.messages.order(timestamp: :asc)
+      @messages = channel.messages
       render :index
     else
       render json: ["Channel doesn't exist"], status: 404

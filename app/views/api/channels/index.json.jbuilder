@@ -1,6 +1,5 @@
-@channels.each do |channel|
+@channels.includes(:users).each do |channel|
   json.set! channel.id do
-    json.extract! channel, :id, :name
-    json.ownerScreenname channel.owner.screenname
+    json.partial! 'api/channels/channel', channel: channel
   end
 end

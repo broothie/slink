@@ -1,4 +1,4 @@
-@channels.each do |channel|
+@channels.includes(:users).each do |channel|
   json.set! channel.id do
     json.partial! 'api/channels/channel', channel: channel
   end
