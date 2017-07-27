@@ -42,13 +42,19 @@ $window-content-padding-horz: 10px;
 }
 
 .message-stream-window {
-  @include text-input;
   padding: 5px 8px;
-  overflow: scroll;
   height: 180px;
+
+  @include text-input;
+  overflow: scroll;
 
   @include font-times;
   font-size: 15px;
+
+  user-select: text;
+  -moz-user-select: text;
+  -webkit-user-select: text;
+  -ms-user-select: text;
 
   li {
     font-weight: 100;

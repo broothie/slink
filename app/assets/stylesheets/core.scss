@@ -9,6 +9,11 @@ body,
   @include font-sans-serif;
   font-size: 13px;
   font-weight: bolder;
+
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
 }
 
 body {
