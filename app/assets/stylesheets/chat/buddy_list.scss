@@ -26,13 +26,11 @@
   justify-content: flex-start;
 
   span {
-    margin-right: 10px;
-    text-decoration: underline;
+    margin-right: 15px;
     cursor: pointer;
 
     &:hover {
-      font-weight: bolder;
-      color: $outset-light-shadow;
+      text-decoration: underline;
     }
   }
 }
@@ -40,37 +38,60 @@
 .channel-index {
   flex: 1;
 
+  @include text-input;
+  padding: 5px 8px;
+  overflow: scroll;
+
   div {
-    height: 50%;
-
     display: flex;
-    flex-flow: column;
+    justify-content: space-between;
+    align-items: baseline;
 
-    label {
-      font-size: 15px;
-      font-weight: bold;
-      margin-left: 4px;
+    &:hover {
+      background-color: WhiteSmoke;
     }
 
-    ul {
-      flex: 1;
+    h1 {
+      padding: 5px;
+      cursor: pointer;
+    }
 
-      padding: 5px 8px;
-      margin-bottom: 5px;
+    span {
 
-      @include text-input;
+      a {
+        margin-left: 10px;
 
-      font-size: 14px;
-      font-weight: bold;
-
-      overflow: scroll;
-
-      li {
+        text-decoration: none;
         cursor: pointer;
 
-        span:hover {
-          background-color: $square-title-logo-yellow;
+        &:hover {
+          text-decoration: underline;
         }
+      }
+    }
+  }
+
+  ul {
+    margin-left: 20px;
+
+    li {
+      padding: 4px;
+
+      display: flex;
+      justify-content: space-between;
+
+      cursor: pointer;
+
+      a {
+        text-decoration: none;
+
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+
+      &:hover {
+        background-color: WhiteSmoke;
       }
     }
   }

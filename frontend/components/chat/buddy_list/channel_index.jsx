@@ -8,38 +8,46 @@ export default class ChannelIndex extends React.Component {
   render() {
     return (
       <div className='channel-index'>
+        <div>
+          <h1>Chats</h1>
+          <span>
+            <a>New</a>
+          </span>
+        </div>
+        <ul>
+          {
+            this.props.dmInfos.map(dmInfo => (
+              <li
+                key={dmInfo.id}
+                onDoubleClick={() => this.props.addWindow(dmInfo.id)}
+              >
+                <span>{dmInfo.name}</span>
+                <a>Remove</a>
+              </li>
+            ))
+          }
+        </ul>
 
         <div>
-        <label>Channels</label>
-          <ul>
-            {
-              this.props.channelInfos.map(channelInfo => (
-                <li
-                  key={channelInfo.id}
-                  onClick={() => this.props.addWindow(channelInfo.id)}
-                >
-                   - <span>{channelInfo.name}</span>
-                </li>
-              ))
-            }
-          </ul>
+          <h1>Channels</h1>
+          <span>
+            <a>Find</a>
+            <a>Create</a>
+          </span>
         </div>
-
-        <div>
-          <label>Direct Messages</label>
-          <ul>
-            {
-              this.props.dmInfos.map(dmInfo => (
-                <li
-                  key={dmInfo.id}
-                  onClick={() => this.props.addWindow(dmInfo.id)}
-                >
-                   - <span>{dmInfo.name}</span>
-                </li>
-              ))
-            }
-          </ul>
-        </div>
+        <ul>
+          {
+            this.props.channelInfos.map(channelInfo => (
+              <li
+                key={channelInfo.id}
+                onDoubleClick={() => this.props.addWindow(channelInfo.id)}
+              >
+                <span>{channelInfo.name}</span>
+                <a>Remove</a>
+              </li>
+            ))
+          }
+        </ul>
       </div>
     );
   }
