@@ -23,7 +23,7 @@ export default class CreatePrivateChat extends React.Component {
       containment: 'body'
     });
 
-    this.pane.style.right = '300px';
+    this.pane.style.right = '350px';
     this.pane.style.top = '50px';
     this.pane.style.zIndex = this.props.zIndex;
     this.props.incrementZIndex();
