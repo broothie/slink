@@ -9,8 +9,9 @@ import {
   clearWindows
 } from '../../../actions/window_actions';
 
-const mapStateToProps = ({ session: { currentUser }, channels, windows: { lastZIndex } }) => ({
+const mapStateToProps = ({ session: { currentUser }, channels, windows: { lastZIndex, chatWindows } }) => ({
   currentUser,
+  chatWindows,
   zIndex: lastZIndex
 });
 

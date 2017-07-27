@@ -9,6 +9,10 @@ export default class BuddyList extends React.Component {
       'http://gauss.ececs.uc.edu/Courses/c653/lectures/AIM/sound/doorslam.wav'
     );
 
+    this.newPrivateMessageSound = new Audio(
+      'http://gauss.ececs.uc.edu/Courses/c653/lectures/AIM/sound/ring.wav'
+    );
+
     this.bringToFront = this.bringToFront.bind(this);
     this.handleSignOff = this.handleSignOff.bind(this);
   }
@@ -22,11 +26,17 @@ export default class BuddyList extends React.Component {
           console.log(`Connected to appearances, id: ${currentUser.id}`)
         ),
 
-        received: channelId => (
-          this.props.requestChannel(channelId).then(
-            ({ channel }) => this.props.addChatWindow(channel.id)
-          )
-        ),
+        received: channelId => {
+          console.log(`Received channel update from ${channelId}`);
+          if (!this.props.chatWindows.includes(channelId)) {
+            return this.props.requestChannel(channelId).then(
+              ({ channel }) => {
+                this.props.addChatWindow(channel.id);
+                this.newPrivateMessageSound.play();
+              }
+            );
+          }
+        },
 
         disconnected: () => (
           console.log(`disconnected from appearances, id: ${currentUser.id}`)

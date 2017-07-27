@@ -8,28 +8,26 @@ import {
 export default (state = {}, action) => {
   Object.freeze(state);
 
+  const stateCopy = merge({}, state);
   switch (action.type) {
     case RECEIVE_CHANNEL:
-      return merge({}, state, { [action.channel.id]: action.channel });
+      return merge(stateCopy, { [action.channel.id]: action.channel });   // FIXME:
 
     case RECEIVE_CHANNELS:
       return action.channels;
 
     case RECEIVE_MESSAGE:
-      return merge({}, state, {
-        [action.message.channelId]: {
-          messages: { [action.message.id]: action.message }
-        }
-      });
+      stateCopy[action.message.channelId].messages.push(action.message);
+      return stateCopy;
 
     case RECEIVE_CHANNEL_MESSAGES:
-      return merge({}, state, {
+      return merge(stateCopy, {
         [action.channelId]: {
           messages: action.messages
         }
       });
 
     default:
-      return state;
+      return stateCopy;
   }
 };
