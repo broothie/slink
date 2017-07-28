@@ -30,7 +30,11 @@
 
 ### Technical Challenges
 #### Backend Design
-Original schema and controller design can be viewed in the [docs](docs) folder of this repo. Naturally these designs went through several revisions during development. The current state of the application persists data regarding users, messages & their relationship to users, and channels & their relationships to users & messages. A user can create public and private channels with other users, and remove or add their own subscriptions from the channel list interface. Leveraging the use of Rails' [ActiveRecord][active_record] and [router][rails_router], controllers can be easily designed to provide the frontend software with api endpoints for data storage, retrieval, and processing.
+Original schema and controller design can be viewed in the [docs](docs) folder of this repo. Naturally these designs went through several revisions during development.
+
+The current state of the application persists data regarding users, messages & their relationship to users, and channels & their relationships to users & messages. A user can create public and private channels with other users, and remove or add their own subscriptions from the channel list interface.
+
+Leveraging the use of Rails' [ActiveRecord][active_record] and [router][rails_router], controllers could be easily designed to provide the frontend software with api endpoints for data storage, retrieval, and processing.
 
 #### Real-Time Chat
 Rails' [ActionCable][action_cable] does the heavy lifting in creating the live-chat experience [Slink][slink] provides. By opening a socket channel for each chat window the client has open, users can have multiple chat streams running at one time, and the server can easily keep track of which users are subscribed to which channels in real time. By creating simple `#sign_on!` and `#sign_off!` methods on the Rails `ApplicationController`, clients can be signed by their `user_id` from the database:
@@ -97,6 +101,27 @@ When the message controller receives this message, it detects the message's corr
 if @message.save
   ChatChannel.broadcast_to(channel, message: @message.camelized_json)
 ```
+
+#### Real-Time Private Chat Spawning
+Additionally, by keeping track of user status via another channel (`AppearanceChannel`), private message windows spawning was achieved. By subscribing each user additionally to the `AppearanceChannel`, clients are notified of new private messages on private channels they are subscribed to, meaning an open window action can be launched at that time via the `addChatWindow` action:
+
+```javascript
+received: channelId => {
+  if (!this.props.chatWindows.includes(channelId)) {
+    return this.props.requestChannel(channelId).then(
+      ({ channel }) => {
+        this.props.addChatWindow(channel.id);
+        this.newPrivateMessageSound.play();
+      }
+    );
+  }
+}
+```
+
+#### [SmarterChild][smarter_child]
+No [AIM][aim] clone would be complete without some manifestation of [SmarterChild][smarter_child]. Hours of time and millions of billion were wasted conversing with this chatbot, who offered both bewildering retorts and surprisingly relevant witticisms.
+
+The homegrown algorithm for generating Slink's SmarterChild responses is mounted on the messages model. By adding a self-joining id column to the messages table, a one-to-one relationship can be formed between messages, called `reply`/`prompt`. Not all messages have both a `reply` and `prompt`, but those that do offer an opportunity for using human chat interactions to influence SmarterChild's responses. 
 
 ### Future Improvements
 - Limit initial message download count
