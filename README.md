@@ -30,7 +30,7 @@
 
 ### Technical Challenges
 #### Backend Design
-Original schema and controller design can be viewed in the [docs][./blob/master/docs/] folder of this repo. Naturally these designs went through several revisions during development. 
+Original schema and controller design can be viewed in the [docs](docs) folder of this repo. Naturally these designs went through several revisions during development. 
 
 ### Future Improvements
 
