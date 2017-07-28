@@ -15,12 +15,12 @@
 
 ## Implementation
 ### Stack
-- [Backend](blob/master/Gemfile)
+- [Backend](Gemfile)
   - [Ruby 2.3.1][ruby231] on [Rails 5.0.4][rails504]
   - [Postgres 9.6.2][postgres962]
   - [Redis To Go][redis] for local [ActionCable][action_cable] data storage
   - [Cloudinary][cloudinary] for image hosting
-- [Frontend](blob/master/package.json)
+- [Frontend](package.json)
   - [React][react]
   - [Redux][redux]
   - [SCSS][scss]
@@ -30,7 +30,7 @@
 
 ### Technical Challenges
 #### Backend Design
-Original schema and controller design can be viewed in the [docs][blob/master/docs] folder of this repo. Naturally these designs went through several revisions during development.
+Original schema and controller design can be viewed in the [docs][docs] folder of this repo. Naturally these designs went through several revisions during development. 
 
 ### Future Improvements
 
