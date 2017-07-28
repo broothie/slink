@@ -31,7 +31,7 @@ class Api::MessagesController < ApplicationController
         # TODO: Some SmarterChild algo
         if channel.direct_with_smarter_child?
           smarter_message = Message.create(
-            body: @message.similar_with_reply.body,
+            body: @message.similar_with_reply.reply.body,
             channel: channel,
             author: User.find_by(screenname: 'SmarterChild')
           )
