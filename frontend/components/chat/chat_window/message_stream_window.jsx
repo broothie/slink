@@ -25,24 +25,14 @@ export default class MessageStreamWindow extends React.Component {
         channel: 'ChatChannel',
         id: channel.id
       }, {
-        connected: () => (
-          console.log(`Connected to ${channel.name}, id: ${channel.id}`)
-        ),
-
         received: data => {
           const message = data.message;
-          console.log(message);
-          console.log(`Received message id: ${message.id}`);
           if (this.props.currentUser.id !== message.authorId) {
             this.receiveAudio.play();
           }
           this.props.receiveMessage(message);
           this.messageInput.scrollTop = this.messageInput.scrollHeight;
-        },
-
-        disconnected: () => (
-          console.log(`Disconnected from ${channel.name}, id: ${channel.id}`)
-        )
+        }
       }
     );
 

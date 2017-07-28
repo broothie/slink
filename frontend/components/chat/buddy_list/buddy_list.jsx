@@ -22,12 +22,7 @@ export default class BuddyList extends React.Component {
 
     this.connection = this.props.cable.subscriptions.create('AppearanceChannel',
       {
-        connected: () => (
-          console.log(`Connected to appearances, id: ${currentUser.id}`)
-        ),
-
         received: channelId => {
-          console.log(`Received channel update from ${channelId}`);
           if (!this.props.chatWindows.includes(channelId)) {
             return this.props.requestChannel(channelId).then(
               ({ channel }) => {
@@ -36,11 +31,7 @@ export default class BuddyList extends React.Component {
               }
             );
           }
-        },
-
-        disconnected: () => (
-          console.log(`disconnected from appearances, id: ${currentUser.id}`)
-        )
+        }
       }
     );
   }
