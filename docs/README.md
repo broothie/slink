@@ -4,13 +4,12 @@
 ## Minimum Viable Product
 Slink is a real time chat app inspired by [Slack][slack] powered by [Ruby on Rails][ror] and [React][react]/[Redux][redux]. By August 4th, this app will, at a minimum, have the following features.
 
-- [ ] Heroku Hosting
-- [ ] User/Login with Demo Login
-- [ ] Live Chat
-- [ ] Channels
-- [ ] Direct Messaging
-<!-- - [ ] Teams -->
-- [ ] Drag'n'Drop
+- [x] Heroku Hosting
+- [x] User/Login with Demo Login
+- [x] Live Chat
+- [x] Channels
+- [x] Direct Messaging
+- [x] Drag'n'Drop
 - [ ] Production README
 
 ## Design Docs
