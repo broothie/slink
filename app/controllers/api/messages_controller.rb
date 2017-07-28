@@ -30,16 +30,16 @@ class Api::MessagesController < ApplicationController
 
         # TODO: Some SmarterChild algo
         if channel.direct_with_smarter_child?
-          @message = Message.create(
+          smarter_message = Message.create(
             body: @message.similar_with_reply.body,
             channel: channel,
             author: User.find_by(screenname: 'SmarterChild')
           )
 
-          ChatChannel.broadcast_to(channel, message: @message.camelized_json)
+          ChatChannel.broadcast_to(channel, message: smarter_message.camelized_json)
         end
       end
-      
+
       render :show
     else
       render json: @message.errors.full_messages, status: 422

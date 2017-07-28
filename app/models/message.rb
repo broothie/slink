@@ -9,7 +9,7 @@
 #  channel_id :integer          not null
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
-#  prompt_id  :integer
+#  reply_id   :integer
 #
 
 class Message < ApplicationRecord
@@ -20,15 +20,15 @@ class Message < ApplicationRecord
 
   belongs_to :channel
 
-  belongs_to :prompt,
+  belongs_to :reply,
     primary_key: :id,
-    foreign_key: :prompt_id,
+    foreign_key: :reply_id,
     class_name: :Message,
     optional: true
 
-  has_one :reply,
+  has_one :prompt,
     primary_key: :id,
-    foreign_key: :prompt_id,
+    foreign_key: :reply_id,
     class_name: :Message
 
   before_validation :ensure_timestamp
@@ -42,8 +42,6 @@ class Message < ApplicationRecord
   end
 
   def detect_prompt
-    return if prompt
-
     # Only look in direct messages
     return unless channel.direct?
     return if channel.with_smarter_child?
@@ -60,14 +58,14 @@ class Message < ApplicationRecord
     # Only look at messages sent consecutively within a timeframe
     return unless (self.timestamp - candidate_prompt.timestamp) < 15 * 60
 
-    prompt = candidate_prompt
-    save
+    self.prompt = candidate_prompt
+    self.save
   end
 
   def similar_with_reply
     similars = self.class.where(
       'lower(body) LIKE ?',
-      "%#{body.downcase.chars.join('%')}%"
+      "%#{self.body.downcase.chars.join('%')}%"
     ).where.not(reply: nil)
     return similars.sample unless similars.empty?
 
