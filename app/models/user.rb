@@ -42,6 +42,8 @@ class User < ApplicationRecord
     class_name: :Channel,
     dependent: :destroy
 
+  after_create :create_smarter_chat!
+
   def self.find_by_credentials(screenname, password)
     user = find_by(screenname: screenname)
     return user if user && user.is_password?(password)
@@ -68,5 +70,18 @@ class User < ApplicationRecord
 
   def ensure_icon_url
     self.icon_url ||= "https://robohash.org/#{self.screenname}.png"
+  end
+
+  def create_smarter_chat!
+    smarter_child = User.find_by(screenname: 'SmarterChild')
+
+    smarter_chat = Channel.create(
+      name: [self, smarter_child].map(&:screenname).join(', '),
+      owner: smarter_child,
+      private: true
+    )
+
+    smarter_chat.users << self
+    smarter_chat.users << smarter_child
   end
 end
