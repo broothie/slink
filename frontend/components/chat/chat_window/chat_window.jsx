@@ -74,7 +74,7 @@ export default class ChatWindow extends React.Component {
     return (
       <div
         className='chat-window'
-        ref={pane => { this.pane = pane; }}
+        ref={el => { this.pane = el; } }
         onMouseDown={this.bringToFront}
       >
         <header className='title-bar title-bar-with-exit'>

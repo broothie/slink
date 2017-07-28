@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170727175507) do
+ActiveRecord::Schema.define(version: 20170728015614) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,22 @@ ActiveRecord::Schema.define(version: 20170727175507) do
     t.index ["timestamp"], name: "index_messages_on_timestamp", using: :btree
   end
 
+  create_table "smarter_child_message_relations", force: :cascade do |t|
+    t.integer  "input_message_id",  null: false
+    t.integer  "output_message_id", null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["input_message_id"], name: "index_smarter_child_message_relations_on_input_message_id", using: :btree
+    t.index ["output_message_id"], name: "index_smarter_child_message_relations_on_output_message_id", using: :btree
+  end
+
+  create_table "smarter_child_messages", force: :cascade do |t|
+    t.string   "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["body"], name: "index_smarter_child_messages_on_body", unique: true, using: :btree
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "channel_id", null: false
@@ -47,12 +63,13 @@ ActiveRecord::Schema.define(version: 20170727175507) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "screenname",      null: false
-    t.string   "password_digest", null: false
-    t.string   "session_token",   null: false
+    t.string   "screenname",                      null: false
+    t.string   "password_digest",                 null: false
+    t.string   "session_token",                   null: false
     t.string   "icon_url"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "online",          default: false
     t.index ["screenname"], name: "index_users_on_screenname", unique: true, using: :btree
     t.index ["session_token"], name: "index_users_on_session_token", unique: true, using: :btree
   end

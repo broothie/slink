@@ -1,1 +1,2 @@
+webpack
 rails db:migrate

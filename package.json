@@ -16,7 +16,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack -w",
     "postinstall": "webpack",
-    "heroku-postbuild": "webpack"
+    "heroku-postbuild": "./release-tasks.sh"
   },
   "repository": {
     "type": "git",
