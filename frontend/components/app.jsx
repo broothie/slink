@@ -7,8 +7,8 @@ import ChatContainer from './chat/chat_container';
 export default () => (
   <Switch>
     <Route exact path='/' component={ChatContainer}/>
-    <AuthRoute exact path='/signup' component={SessionFormContainer}/>
-    <AuthRoute exact path='/signon' component={SessionFormContainer}/>
+    <AuthRoute path='/signup' component={SessionFormContainer}/>
+    <AuthRoute path='/signon' component={SessionFormContainer}/>
     <Redirect to='/'/>
   </Switch>
 );
