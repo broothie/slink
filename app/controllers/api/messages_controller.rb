@@ -21,15 +21,26 @@ class Api::MessagesController < ApplicationController
     )
 
     if @message.save
-      ChatChannel.broadcast_to(channel, message: render(:show))
+      ChatChannel.broadcast_to(channel, message: @message.camelized_json)
 
-      if channel.private
+      if channel.private?
         channel.users.each do |user|
           AppearanceChannel.broadcast_to(user, channel.id)
         end
 
         # TODO: Some SmarterChild algo
+        if channel.direct_with_smarter_child?
+          @message = Message.create(
+            body: @message.similar_with_reply.body,
+            channel: channel,
+            author: User.find_by(screenname: 'SmarterChild')
+          )
+
+          ChatChannel.broadcast_to(channel, message: @message.camelized_json)
+        end
       end
+      
+      render :show
     else
       render json: @message.errors.full_messages, status: 422
     end

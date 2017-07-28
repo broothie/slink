@@ -30,7 +30,8 @@ export default class MessageStreamWindow extends React.Component {
         ),
 
         received: data => {
-          const message = JSON.parse(data.message);
+          const message = data.message;
+          console.log(message);
           console.log(`Received message id: ${message.id}`);
           if (this.props.currentUser.id !== message.authorId) {
             this.receiveAudio.play();

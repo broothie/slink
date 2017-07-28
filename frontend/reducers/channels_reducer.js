@@ -15,7 +15,7 @@ export default (state = {}, action) => {
   const stateCopy = merge({}, state);
   switch (action.type) {
     case RECEIVE_CHANNEL:
-      return merge(stateCopy, { [action.channel.id]: action.channel });   // FIXME:
+      return merge(stateCopy, { [action.channel.id]: action.channel });
 
     case RECEIVE_CHANNELS:
       return action.channels;

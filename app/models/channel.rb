@@ -38,4 +38,16 @@ class Channel < ApplicationRecord
   def self.exists_by_user_ids?(user_ids)
     !find_by_user_ids(user_ids).empty?
   end
+
+  def direct?
+    private? && users.count == 2
+  end
+
+  def with_smarter_child?
+    users.exists?(User.find_by(screenname: 'SmarterChild'))
+  end
+
+  def direct_with_smarter_child?
+    direct? && with_smarter_child?
+  end
 end

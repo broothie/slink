@@ -18,7 +18,7 @@ export const receiveChannels = channels => ({
 export const removeChannel = channel => ({
   type: REMOVE_CHANNEL,
   channel
-})
+});
 
 export const clearChannels = () => ({
   type: RECEIVE_CHANNELS,
