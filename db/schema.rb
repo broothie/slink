@@ -36,22 +36,6 @@ ActiveRecord::Schema.define(version: 20170728015614) do
     t.index ["timestamp"], name: "index_messages_on_timestamp", using: :btree
   end
 
-  create_table "smarter_child_message_relations", force: :cascade do |t|
-    t.integer  "input_message_id",  null: false
-    t.integer  "output_message_id", null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.index ["input_message_id"], name: "index_smarter_child_message_relations_on_input_message_id", using: :btree
-    t.index ["output_message_id"], name: "index_smarter_child_message_relations_on_output_message_id", using: :btree
-  end
-
-  create_table "smarter_child_messages", force: :cascade do |t|
-    t.string   "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["body"], name: "index_smarter_child_messages_on_body", unique: true, using: :btree
-  end
-
   create_table "subscriptions", force: :cascade do |t|
     t.integer  "user_id",    null: false
     t.integer  "channel_id", null: false

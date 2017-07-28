@@ -9,6 +9,7 @@
 #  icon_url        :string
 #  created_at      :datetime         not null
 #  updated_at      :datetime         not null
+#  online          :boolean          default(FALSE)
 #
 
 require 'test_helper'
