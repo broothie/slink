@@ -131,12 +131,13 @@ class SessionForm extends React.Component {
               </ul>
 
               <div className='buttons'>
+                <a href='https://github.com/boothandrewd/slink#slink---an-aim-clone-visually-influenced-by-windows-95'>GitHub</a>
+
                 <button
                   onClick={this.handleSubmit}
                   tabIndex='3'
                   type='submit'
                 >
-                  <img src='http://res.cloudinary.com/dfawecall/image/upload/v1500958922/Logomakr_61kii0_xuknyt.png'/>
                   {formHeader}
                 </button>
               </div>

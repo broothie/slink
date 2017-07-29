@@ -25,8 +25,7 @@ export default class MessageStreamWindow extends React.Component {
         channel: 'ChatChannel',
         id: channel.id
       }, {
-        received: data => {
-          const message = data.message;
+        received: ({ message }) => {
           if (this.props.currentUser.id !== message.authorId) {
             this.receiveAudio.play();
           }

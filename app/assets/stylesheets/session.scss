@@ -67,20 +67,6 @@ $content-spacing: 10px;
         margin-bottom: 3px;
       }
     }
-
-    button {
-      border: none;
-      box-shadow: none;
-
-      display: flex;
-      flex-flow: column;
-      align-items: center;
-
-      img {
-        width: 35px;
-        margin-bottom: 3px;
-      }
-    }
   }
 }
 
@@ -114,5 +100,6 @@ $content-spacing: 10px;
 
 .buttons {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: baseline;
 }
