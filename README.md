@@ -1,5 +1,4 @@
-# [![Slink logo][slink_logo]][slink]
-# [Slink][slink] - an [AIM][aim] clone visually influenced by [Windows 95][windows95]
+# [![Slink logo][slink_logo]][slink] [Slink][slink] - an [AIM][aim] clone visually influenced by [Windows 95][windows95]
 [Slink][slink] started as a simple attempt at cloning the much-beloved team collaboration tool [Slack][slack], and quickly became an amalgamation of Slack and primordial AOL Instant Messenger.
 
 ## Features
