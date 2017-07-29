@@ -1,5 +1,5 @@
-[![Slink logo][slink_logo]][slink]
-## [Slink][slink] - an [AIM][aim] clone visually influenced by [Windows 95][windows95]
+# [![Slink logo][slink_logo]][slink]
+# [Slink][slink] - an [AIM][aim] clone visually influenced by [Windows 95][windows95]
 [Slink][slink] started as a simple attempt at cloning the much-beloved team collaboration tool [Slack][slack], and quickly became an amalgamation of Slack and primordial AOL Instant Messenger.
 
 ## Features
@@ -21,6 +21,7 @@
   - [Postgres 9.6.2][postgres962]
   - [Redis To Go][redis] for local [ActionCable][action_cable] data storage
   - [Cloudinary][cloudinary] for image hosting
+  - [Heroku][heroku]
 - [Frontend](package.json)
   - [React][react]
   - [Redux][redux]
@@ -28,6 +29,10 @@
   - [webpack][webpack]
   - [jQuery][jquery] for [ajax][jquery_ajax]
   - [Draggable][jquery_ui_draggable] from [jQuery UI][jquery_ui]
+- Tools
+  - [webpack][webpack]
+  - [Atom][atom]
+  - [Duet][duet]
 
 ### Technical Challenges
 #### Backend Design
@@ -194,6 +199,10 @@ And of course, most of all, thank you to my wonderful mother, Kathy Booth.
 [jquery_ajax]: http://api.jquery.com/jquery.ajax/
 [jquery_ui]: https://jqueryui.com/
 [jquery_ui_draggable]: https://jqueryui.com/draggable/
+
+[heroku]:https://www.heroku.com/
+[atom]: https://atom.io/
+[duet]: https://www.duetdisplay.com/
 
 <!-- Tools -->
 [trello]: https://trello.com/invite/b/FZDx2kmG/cb21f57f8484fb9572647d758cd11713/slink
