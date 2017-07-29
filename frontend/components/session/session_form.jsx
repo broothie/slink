@@ -131,7 +131,7 @@ class SessionForm extends React.Component {
               </ul>
 
               <div className='buttons'>
-                <a href='https://github.com/boothandrewd/slink#slink---an-aim-clone-visually-influenced-by-windows-95'>GitHub</a>
+                <a href='https://github.com/boothandrewd/slink#readme'>GitHub</a>
 
                 <button
                   onClick={this.handleSubmit}

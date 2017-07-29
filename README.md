@@ -17,7 +17,7 @@
 ## Implementation
 ### Stack
 - [Backend](Gemfile)
-  - [Ruby 2.3.1][ruby231] on [Rails 5.0.4][rails504]
+  - [Ruby][ruby] on [Rails][rails]
   - [Postgres 9.6.2][postgres962]
   - [Faker][faker] for db seeding
   - [Redis To Go][redis] for local [ActionCable][action_cable] data storage
@@ -183,9 +183,9 @@ And of course, most of all, thank you to my wonderful mother, Kathy Booth.
 
 <!-- Technologies -->
 [ror]: http://rubyonrails.org/
-[ruby231]: https://www.ruby-lang.org/en/news/2016/04/26/ruby-2-3-1-released/
-[rails504]: http://weblog.rubyonrails.org/2017/6/19/Rails-5-0-4-has-been-released/
-[postgres962]: https://www.postgresql.org/docs/9.6/static/release-9-6-2.html
+[ruby]: https://www.ruby-lang.org/
+[rails]: http://rubyonrails.org/
+[postgres]: https://www.postgresql.org/
 [faker]: https://github.com/stympy/faker
 [redis]: http://redistogo.com/
 [cloudinary]: http://cloudinary.com/
