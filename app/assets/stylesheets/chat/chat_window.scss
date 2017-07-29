@@ -46,7 +46,8 @@ $window-content-padding-horz: 10px;
   height: 180px;
 
   @include text-input;
-  overflow: scroll;
+  overflow-y: scroll;
+  overflow-x: hidden;
 
   @include font-times;
   font-size: 15px;
