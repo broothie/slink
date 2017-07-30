@@ -18,7 +18,7 @@
 ### Stack
 - [Backend](Gemfile)
   - [Ruby][ruby] on [Rails][rails]
-  - [Postgres 9.6.2][postgres962]
+  - [Postgres][postgres]
   - [Faker][faker] for db seeding
   - [Redis To Go][redis] for local [ActionCable][action_cable] data storage
   - [Cloudinary][cloudinary] for image hosting
@@ -153,6 +153,8 @@ received: channelId => {
 No [AIM][aim] clone would be complete without some manifestation of [SmarterChild][smarter_child]. Hours of time and millions of billion were wasted conversing with this chatbot, who offered both bewildering retorts and surprisingly relevant witticisms.
 
 The homegrown algorithm for generating Slink's SmarterChild responses is mounted on the messages model. By adding a self-joining id column to the messages table, a one-to-one relationship can be formed between messages, called `reply`/`prompt`. Not all messages have both a `reply` and `prompt`, but those that do offer an opportunity for using human chat interactions to influence SmarterChild's responses.
+
+When SmarterChild receives a message, a similar prompt message is found in the database. SmarterChild then uses the reply to that prompt to respond to the original message.
 
 ### Future Improvements
 - Limit initial message download count
