@@ -43,7 +43,7 @@ class Message < ApplicationRecord
 
   def detect_prompt
     # Only look in direct messages
-    return unless channel.direct?
+    return if channel.private?
     return if channel.with_smarter_child?
 
     # Find previous message

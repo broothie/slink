@@ -14,10 +14,9 @@ class Api::MessagesController < ApplicationController
   def create
     channel = Channel.find_by(id: params[:channel_id])
 
-    @message = Message.new(
-      message_params
-        .merge(author_id: current_user.id)
-        .merge(channel_id: channel.id)
+    @message = Message.new(message_params
+      .merge(author_id: current_user.id)
+      .merge(channel_id: channel.id)
     )
 
     if @message.save
@@ -28,7 +27,6 @@ class Api::MessagesController < ApplicationController
           AppearanceChannel.broadcast_to(user, channel.id)
         end
 
-        # TODO: Some SmarterChild algo
         if channel.direct_with_smarter_child?
           smarter_message = Message.create(
             body: @message.similar_with_reply.reply.body,
