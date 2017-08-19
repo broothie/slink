@@ -157,10 +157,12 @@ The homegrown algorithm for generating Slink's SmarterChild responses is mounted
 When SmarterChild receives a message, a similar prompt message is found in the database. SmarterChild then uses the reply to that prompt to respond to the original message.
 
 ### Future Improvements
-- Limit initial message download count
-- Channel subscription on a "room by room" basis (as provided by ActionCable)
-- Message window flashing
-- Real-time user status
+- [x] Limit initial message download count
+- [ ] Channel subscription on a "room by room" basis (as provided by ActionCable)
+- [ ] Message window flashing
+- [ ] Real-time user status
+- [ ] Filter messages
+  - https://github.com/chrisvfritz/language_filter
 
 ## Credits
 Arrows graphic by [freepik](http://www.flaticon.com/authors/freepik) from [Flaticon](http://www.flaticon.com) is licensed under [CC BY 3.0](http://creativecommons.org/licenses/by/3.0/). Check out the new logo that [I](https://github.com/virginiac32) created on [LogoMaker.com](http://logomakr.com). https://logomakr.com/5kQFua5kQFua
