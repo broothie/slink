@@ -90,6 +90,7 @@ class SessionForm extends React.Component {
             <div className='square-title-logo'>
               <img src='http://res.cloudinary.com/dfawecall/image/upload/v1500956186/Logomakr_5NM6R1_ibdrdc.png'/>
               <h2>Slink Instant Messenger</h2>
+              <p>Inspired by AIM and Windows 95</p>
             </div>
 
             <hr className='hr-divider'/>
@@ -131,7 +132,7 @@ class SessionForm extends React.Component {
               </ul>
 
               <div className='buttons'>
-                <a href='https://github.com/andydennisonbooth/slink#readme'>GitHub</a>
+                <a href='https://github.com/andydennisonbooth/slink' target='_blank'>GitHub</a>
 
                 <button
                   onClick={this.handleSubmit}
