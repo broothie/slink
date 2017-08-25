@@ -32,6 +32,7 @@ class Message < ApplicationRecord
     class_name: :Message
 
   before_validation :ensure_timestamp
+  before_validation :sanitize_message
 
   validates :body, :author_id, :channel_id, :timestamp, presence: true
 
@@ -76,5 +77,9 @@ class Message < ApplicationRecord
     attributes.merge('author_screenname' => author.screenname).each_with_object({}) do |(key, value), hash|
       hash[key.camelize(:lower)] = value
     end
+  end
+
+  def sanitize_message
+    self.body = filter_content(self.body)
   end
 end

@@ -18,6 +18,7 @@ class User < ApplicationRecord
   validates :screenname, format: { with: /\A[[:alpha:]]\w*\z/ }
   validates :password, length: { minimum: 6, allow_nil: true }
   validates :password, format: { with: /\A[\w@#$%^&*]*\z/ }
+  validate :check_profanity
 
   attr_reader :password
 
@@ -83,5 +84,11 @@ class User < ApplicationRecord
 
     smarter_chat.users << self
     smarter_chat.users << smarter_child
+  end
+
+  def check_profanity
+    if check_content(self.screenname)
+      errors.add(:screenname, "can't contain profanity")
+    end
   end
 end

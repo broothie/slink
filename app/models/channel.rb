@@ -13,6 +13,7 @@
 class Channel < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
+  validate :check_profanity
 
   has_many :subscriptions
 
@@ -49,5 +50,11 @@ class Channel < ApplicationRecord
 
   def direct_with_smarter_child?
     direct? && with_smarter_child?
+  end
+
+  def check_profanity
+    if check_content(self.name)
+      errors.add(:name, "can't contain profanity")
+    end
   end
 end
