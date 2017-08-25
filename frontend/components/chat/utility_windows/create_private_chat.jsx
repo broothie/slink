@@ -28,6 +28,8 @@ export default class CreatePrivateChat extends React.Component {
     this.pane.style.zIndex = this.props.zIndex;
     this.props.incrementZIndex();
 
+    this.props.queryUsers('');
+
     this.userQueryInput.focus();
   }
 
