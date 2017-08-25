@@ -25,6 +25,8 @@ export default class CreateChannel extends React.Component {
     this.pane.style.zIndex = this.props.zIndex;
     this.props.incrementZIndex();
 
+    this.setState({ name: '' });
+
     this.input.focus();
   }
 
