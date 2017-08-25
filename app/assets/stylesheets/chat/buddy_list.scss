@@ -20,18 +20,19 @@
   flex-flow: column;
 }
 
-.button-row {
+.user-row {
   display: flex;
   flex-flow: row;
+  justify-content: space-between;
   justify-content: flex-start;
+  align-items: baseline;
 
-  span {
-    margin-right: 15px;
+  p {
+    margin-right: 10px;
+  }
+
+  a {
     cursor: pointer;
-
-    &:hover {
-      text-decoration: underline;
-    }
   }
 }
 

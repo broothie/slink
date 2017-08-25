@@ -63,7 +63,7 @@ export default class BuddyList extends React.Component {
   }
 
   render() {
-    const openWindow = this.props.openWindow;
+    const { openWindow, currentUser: { screenname } } = this.props;
 
     return (
       <div
@@ -82,24 +82,13 @@ export default class BuddyList extends React.Component {
         </header>
 
         <div className='buddy-list-content'>
-          <div className='button-row'>
-            <span
-              onClick={() => openWindow('createPrivateChat')}
+          <div className='user-row'>
+            <p>Welcome, {screenname}!</p>
+            <a
+              onClick={this.handleSignOff}
             >
-              Chat
-            </span>
-
-            <span
-              onClick={() => openWindow('addChannel')}
-            >
-              Find Channel
-            </span>
-
-            <span
-              onClick={() => openWindow('createChannel')}
-            >
-              Create Channel
-            </span>
+              Sign Off
+            </a>
           </div>
 
           <hr className='hr-divider'/>
