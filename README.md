@@ -27,24 +27,24 @@
   - [React][react]
   - [Redux][redux]
   - [SCSS][scss]
-  - [webpack][webpack]
+  - [Webpack][webpack]
   - [jQuery][jquery] for [ajax][jquery_ajax]
   - [Draggable][jquery_ui_draggable] from [jQuery UI][jquery_ui]
 - Tools
-  - [webpack][webpack]
+  - [Webpack][webpack]
   - [Atom][atom]
   - [Duet][duet]
 
-### Technical Challenges
+### Technical Challenges and Solutions
 #### Backend Design
 Original schema and controller design can be viewed in the [docs](docs) folder of this repo. Naturally these designs went through several revisions during development.
 
 The current state of the application persists data regarding users, messages & their relationship to users, and channels & their relationships to users & messages. A user can create public and private channels with other users, and remove or add their own subscriptions from the channel list interface.
 
-Leveraging the use of Rails' [ActiveRecord][active_record] and [router][rails_router], controllers could be easily designed to provide the frontend software with api endpoints for data storage, retrieval, and processing.
+Leveraging the use of Rails' [ActiveRecord][active_record] and [router][rails_router], controllers was be easily designed to provide the frontend software with api endpoints for data storage, retrieval, and processing.
 
 #### Real-Time Chat
-Rails' [ActionCable][action_cable] does the heavy lifting in creating the live-chat experience [Slink][slink] provides. By opening a socket channel for each chat window the client has open, users can have multiple chat streams running at one time, and the server can easily keep track of which users are subscribed to which channels in real time. By creating simple `#sign_on!` and `#sign_off!` methods on the Rails `ApplicationController`, clients can be signed by their `user_id` from the database:
+Rails' [ActionCable][action_cable] does the heavy lifting in creating the live-chat experience provided by [Slink][slink]. By opening a socket channel for each chat window the client has open, users can have multiple chat streams running at one time, and the server can easily keep track of which users are subscribed to which channels in real time. By creating simple `#sign_on!` and `#sign_off!` methods on the Rails `ApplicationController`, clients can be signed by their `user_id` from the database:
 
 ```ruby
 # application_controller.rb
@@ -95,18 +95,6 @@ Users are notified of a new message in their channel through a post-then-broadca
 ```javascript
 // message_stream_window.jsx
 
-received: ({ message }) => {
-  if (this.props.currentUser.id !== message.authorId) {
-    this.receiveAudio.play();
-  }
-  this.props.receiveMessage(message);
-  this.messageInput.scrollTop = this.messageInput.scrollHeight;
-}
-```
-
-```javascript
-// message_stream_window.jsx
-
 handleSend(e) {
   e.preventDefault();
   this.sendMessage();
@@ -122,6 +110,18 @@ sendMessage() {
 }
 ```
 
+```javascript
+// message_stream_window.jsx
+
+received: ({ message }) => {
+  if (this.props.currentUser.id !== message.authorId) {
+    this.receiveAudio.play();
+  }
+  this.props.receiveMessage(message);
+  this.messageInput.scrollTop = this.messageInput.scrollHeight;
+}
+```
+
 When the message controller receives this message, it detects the message's corresponding channel and broadcasts it to all of the users currently subscribed to it:
 
 ```ruby
@@ -129,6 +129,8 @@ When the message controller receives this message, it detects the message's corr
 
 if @message.save
   ChatChannel.broadcast_to(channel, message: @message.camelized_json)
+  # ...
+end
 ```
 
 #### Real-Time Private Chat Spawning
