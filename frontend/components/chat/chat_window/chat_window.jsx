@@ -9,9 +9,7 @@ export default class ChatWindow extends React.Component {
       message: ''
     };
 
-    this.sendSound = new Audio(
-      'http://gauss.ececs.uc.edu/Courses/c653/lectures/AIM/sound/imsend.wav'
-    );
+    this.sendSound = new Audio('/audio/imsend.wav');
 
     this.updateMessage = this.updateMessage.bind(this);
     this.sendMessage = this.sendMessage.bind(this);
@@ -83,7 +81,7 @@ export default class ChatWindow extends React.Component {
           <button
             onClick={() => this.props.closeWindow()}
           >
-            <img src='http://res.cloudinary.com/dfawecall/image/upload/t_media_lib_thumb/v1501006578/x-symbol_idzbho.png'/>
+            <img src='https://res.cloudinary.com/dfawecall/image/upload/t_media_lib_thumb/v1501006578/x-symbol_idzbho.png'/>
           </button>
         </header>
 

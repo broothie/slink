@@ -6,9 +6,7 @@ export default class MessageStreamWindow extends React.Component {
   constructor(props) {
     super(props);
 
-    this.receiveAudio = new Audio(
-      'http://gauss.ececs.uc.edu/Courses/c653/lectures/AIM/sound/imrcv.wav'
-    );
+    this.receiveAudio = new Audio('/audio/imrcv.wav');
   }
 
   componentWillMount() {

@@ -115,7 +115,7 @@ export default class CreatePrivateChat extends React.Component {
           <button
             onClick={this.props.closeWindow}
           >
-            <img src='http://res.cloudinary.com/dfawecall/image/upload/t_media_lib_thumb/v1501006578/x-symbol_idzbho.png'/>
+            <img src='https://res.cloudinary.com/dfawecall/image/upload/t_media_lib_thumb/v1501006578/x-symbol_idzbho.png'/>
           </button>
         </header>
 

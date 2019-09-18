@@ -216,4 +216,4 @@ And of course, most of all, thank you to my wonderful mother, Kathy Booth.
 [trello]: https://trello.com/invite/b/FZDx2kmG/cb21f57f8484fb9572647d758cd11713/slink
 
 <!-- Images -->
-[slink_logo]: http://res.cloudinary.com/dfawecall/image/upload/v1501278100/Screen_Shot_2017-07-28_at_2.39.04_PM_cttfo6.png
+[slink_logo]: https://res.cloudinary.com/dfawecall/image/upload/v1501278100/Screen_Shot_2017-07-28_at_2.39.04_PM_cttfo6.png

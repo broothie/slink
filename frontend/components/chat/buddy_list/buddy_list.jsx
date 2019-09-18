@@ -5,13 +5,9 @@ export default class BuddyList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.signOffSound = new Audio(
-      'http://gauss.ececs.uc.edu/Courses/c653/lectures/AIM/sound/doorslam.wav'
-    );
+    this.signOffSound = new Audio('/audio/doorslam.wav');
 
-    this.newPrivateMessageSound = new Audio(
-      'http://gauss.ececs.uc.edu/Courses/c653/lectures/AIM/sound/ring.wav'
-    );
+    this.newPrivateMessageSound = new Audio('/audio/ring.wav');
 
     this.bringToFront = this.bringToFront.bind(this);
     this.handleSignOff = this.handleSignOff.bind(this);
@@ -77,7 +73,7 @@ export default class BuddyList extends React.Component {
           <button
             onClick={this.handleSignOff}
           >
-            <img src='http://res.cloudinary.com/dfawecall/image/upload/t_media_lib_thumb/v1501006578/x-symbol_idzbho.png'/>
+            <img src='https://res.cloudinary.com/dfawecall/image/upload/t_media_lib_thumb/v1501006578/x-symbol_idzbho.png'/>
           </button>
         </header>
 
@@ -94,7 +90,7 @@ export default class BuddyList extends React.Component {
           <hr className='hr-divider'/>
 
           <div className='square-title-logo-small'>
-            <img src='http://res.cloudinary.com/dfawecall/image/upload/v1500956186/Logomakr_5NM6R1_ibdrdc.png'/>
+            <img src='https://res.cloudinary.com/dfawecall/image/upload/v1500956186/Logomakr_5NM6R1_ibdrdc.png'/>
             <h2>Slink<br/> <em>Instant<br/> Messenger</em></h2>
           </div>
 

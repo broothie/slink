@@ -10,9 +10,7 @@ class SessionForm extends React.Component {
       password: ''
     };
 
-    this.signOnSound = new Audio(
-      'http://gauss.ececs.uc.edu/Courses/c653/lectures/AIM/sound/dooropen.wav'
-    );
+    this.signOnSound = new Audio('/audio/dooropen.wav');
 
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDemoClick = this.handleDemoClick.bind(this);
@@ -88,7 +86,7 @@ class SessionForm extends React.Component {
 
           <div className='session-form-content'>
             <div className='square-title-logo'>
-              <img src='http://res.cloudinary.com/dfawecall/image/upload/v1500956186/Logomakr_5NM6R1_ibdrdc.png'/>
+              <img src='https://res.cloudinary.com/dfawecall/image/upload/v1500956186/Logomakr_5NM6R1_ibdrdc.png'/>
               <h2>Slink Instant Messenger</h2>
               <p>Inspired by AIM and Windows 95</p>
             </div>

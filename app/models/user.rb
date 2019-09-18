@@ -43,7 +43,7 @@ class User < ApplicationRecord
     class_name: :Channel,
     dependent: :destroy
 
-  after_create :create_smarter_chat!
+  after_create :create_smarter_chat!, unless: ->(u) { u.screenname == 'SmarterChild' }
 
   def self.find_by_credentials(screenname, password)
     user = find_by(screenname: screenname)
