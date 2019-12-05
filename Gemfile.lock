@@ -132,7 +132,7 @@ GEM
       slop (~> 3.4)
     pry-rails (0.3.6)
       pry (>= 0.10.4)
-    puma (3.9.1)
+    puma (3.12.2)
     rack (2.0.7)
     rack-livereload (0.3.16)
       rack
@@ -226,7 +226,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   pg (~> 0.18)
   pry-rails
-  puma (~> 3.0)
+  puma (~> 3.12)
   rack-livereload
   rails (~> 5.0.4)
   redis (~> 3.0)
