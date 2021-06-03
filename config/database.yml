@@ -21,8 +21,14 @@ default: &default
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
+local: &local
+  host: <%= ENV.fetch('POSTGRES_HOST', '0.0.0.0') %>
+  username: <%= ENV.fetch('POSTGRES_USER', 'pguser') %>
+  password: <%= ENV.fetch('POSTGRES_PASSWORD', 'pgpassword') %>
+
 development:
   <<: *default
+  <<: *local
   database: slink_development
 
   # The specified database role being used to connect to postgres.
@@ -57,6 +63,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
+  <<: *local
   database: slink_test
 
 # As with config/secrets.yml, you never want to store sensitive information,
