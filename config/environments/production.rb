@@ -84,10 +84,10 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  subdomain = 'slink-chat'
-  config.web_socket_server_url = "wss://#{subdomain}.herokuapp.com/cable"
+  subdomain = 'slink.chat'
+  config.web_socket_server_url = "wss://#{subdomain}/cable"
   config.action_cable.allowed_request_origins = [
-    "http://#{subdomain}.herokuapp.com",
-    "https://#{subdomain}.herokuapp.com"
+    "http://#{subdomain}",
+    "https://#{subdomain}"
   ]
 end
