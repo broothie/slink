@@ -137,6 +137,8 @@ GEM
     puma (3.12.6)
     racc (1.5.2)
     rack (2.2.3)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-livereload (0.3.16)
       rack
     rack-test (0.6.3)
@@ -230,6 +232,7 @@ DEPENDENCIES
   pg (~> 0.18)
   pry-rails
   puma (~> 3.0)
+  rack-cors
   rack-livereload
   rails (~> 5.0.4)
   redis (~> 3.0)
