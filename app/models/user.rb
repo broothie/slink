@@ -50,6 +50,16 @@ class User < ApplicationRecord
     return user if user && user.is_password?(password)
   end
 
+  def self.smarter_child
+    @smarter_child ||=
+      begin
+        smarter_child = User.find_by(screenname: 'SmarterChild')
+        smarter_child ||= User.create!(screenname: 'SmarterChild', password: SecureRandom.alphanumeric)
+
+        smarter_child
+      end
+  end
+
   def password=(password)
     @password = password
     self.password_digest = BCrypt::Password.create(password)
@@ -66,6 +76,7 @@ class User < ApplicationRecord
   def reset_session_token!
     self.session_token = SecureRandom.urlsafe_base64
     self.save
+
     self.session_token
   end
 
@@ -74,16 +85,14 @@ class User < ApplicationRecord
   end
 
   def create_smarter_chat!
-    smarter_child = User.find_by(screenname: 'SmarterChild')
-
     smarter_chat = Channel.create(
-      name: [self, smarter_child].map(&:screenname).join(', '),
-      owner: smarter_child,
+      name: [self, User.smarter_child].map(&:screenname).join(', '),
+      owner: User.smarter_child,
       private: true
     )
 
     smarter_chat.users << self
-    smarter_chat.users << smarter_child
+    smarter_chat.users << User.smarter_child
   end
 
   def check_profanity
