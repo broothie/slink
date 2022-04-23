@@ -1,6 +1,6 @@
 [Channel, Message, Subscription, User].each(&:destroy_all)
 
-smarter_child = User.create(screenname: 'SmarterChild', password: 'drowssap')
+# smarter_child = User.create(screenname: 'SmarterChild', password: 'drowssap')
 demo_user = User.create(screenname: 'demoUser', password: '123456')
 
 # Create world chat

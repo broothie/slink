@@ -1,0 +1,4 @@
+
+:schedule:
+  MessageDeletionJob:
+    cron: 0 * * * *

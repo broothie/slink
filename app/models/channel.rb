@@ -45,7 +45,7 @@ class Channel < ApplicationRecord
   end
 
   def with_smarter_child?
-    users.exists?(User.find_by(screenname: 'SmarterChild'))
+    users.include?(User.smarter_child)
   end
 
   def direct_with_smarter_child?
