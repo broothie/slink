@@ -85,9 +85,6 @@ class User < ApplicationRecord
   end
 
   def create_smarter_chat!
-    # smarter_child = User.find_by(screenname: 'SmarterChild')
-    # smarter_child ||= User.create(screenname: 'SmarterChild', password: SecureRandom.urlsafe_base64)
-
     smarter_chat = Channel.create(
       name: [self, User.smarter_child].map(&:screenname).join(', '),
       owner: User.smarter_child,
