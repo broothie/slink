@@ -8,7 +8,7 @@ RSpec.describe MessageDeletionJob, type: :job do
   let(:messages) { Array.new(count) { FactoryBot.create(:message, channel: channel) } }
 
   before do
-    allow(ENV).to receive(:fetch).with('MAX_MESSAGE_COUNT', 9000).and_return(max)
+    allow(job).to receive(:max_message_count).and_return(max)
 
     messages
   end

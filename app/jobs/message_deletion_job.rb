@@ -1,6 +1,8 @@
 class MessageDeletionJob
   include Sidekiq::Worker
 
+  MAX_MESSAGE_COUNT = ENV.fetch('MAX_MESSAGE_COUNT', 9000).to_i
+
   def perform
     message_surplus = Message.count - max_message_count
     return if message_surplus <= 0
@@ -16,6 +18,6 @@ class MessageDeletionJob
   private
 
   def max_message_count
-    ENV.fetch('MAX_MESSAGE_COUNT', 9000).to_i
+    MAX_MESSAGE_COUNT
   end
 end
